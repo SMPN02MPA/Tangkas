@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SMP Negeri 02 Martapura - Portal Informasi Resmi</title>
+  <link id="school-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cpolygon points='74,10 166,10 230,74 230,166 166,230 74,230 10,166 10,74' fill='%23facc15' stroke='%23062d68' stroke-width='6'/%3E%3Cpolygon points='80,21 160,21 219,80 219,160 160,219 80,219 21,160 21,80' fill='%23ffffff' stroke='%230b469e' stroke-width='4'/%3E%3Ccircle cx='120' cy='120' r='52' fill='%23ffffff' stroke='%230b469e' stroke-width='5'/%3E%3Cpolygon points='120,76 154,101 141,142 99,142 86,101' fill='none' stroke='%230b469e' stroke-width='4.5' stroke-linejoin='round'/%3E%3Cpath d='M120,82 C126,91 127,99 120,106 C113,99 114,91 120,82 Z' fill='%23eab308'/%3E%3Cpath d='M95,112 C104,110 112,115 117,125 C109,125 101,121 95,112 Z' fill='%230b469e'/%3E%3Cpath d='M145,112 C136,110 128,115 123,125 C131,125 139,121 145,112 Z' fill='%230b469e'/%3E%3Cpath d='M98,136 Q109,131 120,137 Q131,131 142,136 L142,144 Q131,139 120,145 Q109,139 98,144 Z' fill='%230b469e'/%3E%3C/svg%3E" />
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Inter & Plus Jakarta Sans -->
@@ -147,7 +148,7 @@
       <div onclick="navigate('beranda')" class="flex items-center gap-3 min-w-0 z-10 cursor-pointer">
         <div class="relative flex-shrink-0">
           <div class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-amber-300/40 to-sky-300/30 blur-xs"></div>
-          <img id="school-logo" src="https://placehold.co/96x96/0b469e/fde047?text=SMPN2" alt="Logo SMPN 02 Martapura" class="relative w-11 h-11 object-contain bg-white/15 backdrop-blur-md border border-amber-300/45 rounded-xl p-1 shadow-md" />
+          <img id="school-logo" src="https://placehold.co/96x96/0b469e/fde047?text=SMPN2" alt="Logo SMPN 02 Martapura" class="relative w-11 h-11 object-contain bg-white/95 backdrop-blur-md border border-amber-300/70 rounded-xl p-0.5 shadow-md" />
         </div>
         <div class="overflow-hidden">
           <span class="inline-block text-[9px] font-extrabold uppercase tracking-widest text-amber-300">Portal Resmi</span>
@@ -283,7 +284,7 @@
 
           <!-- Identitas Sekolah Top Bar (Sembunyi saat sidebar terbuka di desktop) -->
           <div id="topBrandInfo" onclick="navigate('beranda')" style="display: none;" class="items-center gap-3 cursor-pointer min-w-0">
-            <img id="topbar-logo" src="https://placehold.co/96x96/0b469e/fde047?text=SMPN2" alt="Logo SMPN 02 Martapura" class="w-10 h-10 object-contain rounded-xl bg-white/15 p-1 border border-amber-300/45 shadow flex-shrink-0" />
+            <img id="topbar-logo" src="https://placehold.co/96x96/0b469e/fde047?text=SMPN2" alt="Logo SMPN 02 Martapura" class="w-10 h-10 object-contain rounded-xl bg-white/95 p-0.5 border border-amber-300/70 shadow flex-shrink-0" />
             <div class="leading-tight min-w-0">
               <h1 id="topbar-school-name" class="text-xs sm:text-sm font-extrabold tracking-wide text-white uppercase truncate">SMP NEGERI 02 MARTAPURA</h1>
               <p id="topbar-school-sub" class="text-[10px] sm:text-[11px] text-sky-100 font-medium truncate">Kabupaten Ogan Komering Ulu Timur</p>
@@ -437,13 +438,52 @@
       editPtkIdx: -1,
       rombelTingkat: 'VII',
       editRombelIdx: -1,
-      editEkskulIdx: -1,
+      editEkskulIdx: 0,
       editPencapaianEkskulIdx: -1
     };
 
     // =========================================================================
     // 2. DATA BAWAAN PORTAL (DEFAULT SITE DATA)
     // =========================================================================
+    const OFFICIAL_LOGO_SVG = "data:image/svg+xml;utf8," + encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260">
+        <defs>
+          <path id="topArc" d="M 38,130 A 92,92 0 1,1 222,130" />
+          <path id="bottomArc" d="M 32,136 A 98,98 0 0,0 228,136" />
+        </defs>
+        <!-- Bingkai Segi Delapan Emas & Garis Biru Tua -->
+        <polygon points="80,10 180,10 250,80 250,180 180,250 80,250 10,180 10,80" fill="#facc15" stroke="#062d68" stroke-width="5"/>
+        <polygon points="86,21 174,21 239,86 239,174 174,239 86,239 21,174 21,86" fill="#ffffff" stroke="#0b469e" stroke-width="3.5"/>
+        <!-- Teks Melingkar Atas & Bawah -->
+        <text fill="#062d68" font-family="Arial, Helvetica, sans-serif" font-size="14.2" font-weight="800" letter-spacing="1.1">
+          <textPath href="#topArc" startOffset="50%" text-anchor="middle">SMP NEGERI 02 MARTAPURA</textPath>
+        </text>
+        <text fill="#062d68" font-family="Arial, Helvetica, sans-serif" font-size="10.4" font-weight="800" letter-spacing="0.45">
+          <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">KABUPATEN OGAN KOMERING ULU TIMUR</textPath>
+        </text>
+        <!-- Bintang Kiri & Kanan -->
+        <polygon points="36,125 38.5,131 45,131 39.8,134.8 41.8,141 36,137.2 30.2,141 32.2,134.8 27,131 33.5,131" fill="#062d68"/>
+        <polygon points="224,125 226.5,131 233,131 227.8,134.8 229.8,141 224,137.2 218.2,141 220.2,134.8 215,131 221.5,131" fill="#062d68"/>
+        <!-- Lingkaran Tengah Tut Wuri Handayani -->
+        <circle cx="130" cy="130" r="62" fill="#ffffff" stroke="#0b469e" stroke-width="5"/>
+        <circle cx="130" cy="130" r="56" fill="none" stroke="#eab308" stroke-width="1.5"/>
+        <!-- Segi Lima Biru -->
+        <polygon points="130,78 176,112 158,166 102,166 84,112" fill="none" stroke="#0b469e" stroke-width="4.5" stroke-linejoin="round"/>
+        <!-- Obor / Api Emas -->
+        <path d="M130,86 C137,97 138,106 130,114 C122,106 123,97 130,86 Z" fill="#eab308" stroke="#062d68" stroke-width="1"/>
+        <path d="M130,94 C133,100 133,105 130,110 C127,105 127,100 130,94 Z" fill="#fef08a"/>
+        <!-- Sayap Pelindung Kiri & Kanan -->
+        <path d="M95,118 C108,115 119,122 126,136 C115,136 103,130 95,118 Z" fill="#0b469e"/>
+        <path d="M165,118 C152,115 141,122 134,136 C145,136 157,130 165,118 Z" fill="#0b469e"/>
+        <path d="M101,132 C111,131 120,136 126,146 C116,146 107,141 101,132 Z" fill="#eab308"/>
+        <path d="M159,132 C149,131 140,136 134,146 C144,146 153,141 159,132 Z" fill="#eab308"/>
+        <!-- Buku Terbuka -->
+        <path d="M102,152 Q116,146 130,154 Q144,146 158,152 L158,162 Q144,156 130,164 Q116,156 102,162 Z" fill="#0b469e"/>
+        <path d="M105,154 Q116,149 128,155 L128,160 Q116,154 105,159 Z" fill="#ffffff"/>
+        <path d="M155,154 Q144,149 132,155 L132,160 Q144,154 155,159 Z" fill="#ffffff"/>
+      </svg>
+    `.trim());
+
     const defaultSiteData = {
       sekolah: {
         namaLengkap: 'SMP Negeri 02 Martapura',
@@ -457,7 +497,7 @@
         telepon: '(0735) 481230',
         email: 'smpn02martapura@gmail.com',
         website: 'www.smpn02martapura.sch.id',
-        logoUrl: 'https://placehold.co/96x96/0b469e/fde047?text=SMPN2',
+        logoUrl: OFFICIAL_LOGO_SVG,
         heroBannerUrl: 'https://placehold.co/1200x520/0b469e/fde047?text=SMP+NEGERI+02+MARTAPURA',
         heroSlides: [
           {
@@ -1041,10 +1081,14 @@
         if (raw) {
           const parsed = JSON.parse(raw);
           if (parsed && parsed.sekolah) {
+            const mergedSekolah = { ...defaultSiteData.sekolah, ...(parsed.sekolah || {}) };
+            if (!mergedSekolah.logoUrl || mergedSekolah.logoUrl.includes('placehold.co/96x96')) {
+              mergedSekolah.logoUrl = OFFICIAL_LOGO_SVG;
+            }
             return {
               ...defaultSiteData,
               ...parsed,
-              sekolah: { ...defaultSiteData.sekolah, ...(parsed.sekolah || {}) },
+              sekolah: mergedSekolah,
               statistik: { ...defaultSiteData.statistik, ...(parsed.statistik || {}) },
               rombel: { ...defaultSiteData.rombel, ...(parsed.rombel || {}) },
               juaraKelas: { ...defaultSiteData.juaraKelas, ...(parsed.juaraKelas || {}) },
@@ -1064,6 +1108,7 @@
         localStorage.setItem('smpn02_martapura_portal_v3', JSON.stringify(siteData));
       } catch (e) {
         console.warn('Penyimpanan lokal penuh:', e);
+        showToast('Peringatan: Memori browser hampir penuh. Gunakan foto ukuran lebih ringkas atau unduh cadangan JSON.');
       }
       syncSchoolBrandUI();
     }
@@ -1073,8 +1118,10 @@
       const logoEls = ['school-logo', 'topbar-logo'];
       logoEls.forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.src = s.logoUrl;
+        if (el) el.src = s.logoUrl || OFFICIAL_LOGO_SVG;
       });
+      const favEl = document.getElementById('school-favicon');
+      if (favEl && s.logoUrl) favEl.href = s.logoUrl;
       const shortEl = document.getElementById('school-short-name');
       if (shortEl) shortEl.textContent = s.namaSingkat;
       const fullEl = document.getElementById('school-full-name');
@@ -1857,7 +1904,7 @@
                   <p class="text-[11px] font-bold text-[#062d68]">${s.namaLengkap}</p>
                 </div>
                 <div class="flex items-center gap-2.5">
-                  <img src="${s.logoUrl}" alt="Logo" class="w-12 h-12 object-contain" />
+                  <img src="${s.logoUrl}" alt="Logo ${s.namaLengkap}" class="w-14 h-14 object-contain drop-shadow-xs" />
                   <div class="leading-tight">
                     <p class="text-xs font-extrabold text-[#062d68] uppercase">${s.namaLengkap}</p>
                   </div>
@@ -2861,7 +2908,7 @@
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  ${galeriItems.slice(0, 4).map((gl, idx) => `
+                  ${galeriItems.map((gl, idx) => `
                     <div onclick="openEkskulGaleriModal('${selected.id}', ${idx})" class="rounded-2xl bg-white border border-blue-200/90 overflow-hidden shadow-2xs card-hover cursor-pointer group flex flex-col">
                       <div class="h-28 bg-[#062d68] overflow-hidden">
                         <img src="${gl.foto}" onerror="this.src='https://placehold.co/480x320/0b469e/fde047?text=Kegiatan'" alt="${gl.judul}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -3542,6 +3589,9 @@
       const editBer = adminState.editBeritaIdx >= 0 ? siteData.berita[adminState.editBeritaIdx] : null;
       const editPtk = adminState.editPtkIdx >= 0 ? siteData.ptk[adminState.editPtkIdx] : null;
       const editRombel = adminState.editRombelIdx >= 0 ? (siteData.rombel[adminState.rombelTingkat] || [])[adminState.editRombelIdx] : null;
+      if (adminState.editEkskulIdx >= siteData.ekskul.length) {
+        adminState.editEkskulIdx = siteData.ekskul.length > 0 ? 0 : -1;
+      }
       const editEkskul = adminState.editEkskulIdx >= 0 ? siteData.ekskul[adminState.editEkskulIdx] : null;
       const editPencEkskul = adminState.editPencapaianEkskulIdx >= 0 ? siteData.pencapaianEkskul[adminState.editPencapaianEkskulIdx] : null;
 
@@ -3991,6 +4041,191 @@
           <!-- ==================== TAB 5: EKSKUL & PENCAPAIAN EKSKUL (+FOTO) ==================== -->
           ${tab === 'ekskul' ? `
             <div class="space-y-6">
+              <!-- BAGIAN A: EDITOR PROFIL, PROGRAM KERJA & GALERI FOTO KEGIATAN EKSKUL -->
+              <div class="glossy-panel rounded-3xl p-6 space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-blue-100 pb-4">
+                  <div>
+                    <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-extrabold uppercase">Editor Tanpa Koding</span>
+                    <h3 class="text-base sm:text-lg font-extrabold text-[#062d68] mt-1">
+                      ${editEkskul ? `Kelola Ekskul: ${editEkskul.nama}` : 'Tambah Bidang Ekstrakurikuler Baru'}
+                    </h3>
+                    <p class="text-xs text-slate-500">Pilih bidang ekstrakurikuler di samping untuk mengedit Profil, Program Kerja Bulanan, dan Foto Kegiatan.</p>
+                  </div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <select onchange="adminState.editEkskulIdx = parseInt(this.value, 10); renderPage('admin')" class="px-4 py-2 rounded-full bg-white border border-blue-200 text-xs font-extrabold text-[#062d68] shadow-2xs cursor-pointer">
+                      ${siteData.ekskul.map((ex, idx) => `
+                        <option value="${idx}" ${adminState.editEkskulIdx === idx ? 'selected' : ''}>Edit: ${ex.nama}</option>
+                      `).join('')}
+                      <option value="-1" ${adminState.editEkskulIdx === -1 ? 'selected' : ''}>+ Buat Bidang Ekskul Baru</option>
+                    </select>
+                    ${adminState.editEkskulIdx >= 0 && siteData.ekskul.length > 1 ? `
+                      <button onclick="deleteAdminItem('ekskul', ${adminState.editEkskulIdx})" class="px-3.5 py-2 rounded-full bg-rose-100 hover:bg-rose-200 text-rose-700 text-xs font-bold cursor-pointer">
+                        <i class="fas fa-trash mr-1"></i>Hapus Ekskul Ini
+                      </button>
+                    ` : ''}
+                  </div>
+                </div>
+
+                <!-- 1. Identitas & Banner Ekskul -->
+                <div class="space-y-4">
+                  <h4 class="text-sm font-extrabold text-[#0b469e] flex items-center gap-2">
+                    <i class="fas fa-id-badge"></i>
+                    <span>1. Profil & Foto Banner Utama Ekstrakurikuler</span>
+                  </h4>
+                  ${renderPhotoUploader({
+                    label: 'Foto Banner Utama Ekstrakurikuler',
+                    inputId: 'admEksBanner',
+                    previewId: 'prevEksBanner',
+                    currentValue: editEkskul ? (editEkskul.bannerFoto || '') : 'https://placehold.co/900x360/0b469e/fde047?text=Ekstrakurikuler',
+                    aspectClass: 'w-28 h-16'
+                  })}
+                  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+                    <div>
+                      <label class="font-bold text-slate-600 block mb-1">Nama Ekstrakurikuler</label>
+                      <input id="admEksNama" value="${editEkskul ? editEkskul.nama : ''}" placeholder="Contoh: Pramuka..." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                    </div>
+                    <div>
+                      <label class="font-bold text-slate-600 block mb-1">Kategori Bidang</label>
+                      <input id="admEksKat" value="${editEkskul ? editEkskul.kategori : ''}" placeholder="Contoh: Wajib & Kepemimpinan..." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                    </div>
+                    <div>
+                      <label class="font-bold text-slate-600 block mb-1">Nama Pembina</label>
+                      <input id="admEksPembina" value="${editEkskul ? editEkskul.pembina : ''}" placeholder="Nama Guru Pembina..." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                    </div>
+                    <div>
+                      <label class="font-bold text-slate-600 block mb-1">Ketua Siswa</label>
+                      <input id="admEksKetua" value="${editEkskul ? (editEkskul.ketua || '') : ''}" placeholder="Contoh: Dimas Pratama (Kelas IX.3)..." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                    </div>
+                    <div>
+                      <label class="font-bold text-slate-600 block mb-1">Jadwal Latihan</label>
+                      <input id="admEksJadwal" value="${editEkskul ? editEkskul.jadwal : ''}" placeholder="Contoh: Sabtu, Pukul 14.00 – 16.00 WIB" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                    </div>
+                    <div>
+                      <label class="font-bold text-slate-600 block mb-1">Tempat Kegiatan</label>
+                      <input id="admEksTempat" value="${editEkskul ? (editEkskul.tempat || '') : ''}" placeholder="Contoh: Lapangan SMPN 02 Martapura" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                    </div>
+                  </div>
+                  <div class="text-xs">
+                    <label class="font-bold text-slate-600 block mb-1">Deskripsi Profil Ekstrakurikuler</label>
+                    <textarea id="admEksDesk" rows="2" placeholder="Deskripsi profil ekstrakurikuler..." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">${editEkskul ? editEkskul.deskripsi : ''}</textarea>
+                  </div>
+                </div>
+
+                ${editEkskul ? `
+                  <!-- 2. EDITOR PROGRAM KERJA BULANAN -->
+                  <div class="pt-5 border-t border-blue-100 space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                      <div>
+                        <h4 class="text-sm font-extrabold text-[#0b469e] flex items-center gap-2">
+                          <i class="fas fa-calendar-check text-amber-500"></i>
+                          <span>2. Edit Program Kerja & Kegiatan Bulanan (${editEkskul.nama})</span>
+                        </h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Ubah langsung nama bulan atau uraian program kerja pada baris di bawah, atau tambahkan program baru.</p>
+                      </div>
+                    </div>
+
+                    <!-- Form Tambah Program Kerja Baru -->
+                    <div class="p-3.5 rounded-2xl bg-sky-50/80 border border-blue-200 grid sm:grid-cols-12 gap-2.5 items-center text-xs">
+                      <div class="sm:col-span-3">
+                        <input id="admNewProgBulan" placeholder="Bulan (cth: Juli)..." class="w-full px-3.5 py-2 rounded-xl border border-blue-200 bg-white font-semibold" />
+                      </div>
+                      <div class="sm:col-span-6">
+                        <input id="admNewProgKegiatan" placeholder="Nama Program Kerja / Kegiatan baru..." class="w-full px-3.5 py-2 rounded-xl border border-blue-200 bg-white" />
+                      </div>
+                      <div class="sm:col-span-3">
+                        <button type="button" onclick="addEkskulProgramRow()" class="w-full py-2 px-3 rounded-xl bg-[#062d68] hover:bg-[#0b469e] text-white font-extrabold transition cursor-pointer">
+                          <i class="fas fa-plus mr-1"></i>Tambah Program
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Daftar Baris Program Kerja yang Bisa Diedit Langsung -->
+                    <div class="space-y-2">
+                      ${(editEkskul.timelineProgram || []).map((item, pIdx) => `
+                        <div class="p-2.5 rounded-2xl bg-white border border-blue-100 grid sm:grid-cols-12 gap-2 items-center text-xs">
+                          <div class="sm:col-span-3 flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-700 font-extrabold text-[10px] flex items-center justify-center flex-shrink-0">${pIdx + 1}</span>
+                            <input id="admProgBulan_${pIdx}" value="${(item.bulan || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-1.5 rounded-xl border border-sky-200 bg-sky-50/40 font-bold text-[#062d68]" />
+                          </div>
+                          <div class="sm:col-span-8">
+                            <input id="admProgKeg_${pIdx}" value="${(item.kegiatan || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-1.5 rounded-xl border border-sky-200 bg-white text-slate-700" />
+                          </div>
+                          <div class="sm:col-span-1 text-right">
+                            <button type="button" onclick="removeEkskulProgramRow(${pIdx})" title="Hapus Baris Program" class="px-2.5 py-1.5 rounded-xl bg-rose-100 hover:bg-rose-200 text-rose-700 font-bold cursor-pointer">
+                              <i class="fas fa-trash text-[11px]"></i>
+                            </button>
+                          </div>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </div>
+
+                  <!-- 3. EDITOR DOKUMENTASI FOTO KEGIATAN EKSKUL -->
+                  <div class="pt-5 border-t border-blue-100 space-y-4">
+                    <div>
+                      <h4 class="text-sm font-extrabold text-[#0b469e] flex items-center gap-2">
+                        <i class="fas fa-camera text-amber-500"></i>
+                        <span>3. Galeri Dokumentasi Foto Kegiatan (${editEkskul.nama})</span>
+                      </h4>
+                      <p class="text-[11px] text-slate-500 mt-0.5">Unggah foto dokumentasi latihan, lomba, atau kegiatan ekstrakurikuler langsung dari perangkat Anda.</p>
+                    </div>
+
+                    <!-- Kotak Unggah Foto Baru ke Galeri Ekskul -->
+                    <div class="p-4 rounded-2xl bg-gradient-to-r from-sky-50 to-blue-50/70 border border-blue-200 space-y-3 text-xs">
+                      <p class="font-extrabold text-[#062d68]"><i class="fas fa-plus-circle text-[#0b469e] mr-1"></i>Tambah Foto Kegiatan Baru ke Galeri</p>
+                      ${renderPhotoUploader({
+                        label: 'Pilih Foto Kegiatan dari HP / Laptop',
+                        inputId: 'admNewGaleriFoto',
+                        previewId: 'prevNewGaleriFoto',
+                        currentValue: 'https://placehold.co/480x320/0b469e/fde047?text=Foto+Kegiatan+Baru',
+                        aspectClass: 'w-24 h-16'
+                      })}
+                      <div class="flex flex-col sm:flex-row gap-2.5">
+                        <input id="admNewGaleriJudul" placeholder="Keterangan / Judul Foto Kegiatan (cth: Latihan Persiapan Lomba)..." class="flex-1 px-3.5 py-2.5 rounded-xl border border-blue-200 bg-white" />
+                        <button type="button" onclick="addEkskulGaleriPhoto()" class="px-5 py-2.5 rounded-xl bg-[#062d68] hover:bg-[#0b469e] text-white font-extrabold transition cursor-pointer flex-shrink-0">
+                          <i class="fas fa-upload mr-1.5"></i>Tambahkan ke Galeri Ekskul
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Daftar Foto Galeri Ekskul Saat Ini -->
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                      ${(editEkskul.galeriFoto || []).map((gl, gIdx) => `
+                        <div class="p-3 rounded-2xl bg-white border border-blue-200/90 space-y-2 text-xs flex flex-col justify-between">
+                          <div class="space-y-2">
+                            <div class="relative h-28 rounded-xl overflow-hidden bg-[#062d68] border border-blue-100">
+                              <img id="prevEksGal_${gIdx}" src="${gl.foto}" onerror="this.src='https://placehold.co/480x320/0b469e/fde047?text=Foto'" class="w-full h-full object-cover" />
+                              <label class="absolute bottom-2 right-2 px-2.5 py-1 rounded-full bg-[#062d68]/90 hover:bg-[#0b469e] text-white text-[10px] font-bold cursor-pointer shadow">
+                                <i class="fas fa-camera mr-1"></i>Ganti
+                                <input type="file" accept="image/*" onchange="handlePhotoFileUpload(event, 'admEksGalFoto_${gIdx}', 'prevEksGal_${gIdx}')" class="hidden" />
+                              </label>
+                            </div>
+                            <input id="admEksGalFoto_${gIdx}" value="${(gl.foto || '').replace(/"/g, '&quot;')}" type="hidden" />
+                            <input id="admEksGalJudul_${gIdx}" value="${(gl.judul || '').replace(/"/g, '&quot;')}" placeholder="Judul foto..." class="w-full px-2.5 py-1.5 rounded-xl border border-sky-200 bg-sky-50/40 font-bold text-[#062d68]" />
+                          </div>
+                          <button type="button" onclick="removeEkskulGaleriPhoto(${gIdx})" class="w-full py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold transition cursor-pointer">
+                            <i class="fas fa-trash mr-1"></i>Hapus Foto
+                          </button>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </div>
+                ` : ''}
+
+                <!-- Tombol Simpan Utama Ekskul -->
+                <div class="pt-4 border-t border-blue-100 flex flex-wrap items-center gap-3">
+                  <button onclick="saveAdminEkskul()" class="royal-pill-btn px-6 py-3 rounded-full text-white text-xs font-extrabold cursor-pointer">
+                    <i class="fas fa-save mr-1.5"></i>${editEkskul ? `Simpan Semua Perubahan ${editEkskul.nama}` : '+ Simpan Bidang Ekstrakurikuler Baru'}
+                  </button>
+                  ${editEkskul ? `
+                    <button type="button" onclick="ekskulState.selectedId = '${editEkskul.id}'; ekskulState.subTab = 'profil'; navigate('ekskul-daftar')" class="px-5 py-3 rounded-full bg-sky-100 hover:bg-sky-200 text-[#062d68] text-xs font-extrabold cursor-pointer">
+                      <i class="fas fa-eye mr-1.5"></i>Lihat Hasil di Halaman Ekskul
+                    </button>
+                  ` : ''}
+                </div>
+              </div>
+
+              <!-- BAGIAN B: PENCAPAIAN & TROFI EKSTRAKURIKULER -->
               <div class="glossy-panel rounded-3xl p-6 space-y-4">
                 <h3 class="text-base font-extrabold text-[#062d68]">${editPencEkskul ? 'Edit Pencapaian Ekstrakurikuler' : 'Tambah Pencapaian Ekstrakurikuler (+Foto Piala/Kegiatan)'}</h3>
                 ${renderPhotoUploader({
@@ -4029,43 +4264,6 @@
                       <div class="flex gap-1.5">
                         <button onclick="adminState.editPencapaianEkskulIdx = ${idx}; renderPage('admin')" class="px-3 py-1 rounded-full bg-sky-100 text-[#062d68] font-bold cursor-pointer">Edit</button>
                         <button onclick="deleteAdminItem('pencapaianEkskul', ${idx})" class="px-3 py-1 rounded-full bg-rose-100 text-rose-700 font-bold cursor-pointer">Hapus</button>
-                      </div>
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
-
-              <div class="glossy-panel rounded-3xl p-6 space-y-4">
-                <h3 class="text-base font-extrabold text-[#062d68]">${editEkskul ? 'Edit Profil & Kegiatan Ekstrakurikuler' : 'Tambah Bidang Ekstrakurikuler Baru'}</h3>
-                ${renderPhotoUploader({
-                  label: 'Foto Banner Utama Ekstrakurikuler',
-                  inputId: 'admEksBanner',
-                  previewId: 'prevEksBanner',
-                  currentValue: editEkskul ? (editEkskul.bannerFoto || '') : 'https://placehold.co/900x360/0b469e/fde047?text=Ekstrakurikuler',
-                  aspectClass: 'w-28 h-16'
-                })}
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
-                  <input id="admEksNama" value="${editEkskul ? editEkskul.nama : ''}" placeholder="Nama Ekskul (cth: Pramuka)..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
-                  <input id="admEksKat" value="${editEkskul ? editEkskul.kategori : ''}" placeholder="Kategori..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
-                  <input id="admEksPembina" value="${editEkskul ? editEkskul.pembina : ''}" placeholder="Nama Pembina..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
-                  <input id="admEksKetua" value="${editEkskul ? (editEkskul.ketua || '') : ''}" placeholder="Ketua Siswa (cth: Dimas Pratama - IX.3)..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
-                  <input id="admEksJadwal" value="${editEkskul ? editEkskul.jadwal : ''}" placeholder="Waktu Kegiatan..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
-                  <input id="admEksTempat" value="${editEkskul ? (editEkskul.tempat || '') : ''}" placeholder="Tempat Kegiatan..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
-                </div>
-                <textarea id="admEksDesk" rows="2" placeholder="Deskripsi profil ekstrakurikuler..." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white text-xs">${editEkskul ? editEkskul.deskripsi : ''}</textarea>
-                <div class="flex gap-2">
-                  <button onclick="saveAdminEkskul()" class="royal-pill-btn px-5 py-2.5 rounded-full text-white text-xs font-bold cursor-pointer">
-                    ${editEkskul ? 'Simpan Perubahan Ekskul' : '+ Tambah Ekstrakurikuler'}
-                  </button>
-                  ${editEkskul ? `<button onclick="adminState.editEkskulIdx = -1; renderPage('admin')" class="px-4 py-2.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold cursor-pointer">Batal</button>` : ''}
-                </div>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-2.5 pt-3 border-t border-blue-100">
-                  ${siteData.ekskul.map((ex, idx) => `
-                    <div class="p-3 rounded-2xl bg-white border border-blue-100 flex items-center justify-between gap-2 text-xs">
-                      <span class="font-bold text-[#062d68] truncate">${ex.nama}</span>
-                      <div class="flex gap-1 flex-shrink-0">
-                        <button onclick="adminState.editEkskulIdx = ${idx}; renderPage('admin')" class="px-2.5 py-1 rounded-full bg-sky-100 text-[#062d68] font-bold cursor-pointer">Edit</button>
-                        <button onclick="deleteAdminItem('ekskul', ${idx})" class="px-2.5 py-1 rounded-full bg-rose-100 text-rose-700 font-bold cursor-pointer">Hapus</button>
                       </div>
                     </div>
                   `).join('')}
@@ -4177,7 +4375,16 @@
         adminState.editPengIdx = -1;
         showToast('Pengumuman berhasil diperbarui!');
       } else {
-        siteData.pengumuman.unshift({ id: Date.now(), kategori, tanggal, judul, ringkasan, isiLengkap, lampiran: '' });
+        siteData.pengumuman.unshift({
+          id: Date.now(),
+          baru: true,
+          kategori,
+          tanggal,
+          judul,
+          ringkasan,
+          isiLengkap,
+          lampiran: ''
+        });
         showToast('Pengumuman baru berhasil ditambahkan!');
       }
       saveSiteDataToStorage();
@@ -4185,96 +4392,204 @@
     }
 
     function saveAdminBerita() {
-      const gambar = document.getElementById('admBerFoto').value.trim() || 'https://placehold.co/600x360/0b469e/fde047?text=Berita+Sekolah';
-      const judul = document.getElementById('admBerJudul').value.trim();
-      const kategori = document.getElementById('admBerKat').value.trim() || 'Kegiatan';
-      const tanggal = document.getElementById('admBerTgl').value.trim() || '22 November 2026';
-      const ringkasan = document.getElementById('admBerRingkas').value.trim();
-      if (!judul || !ringkasan) {
-        showToast('Mohon isi Judul dan Ringkasan berita.');
+      const gambar = document.getElementById('admBerFoto')?.value.trim() || 'https://placehold.co/600x360/0b469e/fde047?text=Berita+Sekolah';
+      const judul = document.getElementById('admBerJudul')?.value.trim();
+      const kategori = document.getElementById('admBerKat')?.value.trim() || 'Kegiatan Sekolah';
+      const tanggal = document.getElementById('admBerTgl')?.value.trim() || '22 November 2026';
+      const ringkasan = document.getElementById('admBerRingkas')?.value.trim() || judul;
+      if (!judul) {
+        showToast('Mohon isi Judul Berita terlebih dahulu.');
         return;
       }
       if (adminState.editBeritaIdx >= 0) {
-        siteData.berita[adminState.editBeritaIdx] = { tanggal, kategori, judul, ringkasan, gambar };
+        const old = siteData.berita[adminState.editBeritaIdx];
+        siteData.berita[adminState.editBeritaIdx] = { ...old, tanggal, kategori, judul, ringkasan, gambar };
         adminState.editBeritaIdx = -1;
         showToast('Berita & foto berhasil diperbarui!');
       } else {
         siteData.berita.unshift({ tanggal, kategori, judul, ringkasan, gambar });
-        showToast('Berita & foto baru berhasil ditambahkan!');
+        showToast('Berita baru berhasil ditambahkan!');
       }
       saveSiteDataToStorage();
       renderPage('admin');
     }
 
     function saveAdminPtk() {
-      const foto = document.getElementById('admPtkFoto').value.trim() || 'https://placehold.co/200x200/0b469e/fde047?text=PTK';
-      const nama = document.getElementById('admPtkNama').value.trim();
-      const nip = document.getElementById('admPtkNip').value.trim() || '-';
-      const jabatan = document.getElementById('admPtkJabatan').value.trim() || 'Guru Mata Pelajaran';
-      const pendidikan = document.getElementById('admPtkPendidikan').value.trim() || 'S1 Pendidikan';
-      const kategori = document.getElementById('admPtkKat').value;
-      const status = document.getElementById('admPtkStatus').value;
+      const foto = document.getElementById('admPtkFoto')?.value.trim() || 'https://placehold.co/200x200/0b469e/fde047?text=PTK';
+      const nama = document.getElementById('admPtkNama')?.value.trim();
+      const nip = document.getElementById('admPtkNip')?.value.trim() || '-';
+      const jabatan = document.getElementById('admPtkJabatan')?.value.trim() || 'Guru Mata Pelajaran';
+      const pendidikan = document.getElementById('admPtkPendidikan')?.value.trim() || 'S1 Pendidikan';
+      const kategori = document.getElementById('admPtkKat')?.value || 'guru';
+      const status = document.getElementById('admPtkStatus')?.value || 'PNS';
       if (!nama) {
-        showToast('Mohon isi Nama PTK terlebih dahulu.');
+        showToast('Mohon isi Nama Lengkap PTK terlebih dahulu.');
         return;
       }
       if (adminState.editPtkIdx >= 0) {
-        siteData.ptk[adminState.editPtkIdx] = { nama, nip, kategori, jabatan, pendidikan, status, foto };
+        const old = siteData.ptk[adminState.editPtkIdx];
+        siteData.ptk[adminState.editPtkIdx] = { ...old, nama, nip, kategori, jabatan, pendidikan, status, foto };
         adminState.editPtkIdx = -1;
-        showToast('Data & foto PTK berhasil diperbarui!');
+        showToast('Data Guru / Tendik berhasil diperbarui!');
       } else {
         siteData.ptk.unshift({ nama, nip, kategori, jabatan, pendidikan, status, foto });
-        showToast('Data & foto PTK berhasil ditambahkan!');
+        showToast('Data Guru / Tendik baru berhasil ditambahkan!');
       }
       saveSiteDataToStorage();
       renderPage('admin');
     }
 
     function saveAdminRombel() {
-      const tk = adminState.rombelTingkat;
-      const kelas = document.getElementById('admRomKelas').value.trim();
-      const wali = document.getElementById('admRomWali').value.trim() || 'Wali Kelas';
-      const laki = parseInt(document.getElementById('admRomL').value, 10) || 0;
-      const perempuan = parseInt(document.getElementById('admRomP').value, 10) || 0;
-      const ruangan = document.getElementById('admRomRuang').value.trim() || 'Gedung Sekolah';
+      const tk = adminState.rombelTingkat || 'VII';
+      const kelas = document.getElementById('admRomKelas')?.value.trim();
+      const wali = document.getElementById('admRomWali')?.value.trim() || 'Wali Kelas';
+      const laki = parseInt(document.getElementById('admRomL')?.value, 10) || 0;
+      const perempuan = parseInt(document.getElementById('admRomP')?.value, 10) || 0;
+      const ruangan = document.getElementById('admRomRuang')?.value.trim() || 'Gedung A';
       if (!kelas) {
-        showToast('Mohon isi Nama Kelas (contoh: VII.7).');
+        showToast('Mohon isi Nama Kelas terlebih dahulu.');
         return;
       }
+      if (!Array.isArray(siteData.rombel[tk])) siteData.rombel[tk] = [];
       if (adminState.editRombelIdx >= 0) {
         siteData.rombel[tk][adminState.editRombelIdx] = { kelas, wali, laki, perempuan, ruangan };
         adminState.editRombelIdx = -1;
-        showToast('Slot kelas berhasil diperbarui!');
+        showToast(`Data kelas ${kelas} berhasil diperbarui!`);
       } else {
         siteData.rombel[tk].push({ kelas, wali, laki, perempuan, ruangan });
-        showToast('Slot kelas baru berhasil ditambahkan!');
+        showToast(`Slot kelas ${kelas} berhasil ditambahkan!`);
       }
       saveSiteDataToStorage();
       renderPage('admin');
     }
 
     function deleteAdminRombel(idx) {
-      const tk = adminState.rombelTingkat;
-      siteData.rombel[tk].splice(idx, 1);
-      saveSiteDataToStorage();
-      renderPage('admin');
-      showToast('Slot kelas dihapus.');
+      const tk = adminState.rombelTingkat || 'VII';
+      if (Array.isArray(siteData.rombel[tk])) {
+        siteData.rombel[tk].splice(idx, 1);
+        adminState.editRombelIdx = -1;
+        saveSiteDataToStorage();
+        renderPage('admin');
+        showToast('Slot kelas berhasil dihapus.');
+      }
     }
 
     function addAdminPrestasiSiswa() {
-      const judul = document.getElementById('admPresJudul').value.trim();
-      const siswa = document.getElementById('admPresSiswa').value.trim();
-      const tingkat = document.getElementById('admPresTingkat').value.trim() || 'Kabupaten OKU Timur';
-      const tahun = document.getElementById('admPresTahun').value.trim() || '2026';
-      const medali = document.getElementById('admPresMedali').value;
+      const judul = document.getElementById('admPresJudul')?.value.trim();
+      const siswa = document.getElementById('admPresSiswa')?.value.trim();
+      const tingkat = document.getElementById('admPresTingkat')?.value.trim() || 'Kabupaten OKU Timur';
+      const tahun = document.getElementById('admPresTahun')?.value.trim() || '2026';
+      const medali = document.getElementById('admPresMedali')?.value || 'Emas';
       if (!judul || !siswa) {
-        showToast('Mohon isi Judul Prestasi dan Nama Siswa.');
+        showToast('Mohon isi Judul Lomba dan Nama Siswa.');
         return;
       }
       siteData.prestasiSiswa.unshift({ judul, siswa, tingkat, tahun, medali });
       saveSiteDataToStorage();
       renderPage('admin');
       showToast('Prestasi siswa berhasil ditambahkan!');
+    }
+
+    function syncCurrentEkskulDraft() {
+      if (adminState.editEkskulIdx < 0 || !siteData.ekskul[adminState.editEkskulIdx]) return;
+      const ex = siteData.ekskul[adminState.editEkskulIdx];
+      const bannerEl = document.getElementById('admEksBanner');
+      const namaEl = document.getElementById('admEksNama');
+      const katEl = document.getElementById('admEksKat');
+      const pembinaEl = document.getElementById('admEksPembina');
+      const ketuaEl = document.getElementById('admEksKetua');
+      const jadwalEl = document.getElementById('admEksJadwal');
+      const tempatEl = document.getElementById('admEksTempat');
+      const deskEl = document.getElementById('admEksDesk');
+
+      if (bannerEl && bannerEl.value.trim()) ex.bannerFoto = bannerEl.value.trim();
+      if (namaEl && namaEl.value.trim()) ex.nama = namaEl.value.trim();
+      if (katEl && katEl.value.trim()) ex.kategori = katEl.value.trim();
+      if (pembinaEl && pembinaEl.value.trim()) ex.pembina = pembinaEl.value.trim();
+      if (ketuaEl && ketuaEl.value.trim()) ex.ketua = ketuaEl.value.trim();
+      if (jadwalEl && jadwalEl.value.trim()) ex.jadwal = jadwalEl.value.trim();
+      if (tempatEl && tempatEl.value.trim()) ex.tempat = tempatEl.value.trim();
+      if (deskEl && deskEl.value.trim()) ex.deskripsi = deskEl.value.trim();
+
+      if (Array.isArray(ex.timelineProgram)) {
+        ex.timelineProgram = ex.timelineProgram.map((item, idx) => {
+          const bInp = document.getElementById(`admProgBulan_${idx}`);
+          const kInp = document.getElementById(`admProgKeg_${idx}`);
+          return {
+            bulan: bInp ? (bInp.value.trim() || item.bulan) : item.bulan,
+            kegiatan: kInp ? (kInp.value.trim() || item.kegiatan) : item.kegiatan
+          };
+        });
+      }
+
+      if (Array.isArray(ex.galeriFoto)) {
+        ex.galeriFoto = ex.galeriFoto.map((gl, idx) => {
+          const fInp = document.getElementById(`admEksGalFoto_${idx}`);
+          const jInp = document.getElementById(`admEksGalJudul_${idx}`);
+          return {
+            foto: fInp ? (fInp.value.trim() || gl.foto) : gl.foto,
+            judul: jInp ? (jInp.value.trim() || gl.judul) : gl.judul
+          };
+        });
+      }
+    }
+
+    function addEkskulProgramRow() {
+      if (adminState.editEkskulIdx < 0 || !siteData.ekskul[adminState.editEkskulIdx]) return;
+      syncCurrentEkskulDraft();
+      const ex = siteData.ekskul[adminState.editEkskulIdx];
+      const bulan = document.getElementById('admNewProgBulan')?.value.trim() || 'Juli';
+      const kegiatan = document.getElementById('admNewProgKegiatan')?.value.trim();
+      if (!kegiatan) {
+        showToast('Mohon isi Nama Program Kerja / Kegiatan baru terlebih dahulu.');
+        return;
+      }
+      if (!Array.isArray(ex.timelineProgram)) ex.timelineProgram = [];
+      ex.timelineProgram.push({ bulan, kegiatan });
+      saveSiteDataToStorage();
+      renderPage('admin');
+      showToast('Program kerja baru berhasil ditambahkan!');
+    }
+
+    function removeEkskulProgramRow(pIdx) {
+      if (adminState.editEkskulIdx < 0 || !siteData.ekskul[adminState.editEkskulIdx]) return;
+      syncCurrentEkskulDraft();
+      const ex = siteData.ekskul[adminState.editEkskulIdx];
+      if (Array.isArray(ex.timelineProgram)) {
+        ex.timelineProgram.splice(pIdx, 1);
+      }
+      saveSiteDataToStorage();
+      renderPage('admin');
+      showToast('Baris program kerja berhasil dihapus.');
+    }
+
+    function addEkskulGaleriPhoto() {
+      if (adminState.editEkskulIdx < 0 || !siteData.ekskul[adminState.editEkskulIdx]) return;
+      syncCurrentEkskulDraft();
+      const ex = siteData.ekskul[adminState.editEkskulIdx];
+      const foto = document.getElementById('admNewGaleriFoto')?.value.trim();
+      const judul = document.getElementById('admNewGaleriJudul')?.value.trim() || `Dokumentasi Kegiatan ${ex.nama}`;
+      if (!foto) {
+        showToast('Mohon pilih foto dari perangkat atau tempel tautan gambar.');
+        return;
+      }
+      if (!Array.isArray(ex.galeriFoto)) ex.galeriFoto = [];
+      ex.galeriFoto.unshift({ judul, foto });
+      saveSiteDataToStorage();
+      renderPage('admin');
+      showToast('Foto kegiatan berhasil ditambahkan ke galeri ekskul!');
+    }
+
+    function removeEkskulGaleriPhoto(gIdx) {
+      if (adminState.editEkskulIdx < 0 || !siteData.ekskul[adminState.editEkskulIdx]) return;
+      syncCurrentEkskulDraft();
+      const ex = siteData.ekskul[adminState.editEkskulIdx];
+      if (Array.isArray(ex.galeriFoto)) {
+        ex.galeriFoto.splice(gIdx, 1);
+      }
+      saveSiteDataToStorage();
+      renderPage('admin');
+      showToast('Foto kegiatan berhasil dihapus dari galeri.');
     }
 
     function saveAdminEkskul() {
@@ -4290,11 +4605,11 @@
         showToast('Mohon isi Nama Ekstrakurikuler.');
         return;
       }
-      if (adminState.editEkskulIdx >= 0) {
+      if (adminState.editEkskulIdx >= 0 && siteData.ekskul[adminState.editEkskulIdx]) {
+        syncCurrentEkskulDraft();
         const old = siteData.ekskul[adminState.editEkskulIdx];
         siteData.ekskul[adminState.editEkskulIdx] = { ...old, bannerFoto, nama, kategori, pembina, ketua, jadwal, tempat, deskripsi };
-        adminState.editEkskulIdx = -1;
-        showToast('Data ekstrakurikuler diperbarui!');
+        showToast(`Profil, Program Kerja & Foto ${nama} berhasil disimpan!`);
       } else {
         siteData.ekskul.push({
           id: 'eks-' + Date.now(),
@@ -4325,6 +4640,7 @@
           galeriFoto: defaultSiteData.ekskul[0].galeriFoto,
           pengurusInti: [{ jabatan: 'Ketua', nama: ketua, kelas: 'IX' }]
         });
+        adminState.editEkskulIdx = siteData.ekskul.length - 1;
         showToast('Bidang ekstrakurikuler baru ditambahkan!');
       }
       saveSiteDataToStorage();
