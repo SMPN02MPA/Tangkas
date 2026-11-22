@@ -12,6 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- SheetJS (Pembaca & Pembuat File Excel .xlsx / .xls / .csv) -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
   <style>
     :root {
       --royal-deep: #062d68;
@@ -162,7 +164,7 @@
     <div class="px-4 pt-3.5 pb-2 flex-shrink-0">
       <div class="relative">
         <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-[#0b469e]/70 text-xs"></i>
-        <input type="text" id="sidebarSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Cari data, guru, prestasi..." class="w-full pl-9 pr-3 py-2 rounded-full bg-white border border-blue-200 text-xs text-[#062d68] placeholder-slate-400 shadow-2xs focus:outline-none focus:border-[#0b469e] transition" />
+        <input type="text" id="sidebarSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Cari data, guru, pendidikan..." class="w-full pl-9 pr-3 py-2 rounded-full bg-white border border-blue-200 text-xs text-[#062d68] placeholder-slate-400 shadow-2xs focus:outline-none focus:border-[#0b469e] transition" />
       </div>
     </div>
 
@@ -250,7 +252,7 @@
       </button>
     </nav>
 
-    <!-- Kartu Footer Akreditasi (Menu Admin Disembunyikan dari Pengunjung) -->
+    <!-- Kartu Footer Akreditasi -->
     <div class="p-3.5 border-t border-blue-200/80 bg-white/75 flex-shrink-0 relative overflow-hidden">
       <div class="p-3 rounded-2xl bg-gradient-to-r from-[#062d68] to-[#0b469e] text-white border border-amber-300/40 flex items-center justify-between gap-2 shadow-sm">
         <div class="flex items-center gap-2.5 min-w-0">
@@ -358,7 +360,7 @@
       <div id="topSearchBox" class="hidden px-4 sm:px-8 pb-3.5 pt-1 bg-[#052352]/95 border-t border-white/15">
         <div class="max-w-2xl mx-auto relative">
           <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-amber-300 text-xs"></i>
-          <input type="text" id="topGlobalSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Ketik kata kunci pencarian (contoh: Matematika, Pramuka, Pengumuman, Rombel)..." class="w-full pl-10 pr-10 py-2.5 rounded-full bg-white text-xs sm:text-sm text-[#062d68] placeholder-slate-400 focus:outline-none" />
+          <input type="text" id="topGlobalSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Ketik kata kunci pencarian (contoh: Matematika, S2, Pramuka, Pengumuman)..." class="w-full pl-10 pr-10 py-2.5 rounded-full bg-white text-xs sm:text-sm text-[#062d68] placeholder-slate-400 focus:outline-none" />
           <button onclick="toggleTopSearch()" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-[#062d68] text-xs cursor-pointer">
             <i class="fas fa-times"></i>
           </button>
@@ -402,7 +404,7 @@
     // =========================================================================
     let currentPage = 'beranda';
     let isSidebarOpen = window.innerWidth >= 768;
-    const ptkState = { tab: 'semua', search: '', filter: 'Semua' };
+    const ptkState = { tab: 'semua', search: '', filter: 'Semua', eduFilter: 'Semua' };
     let rombelActive = 'VII';
     const pencapaianState = { juaraTingkat: 'VII' };
     const ekskulState = { selectedId: null };
@@ -422,10 +424,8 @@
         return '';
       }
     }
-
     const DEFAULT_ADMIN_HASH = 'PDc3OTw3QDc=';
     const URL_SECRET_HASH = 'OTd1cHRraA==';
-
     const savedAdminHash = (() => {
       try {
         return localStorage.getItem('smpn02_admin_auth_v2') || DEFAULT_ADMIN_HASH;
@@ -565,18 +565,18 @@
         { tanggal: '20 Des', judul: 'Pembagian Rapor Semester Ganjil', waktu: '08.30 WIB • Ruang Kelas' }
       ],
       ptk: [
-        { nama: 'Drs. H. Ahmad Fauzi, M.Pd.', nip: '196805141994121002', kategori: 'guru', jabatan: 'Kepala Sekolah / IPA', status: 'PNS', foto: 'https://placehold.co/200x200/0b469e/fde047?text=AF' },
-        { nama: 'Hj. Siti Aminah, S.Pd., M.Pd.', nip: '197508212000032004', kategori: 'guru', jabatan: 'Wakil Kurikulum / Matematika', status: 'PNS', foto: 'https://placehold.co/200x200/1d63dc/e0f2fe?text=SA' },
-        { nama: 'Budi Santoso, S.Pd.', nip: '198203112009021003', kategori: 'guru', jabatan: 'Wakil Kesiswaan / PJOK', status: 'PNS', foto: 'https://placehold.co/200x200/062d68/e0f2fe?text=BS' },
-        { nama: 'Rina Marlina, S.Pd.', nip: '198611052010012011', kategori: 'guru', jabatan: 'Bahasa Indonesia', status: 'PNS', foto: 'https://placehold.co/200x200/0b469e/bae6fd?text=RM' },
-        { nama: 'Dedi Kurniawan, S.Pd.', nip: '198904172019031006', kategori: 'guru', jabatan: 'Bahasa Inggris', status: 'PPPK', foto: 'https://placehold.co/200x200/1d63dc/bae6fd?text=DK' },
-        { nama: 'Nurul Hidayah, S.Si.', nip: '199107192020122008', kategori: 'guru', jabatan: 'Ilmu Pengetahuan Alam', status: 'PPPK', foto: 'https://placehold.co/200x200/062d68/bae6fd?text=NH' },
-        { nama: 'Eko Prasetyo, S.Pd.', nip: '198709232015021001', kategori: 'guru', jabatan: 'Ilmu Pengetahuan Sosial', status: 'PNS', foto: 'https://placehold.co/200x200/0b469e/e0f2fe?text=EP' },
-        { nama: 'Fitri Handayani, S.Kom.', nip: '199302142022212015', kategori: 'guru', jabatan: 'Informatika & TIK', status: 'PPPK', foto: 'https://placehold.co/200x200/1d63dc/e0f2fe?text=FH' },
-        { nama: 'Hendra Wijaya, S.E.', nip: '198006122008011009', kategori: 'tendik', jabatan: 'Kepala Tata Usaha', status: 'PNS', foto: 'https://placehold.co/200x200/062d68/fde047?text=HW' },
-        { nama: 'Maya Sari, A.Md.', nip: '199012032019032005', kategori: 'tendik', jabatan: 'Operator Dapodik & IT', status: 'PPPK', foto: 'https://placehold.co/200x200/0b469e/bae6fd?text=MS' },
-        { nama: 'Joko Susilo', nip: '198501192014071002', kategori: 'tendik', jabatan: 'Staf Administrasi Kesiswaan', status: 'Honorer', foto: 'https://placehold.co/200x200/1d63dc/e0f2fe?text=JS' },
-        { nama: 'Sri Wahyuni, S.Pust.', nip: '199205272020122004', kategori: 'tendik', jabatan: 'Pengelola Perpustakaan', status: 'PPPK', foto: 'https://placehold.co/200x200/062d68/e0f2fe?text=SW' }
+        { nama: 'Drs. H. Ahmad Fauzi, M.Pd.', nip: '196805141994121002', kategori: 'guru', jabatan: 'Kepala Sekolah / IPA', pendidikan: 'S2 Manajemen Pendidikan', status: 'PNS', foto: 'https://placehold.co/200x200/0b469e/fde047?text=AF' },
+        { nama: 'Hj. Siti Aminah, S.Pd., M.Pd.', nip: '197508212000032004', kategori: 'guru', jabatan: 'Wakil Kurikulum / Matematika', pendidikan: 'S2 Pendidikan Matematika', status: 'PNS', foto: 'https://placehold.co/200x200/1d63dc/e0f2fe?text=SA' },
+        { nama: 'Budi Santoso, S.Pd.', nip: '198203112009021003', kategori: 'guru', jabatan: 'Wakil Kesiswaan / PJOK', pendidikan: 'S1 Pendidikan Jasmani & Kesehatan', status: 'PNS', foto: 'https://placehold.co/200x200/062d68/e0f2fe?text=BS' },
+        { nama: 'Rina Marlina, S.Pd.', nip: '198611052010012011', kategori: 'guru', jabatan: 'Bahasa Indonesia', pendidikan: 'S1 Pendidikan Bahasa Indonesia', status: 'PNS', foto: 'https://placehold.co/200x200/0b469e/bae6fd?text=RM' },
+        { nama: 'Dedi Kurniawan, S.Pd.', nip: '198904172019031006', kategori: 'guru', jabatan: 'Bahasa Inggris', pendidikan: 'S1 Pendidikan Bahasa Inggris', status: 'PPPK', foto: 'https://placehold.co/200x200/1d63dc/bae6fd?text=DK' },
+        { nama: 'Nurul Hidayah, S.Si.', nip: '199107192020122008', kategori: 'guru', jabatan: 'Ilmu Pengetahuan Alam', pendidikan: 'S1 Biologi / Pendidikan IPA', status: 'PPPK', foto: 'https://placehold.co/200x200/062d68/bae6fd?text=NH' },
+        { nama: 'Eko Prasetyo, S.Pd.', nip: '198709232015021001', kategori: 'guru', jabatan: 'Ilmu Pengetahuan Sosial', pendidikan: 'S1 Pendidikan Sejarah / IPS', status: 'PNS', foto: 'https://placehold.co/200x200/0b469e/e0f2fe?text=EP' },
+        { nama: 'Fitri Handayani, S.Kom.', nip: '199302142022212015', kategori: 'guru', jabatan: 'Informatika & TIK', pendidikan: 'S1 Teknik Informatika', status: 'PPPK', foto: 'https://placehold.co/200x200/1d63dc/e0f2fe?text=FH' },
+        { nama: 'Hendra Wijaya, S.E.', nip: '198006122008011009', kategori: 'tendik', jabatan: 'Kepala Tata Usaha', pendidikan: 'S1 Manajemen / Ekonomi', status: 'PNS', foto: 'https://placehold.co/200x200/062d68/fde047?text=HW' },
+        { nama: 'Maya Sari, A.Md.', nip: '199012032019032005', kategori: 'tendik', jabatan: 'Operator Dapodik & IT', pendidikan: 'D3 Manajemen Informatika', status: 'PPPK', foto: 'https://placehold.co/200x200/0b469e/bae6fd?text=MS' },
+        { nama: 'Joko Susilo', nip: '198501192014071002', kategori: 'tendik', jabatan: 'Staf Administrasi Kesiswaan', pendidikan: 'SMA / Sederajat', status: 'Honorer', foto: 'https://placehold.co/200x200/1d63dc/e0f2fe?text=JS' },
+        { nama: 'Sri Wahyuni, S.Pust.', nip: '199205272020122004', kategori: 'tendik', jabatan: 'Pengelola Perpustakaan', pendidikan: 'S1 Ilmu Perpustakaan', status: 'PPPK', foto: 'https://placehold.co/200x200/062d68/e0f2fe?text=SW' }
       ],
       rombel: {
         VII: [
@@ -820,12 +820,28 @@
       }
     };
 
+    // Helper normalisasi pendidikan terakhir untuk data lama di localStorage
+    function inferPendidikanFromName(nama) {
+      const n = String(nama || '');
+      if (/M\.Pd|M\.Si|M\.Kom|M\.M|M\.H/i.test(n)) return 'S2';
+      if (/S\.Pd|S\.Si|S\.Kom|S\.E|S\.Pust|S\.Sn|S\.Ag|Drs\.|Dra\./i.test(n)) return 'S1';
+      if (/A\.Md/i.test(n)) return 'D3';
+      return 'SMA / Sederajat';
+    }
+
     // Muat data dari localStorage jika admin pernah menyimpan perubahan
     let siteData = (() => {
       try {
         const saved = localStorage.getItem('smpn02_martapura_data_v1');
         if (saved) {
-          return JSON.parse(saved);
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed.ptk)) {
+            parsed.ptk = parsed.ptk.map(item => ({
+              ...item,
+              pendidikan: item.pendidikan || inferPendidikanFromName(item.nama)
+            }));
+          }
+          return parsed;
         }
       } catch (e) {
         console.warn('Gagal membaca penyimpanan lokal:', e);
@@ -971,7 +987,7 @@
     function handleGlobalSearch(query) {
       const q = (query || '').trim().toLowerCase();
       if (!q) return;
-      if (q.includes('guru') || q.includes('nip') || q.includes('ptk')) {
+      if (q.includes('guru') || q.includes('nip') || q.includes('ptk') || q.includes('s1') || q.includes('s2') || q.includes('d3') || q.includes('pendidikan')) {
         ptkState.search = query;
         navigate('ptk-guru');
       } else if (q.includes('rombel') || q.includes('kelas') || q.includes('wali')) {
@@ -1007,6 +1023,7 @@
               <path d="M420,140 L420,58 C330,88 255,124 145,140 Z" fill="#1d63dc"></path>
               <path d="M420,51 C325,83 250,121 134,140" fill="none" stroke="#eab308" stroke-width="3.5"></path>
             </svg>
+
             <div class="relative z-10 px-6 sm:px-9 py-7 sm:py-9 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
               <div class="flex items-start sm:items-center gap-4 sm:gap-5 max-w-2xl">
                 <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-white to-sky-100 border border-blue-200/90 shadow-lg flex items-center justify-center flex-shrink-0">
@@ -1018,6 +1035,7 @@
                   <div class="mt-3 h-1.5 w-16 rounded-full bg-gradient-to-r from-[#eab308] to-[#facc15]"></div>
                 </div>
               </div>
+
               <!-- Ilustrasi Gedung Sekolah di Sisi Kanan Hero -->
               <div class="hidden md:flex items-center justify-end flex-shrink-0">
                 <div class="relative rounded-2xl overflow-hidden border-2 border-white shadow-lg w-72 h-32 bg-[#062d68]">
@@ -1116,6 +1134,7 @@
         isSidebarOpen = false;
         applySidebarLayout();
       }
+
       renderPage(page);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1408,6 +1427,7 @@
         { nama: 'Musholla Al-Ikhlas', jumlah: '1 Unit', ikon: 'fa-mosque' },
         { nama: 'Lapangan Olahraga', jumlah: '2 Area', ikon: 'fa-futbol' }
       ];
+
       return `
         <div class="animate-page space-y-6">
           ${buildPageHero({
@@ -1522,7 +1542,7 @@
     }
 
     // =========================================================================
-    // 7. HALAMAN DIREKTORI PTK (MODE GESER HORIZONTAL + FILTER)
+    // 7. HALAMAN DIREKTORI PTK (MODE GESER HORIZONTAL + FILTER PENDIDIKAN TERAKHIR)
     // =========================================================================
     function renderPtkPage(defaultTab) {
       if (defaultTab && (currentPage === 'ptk-guru' || currentPage === 'ptk-tendik')) {
@@ -1531,11 +1551,19 @@
       const activeTab = ptkState.tab;
       const q = ptkState.search.toLowerCase();
       const filtered = siteData.ptk.filter(item => {
+        const eduText = (item.pendidikan || '-').toLowerCase();
         const matchTab = activeTab === 'semua' || item.kategori === activeTab;
         const matchStatus = ptkState.filter === 'Semua' || item.status === ptkState.filter;
-        const matchQuery = !q || item.nama.toLowerCase().includes(q) || item.jabatan.toLowerCase().includes(q) || item.nip.includes(q);
-        return matchTab && matchStatus && matchQuery;
+        const matchEdu = ptkState.eduFilter === 'Semua' || eduText.startsWith(ptkState.eduFilter.toLowerCase());
+        const matchQuery =
+          !q ||
+          item.nama.toLowerCase().includes(q) ||
+          item.jabatan.toLowerCase().includes(q) ||
+          eduText.includes(q) ||
+          item.nip.includes(q);
+        return matchTab && matchStatus && matchEdu && matchQuery;
       });
+
       const totalGuru = siteData.ptk.filter(p => p.kategori === 'guru').length;
       const totalTendik = siteData.ptk.filter(p => p.kategori === 'tendik').length;
 
@@ -1544,7 +1572,7 @@
           ${buildPageHero({
             icon: 'fa-chalkboard-teacher',
             title: activeTab === 'tendik' ? 'Direktori Tenaga Administrasi' : 'Direktori Pendidik & Tenaga Kependidikan',
-            subtitle: 'Profil Guru dan Staf Tata Usaha profesional SMP Negeri 02 Martapura.',
+            subtitle: 'Profil lengkap Guru dan Staf Tata Usaha beserta kualifikasi pendidikan terakhir di SMP Negeri 02 Martapura.',
             breadcrumb: ['PTK', activeTab === 'tendik' ? 'Tenaga Administrasi' : 'Guru']
           })}
 
@@ -1572,15 +1600,15 @@
               </div>
             </div>
             <div class="glossy-panel rounded-2xl p-4 flex items-center gap-3.5">
-              <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg"><i class="fas fa-certificate"></i></div>
+              <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg"><i class="fas fa-graduation-cap"></i></div>
               <div>
                 <p class="text-xl font-extrabold text-[#062d68]">94%</p>
-                <p class="text-xs text-slate-500">Tersertifikasi Pendidik</p>
+                <p class="text-xs text-slate-500">Kualifikasi S1 / S2</p>
               </div>
             </div>
           </div>
 
-          <!-- Bar Tab Kategori + Filter & Pencarian -->
+          <!-- Bar Tab Kategori + Filter Status & Pendidikan Terakhir + Pencarian -->
           <div class="glossy-panel rounded-3xl p-5 space-y-4">
             <div class="flex flex-wrap items-center justify-between gap-3">
               <div class="flex flex-wrap gap-2">
@@ -1594,16 +1622,24 @@
                   Tenaga Administrasi (${totalTendik})
                 </button>
               </div>
-              <div class="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
+
+              <div class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto">
+                <select onchange="ptkState.eduFilter = this.value; renderPage(currentPage)" class="px-3.5 py-2 rounded-full bg-white border border-blue-200 text-xs font-semibold text-[#062d68] focus:outline-none">
+                  <option value="Semua" ${ptkState.eduFilter === 'Semua' ? 'selected' : ''}>Semua Pendidikan</option>
+                  <option value="S2" ${ptkState.eduFilter === 'S2' ? 'selected' : ''}>Jenjang S2</option>
+                  <option value="S1" ${ptkState.eduFilter === 'S1' ? 'selected' : ''}>Jenjang S1</option>
+                  <option value="D3" ${ptkState.eduFilter === 'D3' ? 'selected' : ''}>Jenjang D3</option>
+                  <option value="SMA" ${ptkState.eduFilter === 'SMA' ? 'selected' : ''}>SMA / Sederajat</option>
+                </select>
                 <select onchange="ptkState.filter = this.value; renderPage(currentPage)" class="px-3.5 py-2 rounded-full bg-white border border-blue-200 text-xs font-semibold text-[#062d68] focus:outline-none">
                   <option value="Semua" ${ptkState.filter === 'Semua' ? 'selected' : ''}>Semua Status</option>
                   <option value="PNS" ${ptkState.filter === 'PNS' ? 'selected' : ''}>PNS</option>
                   <option value="PPPK" ${ptkState.filter === 'PPPK' ? 'selected' : ''}>PPPK</option>
                   <option value="Honorer" ${ptkState.filter === 'Honorer' ? 'selected' : ''}>Honorer</option>
                 </select>
-                <div class="relative flex-1 sm:w-60">
+                <div class="relative flex-1 sm:w-56">
                   <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-                  <input type="text" value="${ptkState.search}" oninput="ptkState.search = this.value; renderPage(currentPage)" placeholder="Cari nama / mapel..." class="w-full pl-9 pr-3 py-2 rounded-full bg-white border border-blue-200 text-xs focus:outline-none focus:border-[#0b469e]" />
+                  <input type="text" value="${ptkState.search}" oninput="ptkState.search = this.value; renderPage(currentPage)" placeholder="Cari nama, mapel, pendidikan..." class="w-full pl-9 pr-3 py-2 rounded-full bg-white border border-blue-200 text-xs focus:outline-none focus:border-[#0b469e]" />
                 </div>
               </div>
             </div>
@@ -1624,15 +1660,19 @@
             <!-- Carousel Kartu PTK Mode Geser Horizontal -->
             <div id="ptkCarousel" class="flex gap-4 overflow-x-auto no-scrollbar pb-2 scroll-smooth">
               ${filtered.length ? filtered.map(p => `
-                <div class="min-w-[250px] sm:min-w-[270px] rounded-3xl bg-gradient-to-b from-white to-sky-50/80 border border-blue-200/90 p-5 flex flex-col items-center text-center shadow-xs card-hover flex-shrink-0">
+                <div class="min-w-[260px] sm:min-w-[280px] rounded-3xl bg-gradient-to-b from-white to-sky-50/80 border border-blue-200/90 p-5 flex flex-col items-center text-center shadow-xs card-hover flex-shrink-0">
                   <div class="relative mb-3">
                     <img src="${p.foto}" onerror="this.src='https://placehold.co/200x200/0b469e/fde047?text=PTK'" alt="${p.nama}" class="w-20 h-20 rounded-2xl object-cover border-2 border-blue-200 shadow" />
                     <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-[#062d68] text-amber-300 text-[10px] font-bold shadow">
                       ${p.status}
                     </span>
                   </div>
-                  <h4 class="text-sm font-extrabold text-[#062d68] mt-1 line-clamp-1">${p.nama}</h4>
+                  <h4 class="text-sm font-extrabold text-[#062d68] mt-1 line-clamp-1" title="${p.nama}">${p.nama}</h4>
                   <p class="text-xs font-semibold text-[#0b469e] mt-1">${p.jabatan}</p>
+                  <div class="mt-2.5 px-3 py-1 rounded-full bg-white border border-blue-200/90 text-[11px] font-semibold text-[#062d68] inline-flex items-center gap-1.5 max-w-full shadow-2xs" title="Pendidikan Terakhir: ${p.pendidikan || '-'}">
+                    <i class="fas fa-graduation-cap text-[#0b469e] flex-shrink-0"></i>
+                    <span class="truncate">${p.pendidikan || '-'}</span>
+                  </div>
                   <p class="text-[11px] text-slate-400 mt-2 font-mono">NIP. ${p.nip}</p>
                 </div>
               `).join('') : `<p class="text-xs text-slate-500 py-8 text-center w-full">Tidak ada data PTK yang cocok dengan filter pencarian.</p>`}
@@ -2127,6 +2167,7 @@
         { name: 'Ekstrakurikuler', label: 'Ekstrakurikuler', icon: 'fa-trophy', count: siteData.pengumuman.filter(p => p.kategori === 'Ekstrakurikuler').length },
         { name: 'Info Sekolah', label: 'Info Sekolah', icon: 'fa-circle-info', count: siteData.pengumuman.filter(p => p.kategori === 'Info Sekolah').length }
       ];
+
       const filtered = siteData.pengumuman.filter(p => {
         const matchCat = cat === 'Semua' || p.kategori === cat;
         const matchQ = !q || p.judul.toLowerCase().includes(q) || p.ringkasan.toLowerCase().includes(q);
@@ -2183,6 +2224,7 @@
                   <input type="text" value="${pengumumanState.search}" oninput="pengumumanState.search = this.value; renderPage('pengumuman')" placeholder="Cari pengumuman..." class="w-full pl-9 pr-3 py-1.5 rounded-full bg-white text-slate-800 text-xs font-medium focus:outline-none" />
                 </div>
               </div>
+
               <div class="p-4 sm:p-5 space-y-4">
                 ${filtered.length ? filtered.map((p, idx) => {
                   const iconBox = idx % 3 === 0
@@ -2254,7 +2296,7 @@
     }
 
     // =========================================================================
-    // 13. PENGATURAN ADMIN LENGKAP + UPLOAD FOTO & DATA JSON (AKSES TERSEMBUNYI)
+    // 13. PENGATURAN ADMIN LENGKAP + UPLOAD FOTO, EXCEL PTK & DATA JSON
     // =========================================================================
     function checkSecretAdminUrl() {
       try {
@@ -2264,7 +2306,6 @@
         const isValidSecret =
           encodeSecret(queryCode) === URL_SECRET_HASH ||
           encodeSecret(hashCode) === URL_SECRET_HASH;
-
         if (isValidSecret) {
           if (window.history && window.history.replaceState) {
             window.history.replaceState(null, '', window.location.pathname);
@@ -2403,6 +2444,79 @@
       reader.readAsDataURL(file);
     }
 
+    // Ekspor & Impor Data PTK (Guru & Tendik) ke Excel (.xlsx) dengan Kolom Pendidikan Terakhir
+    function exportPtkExcel() {
+      if (typeof XLSX === 'undefined') {
+        showToast('Library Excel belum siap, coba muat ulang halaman.');
+        return;
+      }
+      const rows = siteData.ptk.map(p => ({
+        'Nama Lengkap & Gelar': p.nama,
+        'NIP / NI PPPK': p.nip,
+        'Kategori (guru/tendik)': p.kategori,
+        'Mata Pelajaran / Jabatan': p.jabatan,
+        'Pendidikan Terakhir': p.pendidikan || '-',
+        'Status (PNS/PPPK/Honorer)': p.status
+      }));
+      const ws = XLSX.utils.json_to_sheet(rows);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Data_PTK');
+      XLSX.writeFile(wb, 'Data_Guru_Tendik_SMPN02_Martapura.xlsx');
+      showToast('File Excel PTK (termasuk Pendidikan Terakhir) berhasil diunduh.');
+    }
+
+    function importPtkExcel(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      if (typeof XLSX === 'undefined') {
+        showToast('Library Excel belum siap.');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const wb = XLSX.read(e.target.result, { type: 'array' });
+          const sheet = wb.Sheets[wb.SheetNames[0]];
+          const rawRows = XLSX.utils.sheet_to_json(sheet);
+          if (!rawRows.length) {
+            showToast('File Excel kosong.');
+            return;
+          }
+          const imported = rawRows.map(r => {
+            const nama = String(r['Nama Lengkap & Gelar'] || r['Nama'] || '').trim();
+            const nip = String(r['NIP / NI PPPK'] || r['NIP'] || '-').trim();
+            const katRaw = String(r['Kategori (guru/tendik)'] || r['Kategori'] || 'guru').toLowerCase();
+            const kategori = katRaw.includes('tendik') || katRaw.includes('admin') ? 'tendik' : 'guru';
+            const jabatan = String(r['Mata Pelajaran / Jabatan'] || r['Jabatan'] || '-').trim();
+            const pendidikan = String(r['Pendidikan Terakhir'] || r['Pendidikan'] || inferPendidikanFromName(nama)).trim();
+            const status = String(r['Status (PNS/PPPK/Honorer)'] || r['Status'] || 'PNS').trim();
+            const initials = nama.split(' ').slice(0, 2).map(w => w[0] || '').join('').toUpperCase() || 'PTK';
+            return {
+              nama,
+              nip,
+              kategori,
+              jabatan,
+              pendidikan,
+              status,
+              foto: `https://placehold.co/200x200/0b469e/fde047?text=${encodeURIComponent(initials)}`
+            };
+          }).filter(item => item.nama);
+
+          if (!imported.length) {
+            showToast('Kolom Nama tidak ditemukan di file Excel.');
+            return;
+          }
+          siteData.ptk = imported;
+          saveSiteDataToStorage();
+          renderPage('admin');
+          showToast(`Berhasil mengimpor ${imported.length} data Guru & Tendik dari Excel!`);
+        } catch (err) {
+          showToast('Gagal membaca file Excel: ' + err.message);
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
     function renderAdminPage() {
       if (!adminState.unlocked) {
         return renderBerandaPage();
@@ -2424,7 +2538,7 @@
           ${buildPageHero({
             icon: 'fa-sliders-h',
             title: 'Pengaturan Admin & Data JSON',
-            subtitle: 'Kelola seluruh teks, foto sekolah, guru, siswa, ekskul, maupun file JSON tanpa menyentuh kode coding.',
+            subtitle: 'Kelola seluruh teks, foto sekolah, guru & pendidikan terakhir, siswa, ekskul, maupun file JSON tanpa menyentuh kode coding.',
             breadcrumb: ['Pengaturan Admin', 'Editor Tanpa Coding']
           })}
 
@@ -2434,7 +2548,7 @@
               ${[
                 { id: 'umum', label: 'Identitas, Foto & Visi Misi', icon: 'fa-school' },
                 { id: 'pengumuman', label: 'Pengumuman, Berita & Agenda', icon: 'fa-bullhorn' },
-                { id: 'ptk', label: 'Guru & Tendik (+Foto)', icon: 'fa-chalkboard-teacher' },
+                { id: 'ptk', label: 'Guru & Tendik (+Pendidikan & Foto)', icon: 'fa-chalkboard-teacher' },
                 { id: 'siswa', label: 'Rombel, Prestasi & Juara', icon: 'fa-user-graduate' },
                 { id: 'ekskul', label: 'Ekskul & Prestasi (+Foto)', icon: 'fa-trophy' },
                 { id: 'json', label: 'Database JSON', icon: 'fa-code' }
@@ -2533,7 +2647,6 @@
                   </div>
                 </div>
               </div>
-
               <div class="grid md:grid-cols-2 gap-4 text-xs">
                 <div>
                   <label class="font-bold text-slate-700 block mb-1">Sambutan Kepala Sekolah</label>
@@ -2548,7 +2661,6 @@
                 <label class="font-bold text-slate-700 block mb-1">Misi Sekolah (Satu poin per baris)</label>
                 <textarea id="admMisi" rows="4" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">${s.misi.join('\n')}</textarea>
               </div>
-
               <button onclick="saveAdminGeneral()" class="royal-pill-btn px-6 py-2.5 rounded-full text-white text-xs font-bold cursor-pointer">
                 <i class="fas fa-save mr-1.5"></i>Simpan Semua Perubahan Identitas & Foto
               </button>
@@ -2633,10 +2745,27 @@
             </div>
           ` : ''}
 
-          <!-- ==================== TAB 3: GURU & TENDIK (+FOTO) ==================== -->
+          <!-- ==================== TAB 3: GURU & TENDIK (+PENDIDIKAN TERAKHIR & FOTO) ==================== -->
           ${tab === 'ptk' ? `
             <div class="glossy-panel rounded-3xl p-6 space-y-5">
-              <h3 class="text-base font-extrabold text-[#062d68]">${editPtk ? 'Edit Data & Foto PTK' : 'Tambah Data & Foto Guru / Tenaga Administrasi'}</h3>
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h3 class="text-base font-extrabold text-[#062d68]">${editPtk ? 'Edit Data, Pendidikan Terakhir & Foto PTK' : 'Tambah Data Guru / Tenaga Administrasi'}</h3>
+                  <p class="text-xs text-slate-500 mt-0.5">Lengkapi identitas, jabatan, pendidikan terakhir, status kepegawaian, atau impor massal lewat Excel.</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <button onclick="exportPtkExcel()" class="px-3.5 py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold inline-flex items-center gap-1.5 cursor-pointer shadow-2xs">
+                    <i class="fas fa-file-excel"></i>
+                    <span>Ekspor Excel PTK</span>
+                  </button>
+                  <label class="px-3.5 py-2 rounded-full bg-sky-100 hover:bg-sky-200 text-[#062d68] text-xs font-bold inline-flex items-center gap-1.5 cursor-pointer">
+                    <i class="fas fa-file-upload"></i>
+                    <span>Impor Excel PTK</span>
+                    <input type="file" accept=".xlsx,.xls,.csv" onchange="importPtkExcel(event)" class="hidden" />
+                  </label>
+                </div>
+              </div>
+
               ${renderPhotoUploader({
                 label: 'Foto Profil Guru / Staf Administrasi',
                 inputId: 'admPtkFoto',
@@ -2644,26 +2773,59 @@
                 currentValue: editPtk ? editPtk.foto : 'https://placehold.co/200x200/0b469e/fde047?text=PTK',
                 aspectClass: 'w-16 h-16'
               })}
-              <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
-                <input id="admPtkNama" value="${editPtk ? editPtk.nama : ''}" placeholder="Nama Lengkap & Gelar..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
-                <input id="admPtkNip" value="${editPtk ? editPtk.nip : ''}" placeholder="NIP / NI PPPK..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
-                <input id="admPtkJabatan" value="${editPtk ? editPtk.jabatan : ''}" placeholder="Mapel / Jabatan..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
-                <select id="admPtkKat" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">
-                  <option value="guru" ${editPtk && editPtk.kategori === 'guru' ? 'selected' : ''}>Guru</option>
-                  <option value="tendik" ${editPtk && editPtk.kategori === 'tendik' ? 'selected' : ''}>Tenaga Administrasi</option>
-                </select>
-                <select id="admPtkStatus" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">
-                  <option value="PNS" ${editPtk && editPtk.status === 'PNS' ? 'selected' : ''}>PNS</option>
-                  <option value="PPPK" ${editPtk && editPtk.status === 'PPPK' ? 'selected' : ''}>PPPK</option>
-                  <option value="Honorer" ${editPtk && editPtk.status === 'Honorer' ? 'selected' : ''}>Honorer</option>
-                </select>
+
+              <datalist id="pendidikanSuggestions">
+                <option value="S2 Manajemen Pendidikan"></option>
+                <option value="S2 Pendidikan"></option>
+                <option value="S1 Pendidikan"></option>
+                <option value="S1 Teknik Informatika"></option>
+                <option value="S1 Ekonomi / Manajemen"></option>
+                <option value="D3 Manajemen Informatika"></option>
+                <option value="D3 Administrasi Perkantoran"></option>
+                <option value="SMA / Sederajat"></option>
+              </datalist>
+
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Nama Lengkap & Gelar</label>
+                  <input id="admPtkNama" value="${editPtk ? editPtk.nama : ''}" placeholder="Contoh: Rina Marlina, S.Pd." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">NIP / NI PPPK</label>
+                  <input id="admPtkNip" value="${editPtk ? editPtk.nip : ''}" placeholder="Nomor Induk Pegawai..." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Mata Pelajaran / Jabatan</label>
+                  <input id="admPtkJabatan" value="${editPtk ? editPtk.jabatan : ''}" placeholder="Contoh: Bahasa Indonesia / Staf TU" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Pendidikan Terakhir</label>
+                  <input id="admPtkPendidikan" list="pendidikanSuggestions" value="${editPtk ? (editPtk.pendidikan || '') : ''}" placeholder="Contoh: S1 Pendidikan Bahasa Indonesia" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Kategori PTK</label>
+                  <select id="admPtkKat" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">
+                    <option value="guru" ${editPtk && editPtk.kategori === 'guru' ? 'selected' : ''}>Guru (Tenaga Pendidik)</option>
+                    <option value="tendik" ${editPtk && editPtk.kategori === 'tendik' ? 'selected' : ''}>Tenaga Administrasi (Tendik)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Status Kepegawaian</label>
+                  <select id="admPtkStatus" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">
+                    <option value="PNS" ${editPtk && editPtk.status === 'PNS' ? 'selected' : ''}>PNS</option>
+                    <option value="PPPK" ${editPtk && editPtk.status === 'PPPK' ? 'selected' : ''}>PPPK</option>
+                    <option value="Honorer" ${editPtk && editPtk.status === 'Honorer' ? 'selected' : ''}>Honorer</option>
+                  </select>
+                </div>
               </div>
+
               <div class="flex gap-2">
                 <button onclick="saveAdminPtk()" class="royal-pill-btn px-5 py-2.5 rounded-full text-white text-xs font-bold cursor-pointer">
                   ${editPtk ? 'Simpan Perubahan PTK' : '+ Tambah PTK'}
                 </button>
                 ${editPtk ? `<button onclick="adminState.editPtkIdx = -1; renderPage('admin')" class="px-4 py-2.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold cursor-pointer">Batal Edit</button>` : ''}
               </div>
+
               <div class="pt-4 border-t border-blue-100 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 ${siteData.ptk.map((p, idx) => `
                   <div class="p-3 rounded-2xl bg-white border border-blue-100 flex items-center justify-between gap-2.5 text-xs">
@@ -2672,6 +2834,7 @@
                       <div class="min-w-0">
                         <p class="font-bold text-[#062d68] truncate">${p.nama}</p>
                         <p class="text-[11px] text-slate-500 truncate">${p.jabatan} (${p.status})</p>
+                        <p class="text-[10px] font-semibold text-[#0b469e] truncate"><i class="fas fa-graduation-cap mr-1"></i>${p.pendidikan || '-'}</p>
                       </div>
                     </div>
                     <div class="flex flex-col gap-1 flex-shrink-0">
@@ -2869,7 +3032,6 @@
       siteData.sekolah.logoUrl = document.getElementById('admLogoUrl').value.trim() || siteData.sekolah.logoUrl;
       siteData.sekolah.heroBannerUrl = document.getElementById('admHeroUrl').value.trim() || siteData.sekolah.heroBannerUrl;
       siteData.sekolah.kepalaSekolah.fotoUrl = document.getElementById('admKepsekFoto').value.trim() || siteData.sekolah.kepalaSekolah.fotoUrl;
-
       siteData.sekolah.namaLengkap = document.getElementById('admNamaLengkap').value.trim() || siteData.sekolah.namaLengkap;
       siteData.sekolah.namaSingkat = document.getElementById('admNamaSingkat').value.trim() || siteData.sekolah.namaSingkat;
       siteData.sekolah.npsn = document.getElementById('admNpsn').value.trim() || siteData.sekolah.npsn;
@@ -2882,19 +3044,16 @@
       siteData.sekolah.visi = document.getElementById('admVisi').value.trim() || siteData.sekolah.visi;
       const misiLines = document.getElementById('admMisi').value.split('\n').map(l => l.trim()).filter(Boolean);
       if (misiLines.length) siteData.sekolah.misi = misiLines;
-
       siteData.statistik.pesertaDidik = parseInt(document.getElementById('admJmlSiswa').value, 10) || siteData.statistik.pesertaDidik;
       siteData.statistik.guru = parseInt(document.getElementById('admJmlGuru').value, 10) || siteData.statistik.guru;
       siteData.statistik.tendik = parseInt(document.getElementById('admJmlTendik').value, 10) || siteData.statistik.tendik;
       siteData.statistik.rombel = parseInt(document.getElementById('admJmlRombel').value, 10) || siteData.statistik.rombel;
-
       const newPin = document.getElementById('admNewPin').value.trim();
       if (newPin) {
         const encoded = encodeSecret(newPin);
         adminState.passHash = encoded;
         try { localStorage.setItem('smpn02_admin_auth_v2', encoded); } catch (e) {}
       }
-
       saveSiteDataToStorage();
       showToast('Identitas, foto sekolah, visi & misi berhasil disimpan!');
       renderPage('admin');
@@ -2950,6 +3109,7 @@
       const nama = document.getElementById('admPtkNama').value.trim();
       const nip = document.getElementById('admPtkNip').value.trim() || '-';
       const jabatan = document.getElementById('admPtkJabatan').value.trim();
+      const pendidikan = document.getElementById('admPtkPendidikan').value.trim() || inferPendidikanFromName(nama);
       const kategori = document.getElementById('admPtkKat').value;
       const status = document.getElementById('admPtkStatus').value;
       if (!nama || !jabatan) {
@@ -2957,11 +3117,11 @@
         return;
       }
       if (adminState.editPtkIdx >= 0) {
-        siteData.ptk[adminState.editPtkIdx] = { nama, nip, kategori, jabatan, status, foto };
+        siteData.ptk[adminState.editPtkIdx] = { nama, nip, kategori, jabatan, pendidikan, status, foto };
         adminState.editPtkIdx = -1;
-        showToast('Data & foto PTK berhasil diperbarui!');
+        showToast('Data, pendidikan terakhir & foto PTK berhasil diperbarui!');
       } else {
-        siteData.ptk.unshift({ nama, nip, kategori, jabatan, status, foto });
+        siteData.ptk.unshift({ nama, nip, kategori, jabatan, pendidikan, status, foto });
         showToast('Data PTK baru berhasil ditambahkan!');
       }
       saveSiteDataToStorage();
@@ -3154,7 +3314,6 @@
     }
 
     window.addEventListener('hashchange', checkSecretAdminUrl);
-
     window.addEventListener('DOMContentLoaded', () => {
       syncSchoolBrandUI();
       applySidebarLayout();
