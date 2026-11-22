@@ -1,0 +1,3166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMP Negeri 02 Martapura - Portal Informasi Resmi</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --royal-deep: #062d68;
+      --royal-mid: #0b469e;
+      --royal-bright: #1d63dc;
+      --gold-accent: #eab308;
+      --gold-light: #fde047;
+      --silk-soft: #e4f0fd;
+      --silk-mist: #f4f9ff;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #e6f1fd;
+      color: #09254d;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    }
+    /* Tekstur Pola Songket Halus Biru Sutra & Putih */
+    .songket-pattern {
+      background-image:
+        radial-gradient(rgba(255, 255, 255, 0.45) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(59, 130, 246, 0.16) 1.5px, transparent 1.5px);
+      background-size: 22px 22px;
+      background-position: 0 0, 11px 11px;
+    }
+    /* Latar Belakang Kanvas Biru Langit Sutra Terang & Tenang */
+    .ocean-canvas {
+      background:
+        radial-gradient(circle at 14% 6%, rgba(191, 219, 254, 0.75) 0%, transparent 45%),
+        radial-gradient(circle at 86% 12%, rgba(186, 230, 253, 0.65) 0%, transparent 46%),
+        linear-gradient(180deg, #dcebfb 0%, #f3f8ff 46%, #e1effd 100%);
+    }
+    /* Kartu Kaca Putih-Biru Sutra Mengilap */
+    .glossy-panel {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(244, 249, 255, 0.94) 100%);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(147, 197, 253, 0.75);
+      box-shadow: 0 10px 28px -8px rgba(6, 45, 104, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+    /* Header Panel Biru Royal dengan Aksentuasi Garis Emas */
+    .royal-panel-header {
+      background: linear-gradient(90deg, #062d68 0%, #0b469e 58%, #07357a 100%);
+      border-bottom: 2px solid #eab308;
+      position: relative;
+    }
+    /* Tombol Biru Royal Mengilap */
+    .royal-pill-btn {
+      background: linear-gradient(180deg, #0e4da8 0%, #062d68 100%);
+      box-shadow: 0 4px 12px rgba(6, 45, 104, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    }
+    .royal-pill-btn:hover {
+      background: linear-gradient(180deg, #155ec4 0%, #083882 100%);
+    }
+    .card-hover {
+      transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px -10px rgba(6, 45, 104, 0.16), 0 4px 12px rgba(29, 99, 220, 0.08);
+      border-color: rgba(96, 165, 250, 0.85);
+    }
+    /* Scrollbar Halus */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #dbeafe;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #60a5fa;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0b469e;
+    }
+    /* Animasi Transisi Halaman */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-page {
+      animation: fadeSlideUp 0.32s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="ocean-canvas min-h-screen flex relative selection:bg-sky-200 selection:text-blue-950">
+  <!-- Bingkai Garis Cahaya Sisi Layar (Biru Langit & Emas Tipis) -->
+  <div class="pointer-events-none fixed inset-y-0 left-0 w-1.5 bg-gradient-to-b from-[#0b469e]/45 via-amber-400/35 to-[#062d68]/50 z-50"></div>
+  <div class="pointer-events-none fixed inset-y-0 right-0 w-1.5 bg-gradient-to-b from-[#0b469e]/45 via-amber-400/35 to-[#062d68]/50 z-50"></div>
+
+  <!-- ORNAMEN SUDUT BAWAH KIRI & KANAN SAJA (BIRU ROYAL + GARIS EMAS METALIK + SUTRA BIRU) -->
+  <div class="pointer-events-none fixed bottom-0 left-0 w-44 sm:w-64 h-24 sm:h-32 z-20 overflow-hidden">
+    <svg viewBox="0 0 300 150" class="w-full h-full" preserveAspectRatio="none">
+      <path d="M0,150 L0,34 C58,56 98,116 190,150 Z" fill="#062d68" opacity="0.95"></path>
+      <path d="M0,150 L0,64 C50,82 90,125 158,150 Z" fill="#1d63dc" opacity="0.88"></path>
+      <path d="M0,56 C54,75 94,122 166,150" fill="none" stroke="#eab308" stroke-width="3.5"></path>
+    </svg>
+  </div>
+  <div class="pointer-events-none fixed bottom-0 right-0 w-44 sm:w-64 h-24 sm:h-32 z-20 overflow-hidden">
+    <svg viewBox="0 0 300 150" class="w-full h-full" preserveAspectRatio="none">
+      <path d="M300,150 L300,34 C242,56 202,116 110,150 Z" fill="#062d68" opacity="0.95"></path>
+      <path d="M300,150 L300,64 C250,82 210,125 142,150 Z" fill="#1d63dc" opacity="0.88"></path>
+      <path d="M300,56 C246,75 206,122 134,150" fill="none" stroke="#eab308" stroke-width="3.5"></path>
+    </svg>
+  </div>
+
+  <!-- OVERLAY SIDEBAR UNTUK LAYAR KECIL -->
+  <div id="sidebarOverlay" onclick="closeSidebar()" class="fixed inset-0 bg-slate-950/40 backdrop-blur-xs z-30 hidden transition-opacity"></div>
+
+  <!-- ==================== SIDEBAR NAVIGASI KIRI (CERAH BIRU LANGIT SUTRA & BIRU ROYAL) ==================== -->
+  <aside id="sidebar-menu" style="width: 280px; min-width: 280px;" class="relative inset-y-0 left-0 z-40 bg-gradient-to-b from-[#f5faff] via-[#eaf3fe] to-[#dcebfb] text-[#09254d] flex flex-col transition-all duration-300 ease-in-out shadow-[8px_0_30px_rgba(6,45,104,0.12)] border-r border-blue-200/90 overflow-hidden flex-shrink-0">
+    <!-- Header Logo Sidebar Biru Royal + Garis Emas -->
+    <div class="bg-gradient-to-r from-[#062d68] via-[#0b469e] to-[#083882] text-white pt-4 pb-4 px-5 flex items-center justify-between gap-2.5 border-b-2 border-[#eab308] relative overflow-hidden flex-shrink-0">
+      <div class="absolute inset-0 songket-pattern opacity-20 pointer-events-none"></div>
+      <div onclick="navigate('beranda')" class="flex items-center gap-3 min-w-0 z-10 cursor-pointer">
+        <div class="relative flex-shrink-0">
+          <div class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-amber-300/40 to-sky-300/30 blur-xs"></div>
+          <img id="school-logo" src="https://placehold.co/96x96/0b469e/fde047?text=SMPN2" alt="Logo SMPN 02 Martapura" class="relative w-11 h-11 object-contain bg-white/15 backdrop-blur-md border border-amber-300/45 rounded-xl p-1 shadow-md" />
+        </div>
+        <div class="overflow-hidden">
+          <span class="inline-block text-[9px] font-extrabold uppercase tracking-widest text-amber-300">Portal Resmi</span>
+          <h2 id="school-short-name" class="text-sm font-extrabold tracking-wide text-white truncate">SMPN 02 MPA</h2>
+          <p id="school-full-name" class="text-[11px] text-sky-100/90 leading-tight truncate">SMP Negeri 02 Martapura</p>
+        </div>
+      </div>
+      <button onclick="toggleSidebar()" title="Tutup Menu Samping" class="w-8 h-8 rounded-xl bg-white/15 hover:bg-white/25 border border-white/25 flex items-center justify-center text-white transition flex-shrink-0 z-10 cursor-pointer">
+        <i class="fas fa-times text-xs"></i>
+      </button>
+    </div>
+
+    <!-- Kolom Pencarian Cepat di Sidebar -->
+    <div class="px-4 pt-3.5 pb-2 flex-shrink-0">
+      <div class="relative">
+        <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-[#0b469e]/70 text-xs"></i>
+        <input type="text" id="sidebarSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Cari data, guru, prestasi..." class="w-full pl-9 pr-3 py-2 rounded-full bg-white border border-blue-200 text-xs text-[#062d68] placeholder-slate-400 shadow-2xs focus:outline-none focus:border-[#0b469e] transition" />
+      </div>
+    </div>
+
+    <!-- Daftar Menu Navigasi Utama -->
+    <nav class="flex-1 px-3.5 py-2 space-y-1.5 overflow-y-auto no-scrollbar text-[13px] font-semibold">
+      <!-- Beranda -->
+      <button onclick="navigate('beranda')" data-nav="beranda" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-left transition-all text-[#09254d] hover:bg-white/80 hover:text-[#0b469e]">
+        <i class="fas fa-home w-4 text-center text-[#0b469e]"></i>
+        <span>Beranda</span>
+      </button>
+
+      <!-- Profil Sekolah -->
+      <button onclick="navigate('profil')" data-nav="profil" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-left transition-all text-[#09254d] hover:bg-white/80 hover:text-[#0b469e]">
+        <i class="fas fa-school w-4 text-center text-[#0b469e]"></i>
+        <span>Profil Sekolah</span>
+      </button>
+
+      <!-- Dropdown PTK -->
+      <div class="space-y-1">
+        <button onclick="toggleSubmenu('submenu-ptk')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-[#09254d] hover:bg-white/80 hover:text-[#0b469e] transition-all">
+          <span class="flex items-center gap-3">
+            <i class="fas fa-chalkboard-teacher w-4 text-center text-[#0b469e]"></i>
+            <span>PTK</span>
+          </span>
+          <i id="icon-submenu-ptk" class="fas fa-chevron-down text-[10px] text-[#0b469e] transition-transform duration-200"></i>
+        </button>
+        <div id="submenu-ptk" class="pl-8 pr-1 space-y-1">
+          <button onclick="navigate('ptk-guru')" data-nav="ptk-guru" class="nav-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-xs text-slate-700 hover:bg-white/80 hover:text-[#0b469e] transition">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#1d63dc]"></span>
+            <span>Guru</span>
+          </button>
+          <button onclick="navigate('ptk-tendik')" data-nav="ptk-tendik" class="nav-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-xs text-slate-700 hover:bg-white/80 hover:text-[#0b469e] transition">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#1d63dc]"></span>
+            <span>Tenaga Administrasi</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dropdown Siswa -->
+      <div class="space-y-1">
+        <button onclick="toggleSubmenu('submenu-siswa')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-[#09254d] hover:bg-white/80 hover:text-[#0b469e] transition-all">
+          <span class="flex items-center gap-3">
+            <i class="fas fa-user-graduate w-4 text-center text-[#0b469e]"></i>
+            <span>Siswa</span>
+          </span>
+          <i id="icon-submenu-siswa" class="fas fa-chevron-down text-[10px] text-[#0b469e] transition-transform duration-200"></i>
+        </button>
+        <div id="submenu-siswa" class="pl-8 pr-1 space-y-1">
+          <button onclick="navigate('siswa-rombel')" data-nav="siswa-rombel" class="nav-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-xs text-slate-700 hover:bg-white/80 hover:text-[#0b469e] transition">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#1d63dc]"></span>
+            <span>Data & Rombel</span>
+          </button>
+          <button onclick="navigate('siswa-pencapaian')" data-nav="siswa-pencapaian" class="nav-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-xs text-slate-700 hover:bg-white/80 hover:text-[#0b469e] transition">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#1d63dc]"></span>
+            <span>Pencapaian</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dropdown Ekstrakurikuler -->
+      <div class="space-y-1">
+        <button onclick="toggleSubmenu('submenu-ekskul')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-[#09254d] hover:bg-white/80 hover:text-[#0b469e] transition-all">
+          <span class="flex items-center gap-3">
+            <i class="fas fa-trophy w-4 text-center text-[#0b469e]"></i>
+            <span>Ekstrakurikuler</span>
+          </span>
+          <i id="icon-submenu-ekskul" class="fas fa-chevron-down text-[10px] text-[#0b469e] transition-transform duration-200"></i>
+        </button>
+        <div id="submenu-ekskul" class="pl-8 pr-1 space-y-1">
+          <button onclick="navigate('ekskul-daftar')" data-nav="ekskul-daftar" class="nav-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-xs text-slate-700 hover:bg-white/80 hover:text-[#0b469e] transition">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#1d63dc]"></span>
+            <span>Daftar & Kegiatan</span>
+          </button>
+          <button onclick="navigate('ekskul-pencapaian')" data-nav="ekskul-pencapaian" class="nav-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-xs text-slate-700 hover:bg-white/80 hover:text-[#0b469e] transition">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#1d63dc]"></span>
+            <span>Pencapaian</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pengumuman -->
+      <button onclick="navigate('pengumuman')" data-nav="pengumuman" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-left transition-all text-[#09254d] hover:bg-white/80 hover:text-[#0b469e]">
+        <i class="fas fa-bullhorn w-4 text-center text-[#0b469e]"></i>
+        <span>Pengumuman</span>
+      </button>
+    </nav>
+
+    <!-- Kartu Footer Akreditasi (Menu Admin Disembunyikan dari Pengunjung) -->
+    <div class="p-3.5 border-t border-blue-200/80 bg-white/75 flex-shrink-0 relative overflow-hidden">
+      <div class="p-3 rounded-2xl bg-gradient-to-r from-[#062d68] to-[#0b469e] text-white border border-amber-300/40 flex items-center justify-between gap-2 shadow-sm">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-300 to-amber-500 text-[#062d68] font-extrabold flex items-center justify-center text-sm shadow flex-shrink-0">
+            A
+          </div>
+          <div class="min-w-0">
+            <p class="text-xs font-bold text-white truncate">Terakreditasi A</p>
+            <p id="sidebar-npsn" class="text-[10px] text-sky-100 truncate">NPSN: 10606482 • OKU Timur</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== AREA KONTEN UTAMA KANAN ==================== -->
+  <div class="flex-1 flex flex-col min-w-0 relative">
+    <!-- TOP BAR BIRU ROYAL + AKSEN EMAS (OTOMATIS ANTI-DOUBLE DENGAN SIDEBAR) -->
+    <header class="sticky top-0 z-30 bg-gradient-to-r from-[#062d68] via-[#0b469e] to-[#062d68] text-white shadow-md border-b-2 border-[#eab308]">
+      <div class="relative px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+        <div class="absolute inset-0 songket-pattern opacity-15 pointer-events-none"></div>
+
+        <!-- Kiri: Tombol Toggle Sidebar (☰) + Brand & Menu Horizontal (Muncul Saat Sidebar Ditutup) -->
+        <div class="flex items-center gap-3 sm:gap-4 relative z-10 min-w-0">
+          <button onclick="toggleSidebar()" title="Buka / Tutup Menu Samping" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 text-white transition cursor-pointer flex-shrink-0">
+            <i class="fas fa-bars text-base"></i>
+          </button>
+
+          <!-- Identitas Sekolah Top Bar (Sembunyi saat sidebar terbuka di desktop) -->
+          <div id="topBrandInfo" onclick="navigate('beranda')" style="display: none;" class="items-center gap-3 cursor-pointer min-w-0">
+            <img id="topbar-logo" src="https://placehold.co/96x96/0b469e/fde047?text=SMPN2" alt="Logo SMPN 02 Martapura" class="w-10 h-10 object-contain rounded-xl bg-white/15 p-1 border border-amber-300/45 shadow flex-shrink-0" />
+            <div class="leading-tight min-w-0">
+              <h1 id="topbar-school-name" class="text-xs sm:text-sm font-extrabold tracking-wide text-white uppercase truncate">SMP NEGERI 02 MARTAPURA</h1>
+              <p id="topbar-school-sub" class="text-[10px] sm:text-[11px] text-sky-100 font-medium truncate">Kabupaten Ogan Komering Ulu Timur</p>
+            </div>
+          </div>
+
+          <!-- Menu Horizontal Top Bar (Otomatis Muncul Saat Sidebar Ditutup) -->
+          <div id="topNavLinks" style="display: none;" class="items-center gap-1.5">
+            <div class="h-7 w-px bg-white/25 mx-1.5"></div>
+            <nav class="flex items-center gap-1 text-xs font-semibold">
+              <button onclick="navigate('beranda')" data-topnav="beranda" class="top-nav-item px-3.5 py-2 rounded-full text-sky-100 hover:text-white hover:bg-white/10 transition cursor-pointer">
+                Beranda
+              </button>
+              <button onclick="navigate('profil')" data-topnav="profil" class="top-nav-item px-3.5 py-2 rounded-full text-sky-100 hover:text-white hover:bg-white/10 transition cursor-pointer">
+                Profil
+              </button>
+
+              <!-- Dropdown PTK Top Bar -->
+              <div class="relative">
+                <button onclick="toggleTopDropdown('top-dd-ptk')" data-topnav="ptk" class="top-nav-item px-3.5 py-2 rounded-full text-sky-100 hover:text-white hover:bg-white/10 transition flex items-center gap-1.5 cursor-pointer">
+                  <span>PTK</span>
+                  <i class="fas fa-chevron-down text-[9px]"></i>
+                </button>
+                <div id="top-dd-ptk" class="top-dropdown hidden absolute left-0 mt-2 w-48 rounded-2xl bg-white text-slate-800 shadow-xl border border-blue-100 py-1.5 z-50">
+                  <button onclick="navigate('ptk-guru')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-sky-50 hover:text-[#0b469e] transition">Data Guru</button>
+                  <button onclick="navigate('ptk-tendik')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-sky-50 hover:text-[#0b469e] transition">Tenaga Administrasi</button>
+                </div>
+              </div>
+
+              <!-- Dropdown Siswa Top Bar -->
+              <div class="relative">
+                <button onclick="toggleTopDropdown('top-dd-siswa')" data-topnav="siswa" class="top-nav-item px-3.5 py-2 rounded-full text-sky-100 hover:text-white hover:bg-white/10 transition flex items-center gap-1.5 cursor-pointer">
+                  <span>Siswa</span>
+                  <i class="fas fa-chevron-down text-[9px]"></i>
+                </button>
+                <div id="top-dd-siswa" class="top-dropdown hidden absolute left-0 mt-2 w-48 rounded-2xl bg-white text-slate-800 shadow-xl border border-blue-100 py-1.5 z-50">
+                  <button onclick="navigate('siswa-rombel')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-sky-50 hover:text-[#0b469e] transition">Data & Rombel</button>
+                  <button onclick="navigate('siswa-pencapaian')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-sky-50 hover:text-[#0b469e] transition">Pencapaian & Prestasi</button>
+                </div>
+              </div>
+
+              <!-- Dropdown Ekstrakurikuler Top Bar -->
+              <div class="relative">
+                <button onclick="toggleTopDropdown('top-dd-ekskul')" data-topnav="ekskul" class="top-nav-item px-3.5 py-2 rounded-full text-sky-100 hover:text-white hover:bg-white/10 transition flex items-center gap-1.5 cursor-pointer">
+                  <span>Ekstrakurikuler</span>
+                  <i class="fas fa-chevron-down text-[9px]"></i>
+                </button>
+                <div id="top-dd-ekskul" class="top-dropdown hidden absolute left-0 mt-2 w-52 rounded-2xl bg-white text-slate-800 shadow-xl border border-blue-100 py-1.5 z-50">
+                  <button onclick="navigate('ekskul-daftar')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-sky-50 hover:text-[#0b469e] transition">Daftar & Kegiatan</button>
+                  <button onclick="navigate('ekskul-pencapaian')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-sky-50 hover:text-[#0b469e] transition">Pencapaian Ekskul</button>
+                </div>
+              </div>
+
+              <button onclick="navigate('pengumuman')" data-topnav="pengumuman" class="top-nav-item px-3.5 py-2 rounded-full text-sky-100 hover:text-white hover:bg-white/10 transition cursor-pointer">
+                Pengumuman
+              </button>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Kanan Top Bar: Indikator Halaman Aktif + Tombol Pencarian Melingkar -->
+        <div class="flex items-center gap-2.5 sm:gap-3 relative z-10 flex-shrink-0">
+          <div class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/25 text-xs font-semibold text-white">
+            <span class="w-2 h-2 rounded-full bg-amber-300 animate-pulse"></span>
+            <span id="page-title">Beranda</span>
+          </div>
+          <button onclick="toggleTopSearch()" title="Pencarian Cepat" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/30 flex items-center justify-center text-white transition cursor-pointer">
+            <i class="fas fa-search text-xs sm:text-sm"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bar Pencarian Pop-Down Top Bar -->
+      <div id="topSearchBox" class="hidden px-4 sm:px-8 pb-3.5 pt-1 bg-[#052352]/95 border-t border-white/15">
+        <div class="max-w-2xl mx-auto relative">
+          <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-amber-300 text-xs"></i>
+          <input type="text" id="topGlobalSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Ketik kata kunci pencarian (contoh: Matematika, Pramuka, Pengumuman, Rombel)..." class="w-full pl-10 pr-10 py-2.5 rounded-full bg-white text-xs sm:text-sm text-[#062d68] placeholder-slate-400 focus:outline-none" />
+          <button onclick="toggleTopSearch()" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-[#062d68] text-xs cursor-pointer">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- KONTAINER RENDER HALAMAN DINAMIS -->
+    <main id="app-content" class="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto relative z-10 pb-16">
+      <!-- Konten halaman dirender oleh JavaScript -->
+    </main>
+  </div>
+
+  <!-- MODAL UMUM (DETAIL PENGUMUMAN / DETAIL ROMBEL / DETAIL PRESTASI / ADMIN GATE) -->
+  <div id="globalModal" class="fixed inset-0 bg-slate-950/55 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[88vh] overflow-hidden shadow-2xl border border-blue-200 flex flex-col animate-page">
+      <div class="px-6 py-4 royal-panel-header text-white flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-300 flex-shrink-0"></span>
+          <h3 id="modalTitle" class="font-bold text-sm sm:text-base truncate">Detail Informasi</h3>
+        </div>
+        <button onclick="closeGlobalModal()" class="w-8 h-8 rounded-xl bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition cursor-pointer flex-shrink-0">
+          <i class="fas fa-times text-xs"></i>
+        </button>
+      </div>
+      <div id="modalBody" class="p-6 overflow-y-auto text-sm text-slate-700 space-y-4">
+        <!-- Isi modal -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFIKASI HALUS -->
+  <div id="toastBox" class="fixed bottom-5 right-5 z-50 hidden items-center gap-2.5 px-4 py-3 rounded-2xl bg-[#062d68] text-white text-xs font-semibold shadow-xl border border-amber-300/60">
+    <i class="fas fa-check-circle text-amber-300 text-sm"></i>
+    <span id="toastMessage">Perubahan berhasil disimpan.</span>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. STATE APLIKASI & DATA JSON TERPUSAT (MUDAH DIEDIT TANPA CODING)
+    // =========================================================================
+    let currentPage = 'beranda';
+    let isSidebarOpen = window.innerWidth >= 768;
+    const ptkState = { tab: 'semua', search: '', filter: 'Semua' };
+    let rombelActive = 'VII';
+    const pencapaianState = { juaraTingkat: 'VII' };
+    const ekskulState = { selectedId: null };
+    const pencapaianEkskulState = { filter: 'Semua', year: '2025/2026' };
+    const pengumumanState = { category: 'Semua', search: '', page: 1 };
+
+    // Penyandi rahasia agar kode URL & password admin tidak terlihat langsung di kode
+    function encodeSecret(str) {
+      try {
+        const shifted = String(str || '')
+          .split('')
+          .reverse()
+          .map(c => String.fromCharCode(c.charCodeAt(0) + 7))
+          .join('');
+        return btoa(shifted);
+      } catch (e) {
+        return '';
+      }
+    }
+
+    const DEFAULT_ADMIN_HASH = 'PDc3OTw3QDc=';
+    const URL_SECRET_HASH = 'OTd1cHRraA==';
+
+    const savedAdminHash = (() => {
+      try {
+        return localStorage.getItem('smpn02_admin_auth_v2') || DEFAULT_ADMIN_HASH;
+      } catch (e) {
+        return DEFAULT_ADMIN_HASH;
+      }
+    })();
+
+    const adminState = {
+      unlocked: false,
+      activeTab: 'umum',
+      passHash: savedAdminHash,
+      editPengIdx: -1,
+      editBeritaIdx: -1,
+      editAgendaIdx: -1,
+      editPtkIdx: -1,
+      rombelTingkat: 'VII',
+      editRombelIdx: -1,
+      editPrestasiSiswaIdx: -1,
+      juaraTingkat: 'VII',
+      editJuaraKelasIdx: -1,
+      editEkskulIdx: -1,
+      editPencapaianEkskulIdx: -1
+    };
+
+    const defaultSiteData = {
+      sekolah: {
+        namaSingkat: 'SMPN 02 MPA',
+        namaLengkap: 'SMP Negeri 02 Martapura',
+        kabupaten: 'Kabupaten Ogan Komering Ulu Timur',
+        provinsi: 'Sumatera Selatan',
+        npsn: '10606482',
+        status: 'Negeri',
+        akreditasi: 'A (Unggul)',
+        kurikulum: 'Kurikulum Merdeka',
+        tahunAjaran: '2026/2027',
+        alamat: 'Jl. Merdeka No. 45, Kec. Martapura, Kab. OKU Timur, Sumatera Selatan 32181',
+        telepon: '(0735) 481290',
+        email: 'info@smpn02martapura.sch.id',
+        website: 'www.smpn02martapura.sch.id',
+        logoUrl: 'https://placehold.co/96x96/0b469e/fde047?text=SMPN2',
+        heroBannerUrl: 'https://placehold.co/900x420/0b469e/e0f2fe?text=Gedung+SMP+Negeri+02+Martapura',
+        kepalaSekolah: {
+          nama: 'Drs. H. Ahmad Fauzi, M.Pd.',
+          nip: '19680514 199412 1 002',
+          fotoUrl: 'https://placehold.co/240x280/0b469e/e0f2fe?text=Kepala+Sekolah',
+          sambutan: 'Assalamu’alaikum Warahmatullahi Wabarakatuh. Selamat datang di Portal Resmi SMP Negeri 02 Martapura. Melalui media digital ini, kami berkomitmen menyajikan informasi pendidikan yang transparan, akurat, dan inspiratif bagi peserta didik, orang tua, serta masyarakat luas dalam mewujudkan generasi berkarakter Profil Pelajar Pancasila.'
+        },
+        visi: 'Terwujudnya Peserta Didik yang Beriman, Berakhlak Mulia, Unggul dalam Prestasi, Terampil, dan Berwawasan Lingkungan.',
+        misi: [
+          'Menanamkan keimanan, ketakwaan, dan pembiasaan karakter religius dalam kehidupan sehari-hari di sekolah.',
+          'Melaksanakan pembelajaran aktif, inovatif, dan menyenangkan berbasis Kurikulum Merdeka dan literasi digital.',
+          'Mengembangkan potensi akademik, seni, olahraga, dan keterampilan melalui kegiatan ekstrakurikuler yang terarah.',
+          'Mewujudkan lingkungan sekolah yang bersih, hijau, sehat, aman, dan ramah anak.'
+        ]
+      },
+      statistik: {
+        pesertaDidik: 742,
+        guru: 42,
+        tendik: 10,
+        rombel: 21
+      },
+      pengumuman: [
+        {
+          id: 1,
+          kategori: 'Akademik',
+          tanggal: '18 November 2026',
+          judul: 'Jadwal Penilaian Sumatif Akhir Semester Ganjil',
+          ringkasan: 'Pelaksanaan Sumatif Akhir Semester (SAS) Ganjil Tahun Ajaran 2026/2027 akan dimulai pada tanggal 1 Desember 2026. Siswa diharapkan mempersiapkan diri dengan baik.',
+          isiLengkap: 'Diberitahukan kepada seluruh peserta didik kelas VII, VIII, dan IX SMP Negeri 02 Martapura bahwa Penilaian Sumatif Akhir Semester (SAS) Ganjil Tahun Ajaran 2026/2027 akan dilaksanakan mulai tanggal 1 s.d. 8 Desember 2026. Kartu peserta ujian dapat diambil melalui wali kelas masing-masing mulai 27 November 2026 dengan melunasi administrasi perpustakaan.',
+          lampiran: 'Surat_Edaran_SAS_Ganjil_2026.pdf'
+        },
+        {
+          id: 2,
+          kategori: 'Kegiatan Sekolah',
+          tanggal: '12 November 2026',
+          judul: 'Peringatan Hari Pahlawan & Lomba Kebersihan Kelas',
+          ringkasan: 'Seluruh peserta didik kelas VII, VIII, dan IX diharapkan mengikuti rangkaian kegiatan Peringatan Hari Pahlawan serta Lomba Kebersihan Kelas sesuai jadwal yang telah ditentukan.',
+          isiLengkap: 'Dalam rangka memperingati Hari Pahlawan Nasional, OSIS SMP Negeri 02 Martapura menyelenggarakan upacara bendera khidmat dilanjutkan Lomba Kebersihan, Kerapian, dan Pojok Baca Kelas. Penilaian dilakukan oleh tim dewan guru dengan kriteria kebersihan lingkungan, kelengkapan administrasi kelas, dan kreativitas literasi.',
+          lampiran: 'Juknis_Lomba_Kebersihan_Kelas.pdf'
+        },
+        {
+          id: 3,
+          kategori: 'Info Sekolah',
+          tanggal: '05 November 2026',
+          judul: 'Pemutakhiran Data Dapodik Semester Ganjil',
+          ringkasan: 'Orang tua/wali siswa dimohon memeriksa kembali data kependudukan (NIK, Kartu Keluarga, dan biodata siswa) melalui bagian Tata Usaha paling lambat akhir bulan.',
+          isiLengkap: 'Sehubungan dengan sinkronisasi data pokok pendidikan (Dapodik) Kementerian Pendidikan Dasar dan Menengah, dimohon kepada seluruh orang tua/wali murid untuk memverifikasi kesesuaian nama, tempat tanggal lahir, NIK, dan nama ibu kandung sesuai Akta Kelahiran dan Kartu Keluarga terbaru di ruang Tata Usaha.',
+          lampiran: 'Formulir_Verifikasi_Dapodik.pdf'
+        },
+        {
+          id: 4,
+          kategori: 'Kesiswaan',
+          tanggal: '28 Oktober 2026',
+          judul: 'Seleksi Pengurus OSIS & MPK Masa Bakti 2026/2027',
+          ringkasan: 'Pendaftaran calon pengurus OSIS dan Majelis Perwakilan Kelas (MPK) dibuka bagi siswa kelas VII dan VIII yang memiliki dedikasi dan kepemimpinan.',
+          isiLengkap: 'Pembina OSIS SMP Negeri 02 Martapura membuka kesempatan bagi peserta didik kelas VII dan VIII untuk mendaftarkan diri sebagai calon pengurus OSIS/MPK periode 2026/2027. Tahapan seleksi meliputi seleksi berkas, tes wawancara kepemimpinan, dan pemaparan visi misi.',
+          lampiran: 'Panduan_Seleksi_OSIS_2026.pdf'
+        },
+        {
+          id: 5,
+          kategori: 'Ekstrakurikuler',
+          tanggal: '20 Oktober 2026',
+          judul: 'Persiapan Latihan Gabungan Pramuka & PMR Tingkat Kabupaten',
+          ringkasan: 'Anggota inti Gugus Depan Pramuka dan Palang Merah Remaja dijadwalkan mengikuti latihan gabungan di Bumi Perkemahan Martapura.',
+          isiLengkap: 'Guna mempersiapkan kontingen sekolah pada ajang Jambore dan Lomba PMR Kabupaten OKU Timur, anggota inti Pramuka dan PMR wajib hadir pada latihan pemantapan setiap hari Jumat dan Sabtu pukul 14.30 WIB di lapangan utama sekolah.',
+          lampiran: 'Jadwal_Latgab_Pramuka_PMR.pdf'
+        }
+      ],
+      berita: [
+        {
+          tanggal: '15 November 2026',
+          kategori: 'Prestasi',
+          judul: 'Kontingen SMPN 02 Martapura Raih Juara Umum Lomba Pramuka Ranting',
+          ringkasan: 'Regu Pramuka putra dan putri berhasil membawa pulang 4 piala bergilir pada kegiatan Jambore Ranting Kecamatan Martapura.',
+          gambar: 'https://placehold.co/600x360/0b469e/fde047?text=Juara+Pramuka'
+        },
+        {
+          tanggal: '08 November 2026',
+          kategori: 'Literasi',
+          judul: 'Peluncuran Program Pojok Baca Digital di Perpustakaan Sekolah',
+          ringkasan: 'Perpustakaan SMP Negeri 02 Martapura kini dilengkapi akses e-book interaktif untuk meningkatkan minat baca peserta didik.',
+          gambar: 'https://placehold.co/600x360/1d63dc/e0f2fe?text=Pojok+Baca+Digital'
+        },
+        {
+          tanggal: '01 November 2026',
+          kategori: 'Lingkungan',
+          judul: 'Gerakan Jumat Bersih & Penghijauan Taman Sekolah Adiwiyata',
+          ringkasan: 'Seluruh warga sekolah bergotong royong menanam 150 bibit tanaman hias dan pohon pelindung di area lingkungan sekolah.',
+          gambar: 'https://placehold.co/600x360/062d68/bae6fd?text=Sekolah+Adiwiyata'
+        }
+      ],
+      agenda: [
+        { tanggal: '25 Nov', judul: 'Peringatan Hari Guru Nasional', waktu: '07.30 WIB • Lapangan Utama' },
+        { tanggal: '01 Des', judul: 'Hari Pertama Sumatif Akhir Semester', waktu: '07.30 WIB • Ruang Ujian' },
+        { tanggal: '12 Des', judul: 'Class Meeting & Pentas Seni Akhir Semester', waktu: '08.00 WIB • Aula Sekolah' },
+        { tanggal: '20 Des', judul: 'Pembagian Rapor Semester Ganjil', waktu: '08.30 WIB • Ruang Kelas' }
+      ],
+      ptk: [
+        { nama: 'Drs. H. Ahmad Fauzi, M.Pd.', nip: '196805141994121002', kategori: 'guru', jabatan: 'Kepala Sekolah / IPA', status: 'PNS', foto: 'https://placehold.co/200x200/0b469e/fde047?text=AF' },
+        { nama: 'Hj. Siti Aminah, S.Pd., M.Pd.', nip: '197508212000032004', kategori: 'guru', jabatan: 'Wakil Kurikulum / Matematika', status: 'PNS', foto: 'https://placehold.co/200x200/1d63dc/e0f2fe?text=SA' },
+        { nama: 'Budi Santoso, S.Pd.', nip: '198203112009021003', kategori: 'guru', jabatan: 'Wakil Kesiswaan / PJOK', status: 'PNS', foto: 'https://placehold.co/200x200/062d68/e0f2fe?text=BS' },
+        { nama: 'Rina Marlina, S.Pd.', nip: '198611052010012011', kategori: 'guru', jabatan: 'Bahasa Indonesia', status: 'PNS', foto: 'https://placehold.co/200x200/0b469e/bae6fd?text=RM' },
+        { nama: 'Dedi Kurniawan, S.Pd.', nip: '198904172019031006', kategori: 'guru', jabatan: 'Bahasa Inggris', status: 'PPPK', foto: 'https://placehold.co/200x200/1d63dc/bae6fd?text=DK' },
+        { nama: 'Nurul Hidayah, S.Si.', nip: '199107192020122008', kategori: 'guru', jabatan: 'Ilmu Pengetahuan Alam', status: 'PPPK', foto: 'https://placehold.co/200x200/062d68/bae6fd?text=NH' },
+        { nama: 'Eko Prasetyo, S.Pd.', nip: '198709232015021001', kategori: 'guru', jabatan: 'Ilmu Pengetahuan Sosial', status: 'PNS', foto: 'https://placehold.co/200x200/0b469e/e0f2fe?text=EP' },
+        { nama: 'Fitri Handayani, S.Kom.', nip: '199302142022212015', kategori: 'guru', jabatan: 'Informatika & TIK', status: 'PPPK', foto: 'https://placehold.co/200x200/1d63dc/e0f2fe?text=FH' },
+        { nama: 'Hendra Wijaya, S.E.', nip: '198006122008011009', kategori: 'tendik', jabatan: 'Kepala Tata Usaha', status: 'PNS', foto: 'https://placehold.co/200x200/062d68/fde047?text=HW' },
+        { nama: 'Maya Sari, A.Md.', nip: '199012032019032005', kategori: 'tendik', jabatan: 'Operator Dapodik & IT', status: 'PPPK', foto: 'https://placehold.co/200x200/0b469e/bae6fd?text=MS' },
+        { nama: 'Joko Susilo', nip: '198501192014071002', kategori: 'tendik', jabatan: 'Staf Administrasi Kesiswaan', status: 'Honorer', foto: 'https://placehold.co/200x200/1d63dc/e0f2fe?text=JS' },
+        { nama: 'Sri Wahyuni, S.Pust.', nip: '199205272020122004', kategori: 'tendik', jabatan: 'Pengelola Perpustakaan', status: 'PPPK', foto: 'https://placehold.co/200x200/062d68/e0f2fe?text=SW' }
+      ],
+      rombel: {
+        VII: [
+          { kelas: 'VII.1', wali: 'Rina Marlina, S.Pd.', laki: 17, perempuan: 18, ruangan: 'Gedung A - R.01' },
+          { kelas: 'VII.2', wali: 'Dedi Kurniawan, S.Pd.', laki: 18, perempuan: 18, ruangan: 'Gedung A - R.02' },
+          { kelas: 'VII.3', wali: 'Nurul Hidayah, S.Si.', laki: 16, perempuan: 19, ruangan: 'Gedung A - R.03' },
+          { kelas: 'VII.4', wali: 'Fitri Handayani, S.Kom.', laki: 17, perempuan: 18, ruangan: 'Gedung A - R.04' },
+          { kelas: 'VII.5', wali: 'Lestari Putri, S.Pd.', laki: 18, perempuan: 17, ruangan: 'Gedung A - R.05' },
+          { kelas: 'VII.6', wali: 'Arif Rahman, S.Pd.I.', laki: 17, perempuan: 18, ruangan: 'Gedung A - R.06' }
+        ],
+        VIII: [
+          { kelas: 'VIII.1', wali: 'Hj. Siti Aminah, S.Pd., M.Pd.', laki: 18, perempuan: 18, ruangan: 'Gedung B - R.01' },
+          { kelas: 'VIII.2', wali: 'Eko Prasetyo, S.Pd.', laki: 17, perempuan: 19, ruangan: 'Gedung B - R.02' },
+          { kelas: 'VIII.3', wali: 'Dewi Sartika, S.Pd.', laki: 18, perempuan: 17, ruangan: 'Gedung B - R.03' },
+          { kelas: 'VIII.4', wali: 'Agus Salim, S.Pd.', laki: 17, perempuan: 18, ruangan: 'Gedung B - R.04' },
+          { kelas: 'VIII.5', wali: 'Ratna Juwita, S.Sn.', laki: 16, perempuan: 19, ruangan: 'Gedung B - R.05' },
+          { kelas: 'VIII.6', wali: 'M. Ridwan, S.Pd.', laki: 18, perempuan: 18, ruangan: 'Gedung B - R.06' },
+          { kelas: 'VIII.7', wali: 'Yuliana, S.Pd.', laki: 17, perempuan: 18, ruangan: 'Gedung B - R.07' },
+          { kelas: 'VIII.8', wali: 'Fajar Nugroho, S.Pd.', laki: 18, perempuan: 17, ruangan: 'Gedung B - R.08' }
+        ],
+        IX: [
+          { kelas: 'IX.1', wali: 'Budi Santoso, S.Pd.', laki: 17, perempuan: 18, ruangan: 'Gedung C - R.01' },
+          { kelas: 'IX.2', wali: 'Dra. Kartini', laki: 18, perempuan: 18, ruangan: 'Gedung C - R.02' },
+          { kelas: 'IX.3', wali: 'Surya Darma, S.Pd.', laki: 17, perempuan: 19, ruangan: 'Gedung C - R.03' },
+          { kelas: 'IX.4', wali: 'Nadia Safitri, S.Pd.', laki: 18, perempuan: 17, ruangan: 'Gedung C - R.04' },
+          { kelas: 'IX.5', wali: 'Rizky Pratama, S.Pd.', laki: 16, perempuan: 19, ruangan: 'Gedung C - R.05' },
+          { kelas: 'IX.6', wali: 'Indah Permata, S.Pd.', laki: 18, perempuan: 18, ruangan: 'Gedung C - R.06' },
+          { kelas: 'IX.7', wali: 'Taufik Hidayat, S.Pd.', laki: 17, perempuan: 18, ruangan: 'Gedung C - R.07' }
+        ]
+      },
+      prestasiSiswa: [
+        { judul: 'Juara 1 Olimpiade Sains Nasional (OSN) IPA Tingkat Kabupaten', siswa: 'Nabila Azzahra (VIII.1)', tingkat: 'Kabupaten OKU Timur', tahun: '2026', medali: 'Emas' },
+        { judul: 'Juara 2 Olimpiade Matematika Tingkat Provinsi Sumatera Selatan', siswa: 'M. Rafli Akbar (IX.1)', tingkat: 'Provinsi Sumsel', tahun: '2026', medali: 'Perak' },
+        { judul: 'Juara 1 Lomba Pidato Bahasa Inggris FLS2N', siswa: 'Keyla Putri Maharani (VIII.2)', tingkat: 'Kabupaten OKU Timur', tahun: '2026', medali: 'Emas' },
+        { judul: 'Juara 3 Lomba Cerdas Cermat Wawasan Kebangsaan', siswa: 'Tim LCC SMPN 02 Martapura', tingkat: 'Provinsi Sumsel', tahun: '2026', medali: 'Perunggu' }
+      ],
+      juaraKelas: {
+        VII: [
+          { kelas: 'VII.1', juara1: 'Aisyah Putri Ramadhani', juara2: 'M. Zaki Alfarizi', juara3: 'Salsabila Khairunnisa' },
+          { kelas: 'VII.2', juara1: 'Dimas Arya Pratama', juara2: 'Nayla Azzahra', juara3: 'Rafka Maulana' },
+          { kelas: 'VII.3', juara1: 'Kayla Anindya', juara2: 'Fadhil Rahman', juara3: 'Citra Kirana' },
+          { kelas: 'VII.4', juara1: 'Hafiz Al-Ghifari', juara2: 'Aurel Natasya', juara3: 'Bima Sakti' },
+          { kelas: 'VII.5', juara1: 'Zahra Salsabila', juara2: 'Rendi Saputra', juara3: 'Tiara Andini' },
+          { kelas: 'VII.6', juara1: 'Alif Akbar', juara2: 'Putri Amelia', juara3: 'Gilang Ramadhan' }
+        ],
+        VIII: [
+          { kelas: 'VIII.1', juara1: 'Nabila Azzahra', juara2: 'Farhan Kamil', juara3: 'Dinda Puspita' },
+          { kelas: 'VIII.2', juara1: 'Keyla Putri Maharani', juara2: 'Bagas Prakoso', juara3: 'Intan Permata' },
+          { kelas: 'VIII.3', juara1: 'Raka Aditya', juara2: 'Shinta Bella', juara3: 'Ilham Akbar' },
+          { kelas: 'VIII.4', juara1: 'Melati Sukma', juara2: 'Reza Pahlevi', juara3: 'Nadia Vega' }
+        ],
+        IX: [
+          { kelas: 'IX.1', juara1: 'M. Rafli Akbar', juara2: 'Annisa Fitriani', juara3: 'Bayu Setiawan' },
+          { kelas: 'IX.2', juara1: 'Clara Shinta', juara2: 'Kevin Sanjaya', juara3: 'Rani Oktaviani' },
+          { kelas: 'IX.3', juara1: 'Galih Permana', juara2: 'Vina Panduwinata', juara3: 'Yusuf Mansur' }
+        ]
+      },
+      juaraUmum: {
+        VII: [
+          { peringkat: 1, nama: 'Aisyah Putri Ramadhani', kelas: 'VII.1', rataRata: '96.40' },
+          { peringkat: 2, nama: 'Dimas Arya Pratama', kelas: 'VII.2', rataRata: '95.85' },
+          { peringkat: 3, nama: 'Kayla Anindya', kelas: 'VII.3', rataRata: '95.10' }
+        ],
+        VIII: [
+          { peringkat: 1, nama: 'Nabila Azzahra', kelas: 'VIII.1', rataRata: '97.25' },
+          { peringkat: 2, nama: 'Keyla Putri Maharani', kelas: 'VIII.2', rataRata: '96.60' },
+          { peringkat: 3, nama: 'Raka Aditya', kelas: 'VIII.3', rataRata: '95.90' }
+        ],
+        IX: [
+          { peringkat: 1, nama: 'M. Rafli Akbar', kelas: 'IX.1', rataRata: '97.80' },
+          { peringkat: 2, nama: 'Clara Shinta', kelas: 'IX.2', rataRata: '96.95' },
+          { peringkat: 3, nama: 'Galih Permana', kelas: 'IX.3', rataRata: '96.20' }
+        ]
+      },
+      ekskul: [
+        {
+          id: 'pramuka',
+          nama: 'Pramuka',
+          kategori: 'Wajib & Kepanduan',
+          pembina: 'Budi Santoso, S.Pd.',
+          jadwal: 'Jumat & Sabtu, 14.30 WIB',
+          anggota: 185,
+          ikon: 'fa-campground',
+          deskripsi: 'Membentuk karakter disiplin, mandiri, jiwa kepemimpinan, dan cinta alam melalui kegiatan kepramukaan.',
+          kegiatan: ['Latihan Rutin Baris-Berbaris & Pionering', 'Perkemahan Jumat Sabtu (Perjusa)', 'Jambore Ranting & Cabang OKU Timur', 'Bakti Sosial & Penghijauan Lingkungan']
+        },
+        {
+          id: 'pmr',
+          nama: 'PMR (Palang Merah Remaja)',
+          kategori: 'Kemanusiaan & Kesehatan',
+          pembina: 'Nurul Hidayah, S.Si.',
+          jadwal: 'Rabu, 15.00 WIB',
+          anggota: 64,
+          ikon: 'fa-kit-medical',
+          deskripsi: 'Melatih keterampilan pertolongan pertama, kepedulian sosial, dan kesiapsiagaan kesehatan lingkungan sekolah.',
+          kegiatan: ['Simulasi Pertolongan Pertama (PP)', 'Piket Kesehatan Upacara & Lomba', 'Kampanye Hidup Bersih dan Sehat (PHBS)', 'Jumbara PMR Tingkat Kabupaten']
+        },
+        {
+          id: 'olahraga',
+          nama: 'Olahraga (Futsal & Basket)',
+          kategori: 'Olahraga & Prestasi',
+          pembina: 'M. Ridwan, S.Pd.',
+          jadwal: 'Selasa & Kamis, 15.30 WIB',
+          anggota: 92,
+          ikon: 'fa-basketball',
+          deskripsi: 'Wadah pengembangan bakat atletik, sportivitas, dan kerja sama tim cabang bola basket, futsal, dan voli.',
+          kegiatan: ['Latihan Fisik & Teknik Dasar', 'Sparring Partner Antar Sekolah', 'Pekan Olahraga Pelajar (POP) OKU Timur', 'Turnamen Piala Kepala Sekolah']
+        },
+        {
+          id: 'seni',
+          nama: 'Seni Tari & Musik Daerah',
+          kategori: 'Seni & Budaya',
+          pembina: 'Ratna Juwita, S.Sn.',
+          jadwal: 'Kamis, 14.30 WIB',
+          anggota: 58,
+          ikon: 'fa-palette',
+          deskripsi: 'Melestarikan budaya tradisional Sumatera Selatan melalui tari kreasi daerah, paduan suara, dan musik.',
+          kegiatan: ['Latihan Tari Tanggai & Tari Kreasi', 'Paduan Suara Upacara Hari Besar', 'Festival Seni Pelajar (FLS2N)', 'Pentas Seni Akhir Tahun']
+        },
+        {
+          id: 'paskibra',
+          nama: 'Paskibra',
+          kategori: 'Kedisiplinan & Nasionalisme',
+          pembina: 'Agus Salim, S.Pd.',
+          jadwal: 'Senin & Rabu, 15.00 WIB',
+          anggota: 54,
+          ikon: 'fa-flag',
+          deskripsi: 'Pasukan Pengibar Bendera sekolah yang menanamkan sikap nasionalisme, ketegasan, dan kekompakan baris-berbaris.',
+          kegiatan: ['Latihan PBB Murni & Formasi', 'Petugas Upacara Bendera Senin', 'Lomba Keterampilan Baris Berbaris (LKBB)', 'Pelatihan Kepemimpinan Pemuda']
+        },
+        {
+          id: 'kir',
+          nama: 'KIR (Karya Ilmiah Remaja)',
+          kategori: 'Riset & Literasi',
+          pembina: 'Fitri Handayani, S.Kom.',
+          jadwal: 'Selasa, 14.30 WIB',
+          anggota: 42,
+          ikon: 'fa-flask',
+          deskripsi: 'Mengasah kemampuan berpikir kritis, penelitian ilmiah sederhana, dan inovasi teknologi ramah lingkungan.',
+          kegiatan: ['Eksperimen Sains & Pengolahan Limbah', 'Penulisan Karya Tulis Ilmiah', 'Kompetisi Sains & Riset Pelajar', 'Pameran Inovasi Siswa']
+        },
+        {
+          id: 'rohis',
+          nama: 'Rohis (Kerohanian Islam)',
+          kategori: 'Keagamaan',
+          pembina: 'Arif Rahman, S.Pd.I.',
+          jadwal: 'Jumat, 13.30 WIB',
+          anggota: 110,
+          ikon: 'fa-mosque',
+          deskripsi: 'Membina akhlak mulia, kemampuan tilawah Al-Qur’an, hadroh, dan syiar Islam di lingkungan sekolah.',
+          kegiatan: ['Tahsin & Tahfidz Al-Qur’an', 'Latihan Hadroh & Nasyid', 'Peringatan Hari Besar Islam (PHBI)', 'Pesantren Kilat Ramadhan']
+        },
+        {
+          id: 'english',
+          nama: 'English Club',
+          kategori: 'Bahasa & Komunikasi',
+          pembina: 'Dedi Kurniawan, S.Pd.',
+          jadwal: 'Rabu, 14.30 WIB',
+          anggota: 48,
+          ikon: 'fa-language',
+          deskripsi: 'Meningkatkan kepercayaan diri siswa dalam berkomunikasi bahasa Inggris melalui speech, storytelling, dan debate.',
+          kegiatan: ['Weekly English Conversation', 'Storytelling & Speech Practice', 'English Olympiad Preparation', 'Mading Berbahasa Inggris']
+        }
+      ],
+      pencapaianEkskul: [
+        {
+          ekskul: 'Pramuka',
+          tahun: '2025/2026',
+          juara: 1,
+          judul: 'Juara 1 Lomba Pionering',
+          event: 'Kegiatan Jambore Ranting Tingkat Kecamatan Martapura',
+          tanggal: '15 Maret 2026',
+          lokasi: 'Kec. Martapura',
+          foto: 'https://placehold.co/600x340/0b469e/fde047?text=Juara+1+Pionering'
+        },
+        {
+          ekskul: 'PMR',
+          tahun: '2025/2026',
+          juara: 2,
+          judul: 'Juara 2 Lomba Pertolongan Pertama',
+          event: 'Lomba PMR Tingkat Kabupaten OKU Timur',
+          tanggal: '20 April 2026',
+          lokasi: 'Kab. OKU Timur',
+          foto: 'https://placehold.co/600x340/1d63dc/e0f2fe?text=Juara+2+PMR'
+        },
+        {
+          ekskul: 'Olahraga',
+          tahun: '2025/2026',
+          juara: 3,
+          judul: 'Juara 3 Bola Basket Putra',
+          event: 'Pekan Olahraga Pelajar (POP) Tingkat Kabupaten OKU Timur',
+          tanggal: '10 Mei 2026',
+          lokasi: 'Kab. OKU Timur',
+          foto: 'https://placehold.co/600x340/062d68/e0f2fe?text=Juara+3+Basket'
+        },
+        {
+          ekskul: 'Seni',
+          tahun: '2025/2026',
+          juara: 1,
+          judul: 'Juara 1 Tari Kreasi Daerah',
+          event: 'Festival Seni Pelajar Tingkat Kabupaten OKU Timur',
+          tanggal: '25 Mei 2026',
+          lokasi: 'Kab. OKU Timur',
+          foto: 'https://placehold.co/600x340/0b469e/e0f2fe?text=Juara+1+Tari+Kreasi'
+        },
+        {
+          ekskul: 'Paskibra',
+          tahun: '2025/2026',
+          juara: 2,
+          judul: 'Juara 2 Lomba LKBB',
+          event: 'Lomba Keterampilan Baris Berbaris (LKBB) Tingkat Provinsi Sumatera Selatan',
+          tanggal: '5 Juni 2026',
+          lokasi: 'Prov. Sumatera Selatan',
+          foto: 'https://placehold.co/600x340/062d68/fde047?text=Juara+2+LKBB'
+        },
+        {
+          ekskul: 'KIR',
+          tahun: '2025/2026',
+          juara: 3,
+          judul: 'Juara 3 Karya Ilmiah Remaja',
+          event: 'Lomba Karya Ilmiah Remaja Tingkat Kabupaten OKU Timur',
+          tanggal: '10 Juni 2026',
+          lokasi: 'Kab. OKU Timur',
+          foto: 'https://placehold.co/600x340/1d63dc/bae6fd?text=Juara+3+KIR'
+        }
+      ],
+      rekapEkskul: {
+        total: 58,
+        nasional: 12,
+        provinsi: 18,
+        kabupaten: 28,
+        perBidang: [
+          { nama: 'Pramuka', jumlah: 10, ikon: 'fa-campground' },
+          { nama: 'PMR', jumlah: 8, ikon: 'fa-kit-medical' },
+          { nama: 'Olahraga', jumlah: 14, ikon: 'fa-basketball' },
+          { nama: 'Seni', jumlah: 9, ikon: 'fa-palette' },
+          { nama: 'Paskibra', jumlah: 6, ikon: 'fa-flag' },
+          { nama: 'KIR', jumlah: 7, ikon: 'fa-flask' },
+          { nama: 'Rohis', jumlah: 4, ikon: 'fa-mosque' }
+        ]
+      }
+    };
+
+    // Muat data dari localStorage jika admin pernah menyimpan perubahan
+    let siteData = (() => {
+      try {
+        const saved = localStorage.getItem('smpn02_martapura_data_v1');
+        if (saved) {
+          return JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('Gagal membaca penyimpanan lokal:', e);
+      }
+      return JSON.parse(JSON.stringify(defaultSiteData));
+    })();
+
+    function saveSiteDataToStorage() {
+      try {
+        localStorage.setItem('smpn02_martapura_data_v1', JSON.stringify(siteData));
+      } catch (e) {
+        console.warn('Gagal menyimpan ke localStorage:', e);
+      }
+      syncSchoolBrandUI();
+    }
+
+    function showToast(msg) {
+      const box = document.getElementById('toastBox');
+      const txt = document.getElementById('toastMessage');
+      if (!box || !txt) return;
+      txt.textContent = msg;
+      box.classList.remove('hidden');
+      box.classList.add('flex');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        box.classList.add('hidden');
+        box.classList.remove('flex');
+      }, 3000);
+    }
+
+    function syncSchoolBrandUI() {
+      const s = siteData.sekolah;
+      const elShort = document.getElementById('school-short-name');
+      const elFull = document.getElementById('school-full-name');
+      const elTopName = document.getElementById('topbar-school-name');
+      const elTopSub = document.getElementById('topbar-school-sub');
+      const elNpsn = document.getElementById('sidebar-npsn');
+      const elLogo1 = document.getElementById('school-logo');
+      const elLogo2 = document.getElementById('topbar-logo');
+      if (elShort) elShort.textContent = s.namaSingkat;
+      if (elFull) elFull.textContent = s.namaLengkap;
+      if (elTopName) elTopName.textContent = s.namaLengkap.toUpperCase();
+      if (elTopSub) elTopSub.textContent = s.kabupaten;
+      if (elNpsn) elNpsn.textContent = `NPSN: ${s.npsn} • OKU Timur`;
+      if (elLogo1 && s.logoUrl) elLogo1.src = s.logoUrl;
+      if (elLogo2 && s.logoUrl) elLogo2.src = s.logoUrl;
+    }
+
+    // =========================================================================
+    // 2. SISTEM SIDEBAR BUKA/TUTUP & ANTI-DOUBLE NAVIGATION
+    // =========================================================================
+    function applySidebarLayout() {
+      const sidebar = document.getElementById('sidebar-menu');
+      const overlay = document.getElementById('sidebarOverlay');
+      const topBrand = document.getElementById('topBrandInfo');
+      const topNav = document.getElementById('topNavLinks');
+      if (!sidebar) return;
+
+      const isDesktop = window.innerWidth >= 768;
+      if (isDesktop) {
+        if (overlay) overlay.classList.add('hidden');
+        if (isSidebarOpen) {
+          sidebar.style.position = 'relative';
+          sidebar.style.width = '280px';
+          sidebar.style.minWidth = '280px';
+          sidebar.style.transform = 'translateX(0)';
+          sidebar.style.opacity = '1';
+          if (topBrand) topBrand.style.display = 'none';
+          if (topNav) topNav.style.display = 'none';
+        } else {
+          sidebar.style.position = 'fixed';
+          sidebar.style.width = '0px';
+          sidebar.style.minWidth = '0px';
+          sidebar.style.transform = 'translateX(-100%)';
+          sidebar.style.opacity = '0';
+          if (topBrand) topBrand.style.display = 'flex';
+          if (topNav) topNav.style.display = window.innerWidth >= 960 ? 'flex' : 'none';
+        }
+      } else {
+        sidebar.style.position = 'fixed';
+        sidebar.style.width = '280px';
+        sidebar.style.minWidth = '280px';
+        sidebar.style.opacity = '1';
+        if (topBrand) topBrand.style.display = 'flex';
+        if (topNav) topNav.style.display = 'none';
+        if (isSidebarOpen) {
+          sidebar.style.transform = 'translateX(0)';
+          if (overlay) overlay.classList.remove('hidden');
+        } else {
+          sidebar.style.transform = 'translateX(-100%)';
+          if (overlay) overlay.classList.add('hidden');
+        }
+      }
+    }
+
+    function toggleSidebar() {
+      isSidebarOpen = !isSidebarOpen;
+      applySidebarLayout();
+    }
+
+    function closeSidebar() {
+      isSidebarOpen = false;
+      applySidebarLayout();
+    }
+
+    window.addEventListener('resize', () => {
+      applySidebarLayout();
+    });
+
+    function toggleSubmenu(id) {
+      const el = document.getElementById(id);
+      const icon = document.getElementById('icon-' + id);
+      if (!el) return;
+      el.classList.toggle('hidden');
+      if (icon) {
+        icon.style.transform = el.classList.contains('hidden') ? 'rotate(-90deg)' : 'rotate(0deg)';
+      }
+    }
+
+    function toggleTopDropdown(id) {
+      document.querySelectorAll('.top-dropdown').forEach(dd => {
+        if (dd.id !== id) dd.classList.add('hidden');
+      });
+      const target = document.getElementById(id);
+      if (target) target.classList.toggle('hidden');
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.relative')) {
+        document.querySelectorAll('.top-dropdown').forEach(dd => dd.classList.add('hidden'));
+      }
+    });
+
+    function toggleTopSearch() {
+      const box = document.getElementById('topSearchBox');
+      if (!box) return;
+      box.classList.toggle('hidden');
+      if (!box.classList.contains('hidden')) {
+        document.getElementById('topGlobalSearchInput')?.focus();
+      }
+    }
+
+    function handleGlobalSearch(query) {
+      const q = (query || '').trim().toLowerCase();
+      if (!q) return;
+      if (q.includes('guru') || q.includes('nip') || q.includes('ptk')) {
+        ptkState.search = query;
+        navigate('ptk-guru');
+      } else if (q.includes('rombel') || q.includes('kelas') || q.includes('wali')) {
+        navigate('siswa-rombel');
+      } else if (q.includes('juara') || q.includes('osn') || q.includes('prestasi')) {
+        navigate('siswa-pencapaian');
+      } else if (q.includes('pramuka') || q.includes('pmr') || q.includes('ekskul')) {
+        navigate('ekskul-daftar');
+      } else if (q.includes('pengumuman') || q.includes('sas') || q.includes('dapodik')) {
+        pengumumanState.search = query;
+        navigate('pengumuman');
+      }
+    }
+
+    // =========================================================================
+    // 3. HELPER KOMPONEN VISUAL BIRU ROYAL, SUTRA BIRU & EMAS
+    // =========================================================================
+    function buildPageHero({ icon, title, subtitle, breadcrumb }) {
+      return `
+        <div class="mb-6 space-y-3.5">
+          <!-- Hero Banner Biru Royal + Sutra Biru Terang + Garis Emas -->
+          <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#dfeeff] via-[#f2f8ff] to-[#cde3fc] border border-blue-200/90 shadow-md">
+            <div class="absolute inset-0 songket-pattern opacity-45 pointer-events-none"></div>
+            <!-- Gelombang Lengkung Biru Royal & Emas Sudut Kiri Bawah -->
+            <svg viewBox="0 0 420 140" class="pointer-events-none absolute bottom-0 left-0 w-72 sm:w-96 h-24 sm:h-28" preserveAspectRatio="none">
+              <path d="M0,140 L0,45 C90,70 165,115 310,140 Z" fill="#062d68"></path>
+              <path d="M0,140 L0,68 C80,90 150,124 270,140 Z" fill="#1d63dc"></path>
+              <path d="M0,62 C84,85 155,121 282,140" fill="none" stroke="#eab308" stroke-width="3.5"></path>
+            </svg>
+            <!-- Gelombang Lengkung Biru Royal & Emas Sudut Kanan Bawah -->
+            <svg viewBox="0 0 420 140" class="pointer-events-none absolute bottom-0 right-0 w-72 sm:w-96 h-24 sm:h-28" preserveAspectRatio="none">
+              <path d="M420,140 L420,30 C320,65 245,115 110,140 Z" fill="#062d68"></path>
+              <path d="M420,140 L420,58 C330,88 255,124 145,140 Z" fill="#1d63dc"></path>
+              <path d="M420,51 C325,83 250,121 134,140" fill="none" stroke="#eab308" stroke-width="3.5"></path>
+            </svg>
+            <div class="relative z-10 px-6 sm:px-9 py-7 sm:py-9 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div class="flex items-start sm:items-center gap-4 sm:gap-5 max-w-2xl">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-white to-sky-100 border border-blue-200/90 shadow-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas ${icon} text-2xl sm:text-3xl text-[#0b469e]"></i>
+                </div>
+                <div>
+                  <h1 class="text-2xl sm:text-3xl font-extrabold text-[#062d68] tracking-tight">${title}</h1>
+                  <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">${subtitle}</p>
+                  <div class="mt-3 h-1.5 w-16 rounded-full bg-gradient-to-r from-[#eab308] to-[#facc15]"></div>
+                </div>
+              </div>
+              <!-- Ilustrasi Gedung Sekolah di Sisi Kanan Hero -->
+              <div class="hidden md:flex items-center justify-end flex-shrink-0">
+                <div class="relative rounded-2xl overflow-hidden border-2 border-white shadow-lg w-72 h-32 bg-[#062d68]">
+                  <img src="${siteData.sekolah.heroBannerUrl}" onerror="this.src='https://placehold.co/600x260/0b469e/fde047?text=SMP+Negeri+02+Martapura'" alt="Gedung Sekolah" class="w-full h-full object-cover opacity-90" />
+                  <div class="absolute inset-0 bg-gradient-to-r from-[#dfeeff] via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-lg bg-[#062d68]/95 text-white text-[10px] font-bold tracking-wide border border-amber-300/45">
+                    ${siteData.sekolah.namaLengkap.toUpperCase()}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bar Breadcrumb + Pill Lokasi & Tahun Ajaran -->
+          <div class="glossy-panel rounded-2xl px-4 sm:px-5 py-2.5 flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div class="flex items-center flex-wrap gap-2 text-slate-600 font-medium">
+              <button onclick="navigate('beranda')" class="flex items-center gap-1.5 text-[#0b469e] hover:text-[#1d63dc] font-bold cursor-pointer">
+                <i class="fas fa-home"></i>
+                <span>Beranda</span>
+              </button>
+              ${breadcrumb.map((item, idx) => `
+                <i class="fas fa-chevron-right text-[9px] text-slate-400"></i>
+                <span class="${idx === breadcrumb.length - 1 ? 'font-bold text-[#062d68]' : 'text-slate-600'}">${item}</span>
+              `).join('')}
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-blue-200 text-[#062d68] font-semibold shadow-2xs">
+                <i class="fas fa-location-dot text-[#0b469e]"></i>
+                <span>Martapura, OKU Timur</span>
+              </span>
+              <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-blue-200 text-[#062d68] font-semibold shadow-2xs">
+                <i class="fas fa-calendar-alt text-[#0b469e]"></i>
+                <span>Tahun Ajaran ${siteData.sekolah.tahunAjaran}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 4. NAVIGASI UTAMA & PENANDA MENU AKTIF
+    // =========================================================================
+    const pageTitles = {
+      'beranda': 'Beranda',
+      'profil': 'Profil Sekolah',
+      'ptk-guru': 'PTK • Guru',
+      'ptk-tendik': 'PTK • Tenaga Administrasi',
+      'siswa-rombel': 'Siswa • Data & Rombel',
+      'siswa-pencapaian': 'Siswa • Pencapaian',
+      'ekskul-daftar': 'Ekstrakurikuler • Daftar & Kegiatan',
+      'ekskul-pencapaian': 'Ekstrakurikuler • Pencapaian',
+      'pengumuman': 'Pengumuman Sekolah',
+      'admin': 'Pengaturan Admin & Data JSON'
+    };
+
+    function navigate(page) {
+      if (page === 'admin' && !adminState.unlocked) {
+        page = 'beranda';
+      }
+      currentPage = page;
+      document.querySelectorAll('.top-dropdown').forEach(dd => dd.classList.add('hidden'));
+      const pageTitleEl = document.getElementById('page-title');
+      if (pageTitleEl) pageTitleEl.textContent = pageTitles[page] || 'Portal Sekolah';
+
+      // Highlight Sidebar Active
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        const isActive = btn.getAttribute('data-nav') === page;
+        if (isActive) {
+          btn.classList.add('bg-gradient-to-r', 'from-[#8fc5fb]', 'to-[#b9dcff]', 'text-[#062d68]', 'font-extrabold', 'border-l-4', 'border-[#0b469e]', 'shadow-xs');
+          btn.classList.remove('text-[#09254d]', 'text-slate-700');
+        } else {
+          btn.classList.remove('bg-gradient-to-r', 'from-[#8fc5fb]', 'to-[#b9dcff]', 'text-[#062d68]', 'font-extrabold', 'border-l-4', 'border-[#0b469e]', 'shadow-xs');
+          btn.classList.add('text-[#09254d]');
+        }
+      });
+
+      // Highlight Top Nav Active
+      document.querySelectorAll('.top-nav-item').forEach(btn => {
+        const key = btn.getAttribute('data-topnav');
+        const activeMatch =
+          key === page ||
+          (key === 'ptk' && page.startsWith('ptk-')) ||
+          (key === 'siswa' && page.startsWith('siswa-')) ||
+          (key === 'ekskul' && page.startsWith('ekskul-'));
+        if (activeMatch) {
+          btn.classList.add('bg-white', 'text-[#062d68]', 'font-extrabold', 'shadow');
+          btn.classList.remove('text-sky-100');
+        } else {
+          btn.classList.remove('bg-white', 'text-[#062d68]', 'font-extrabold', 'shadow');
+          btn.classList.add('text-sky-100');
+        }
+      });
+
+      if (window.innerWidth < 768) {
+        isSidebarOpen = false;
+        applySidebarLayout();
+      }
+      renderPage(page);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderPage(page) {
+      const container = document.getElementById('app-content');
+      if (!container) return;
+      switch (page) {
+        case 'beranda':
+          container.innerHTML = renderBerandaPage();
+          break;
+        case 'profil':
+          container.innerHTML = renderProfilPage();
+          break;
+        case 'ptk-guru':
+          container.innerHTML = renderPtkPage('guru');
+          break;
+        case 'ptk-tendik':
+          container.innerHTML = renderPtkPage('tendik');
+          break;
+        case 'siswa-rombel':
+          container.innerHTML = renderRombelPage();
+          break;
+        case 'siswa-pencapaian':
+          container.innerHTML = renderPencapaianSiswaPage();
+          break;
+        case 'ekskul-daftar':
+          container.innerHTML = renderEkskulDaftarPage();
+          break;
+        case 'ekskul-pencapaian':
+          container.innerHTML = renderEkskulPencapaianPage();
+          break;
+        case 'pengumuman':
+          container.innerHTML = renderPengumumanPage();
+          break;
+        case 'admin':
+          container.innerHTML = renderAdminPage();
+          break;
+        default:
+          container.innerHTML = renderBerandaPage();
+      }
+    }
+
+    // =========================================================================
+    // 5. HALAMAN BERANDA LENGKAP
+    // =========================================================================
+    function renderBerandaPage() {
+      const s = siteData.sekolah;
+      const st = siteData.statistik;
+      const quickMenus = [
+        { label: 'Profil Sekolah', desc: 'Visi, Misi & Identitas', icon: 'fa-school', page: 'profil' },
+        { label: 'Direktori Guru', desc: `${st.guru} Tenaga Pendidik`, icon: 'fa-chalkboard-teacher', page: 'ptk-guru' },
+        { label: 'Tenaga Administrasi', desc: `${st.tendik} Staf Tata Usaha`, icon: 'fa-user-tie', page: 'ptk-tendik' },
+        { label: 'Data & Rombel', desc: `${st.rombel} Rombongan Belajar`, icon: 'fa-users', page: 'siswa-rombel' },
+        { label: 'Prestasi Siswa', desc: 'Juara Kelas & Olimpiade', icon: 'fa-medal', page: 'siswa-pencapaian' },
+        { label: 'Ekstrakurikuler', desc: `${siteData.ekskul.length} Bidang Bakat`, icon: 'fa-campground', page: 'ekskul-daftar' },
+        { label: 'Prestasi Ekskul', desc: `${siteData.rekapEkskul.total} Piala & Medali`, icon: 'fa-trophy', page: 'ekskul-pencapaian' },
+        { label: 'Pengumuman', desc: 'Info Resmi Sekolah', icon: 'fa-bullhorn', page: 'pengumuman' }
+      ];
+
+      return `
+        <div class="animate-page space-y-8">
+          <!-- Hero Utama Beranda -->
+          <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#062d68] via-[#0b469e] to-[#1d63dc] text-white shadow-xl border-b-4 border-[#eab308]">
+            <div class="absolute inset-0 songket-pattern opacity-20 pointer-events-none"></div>
+            <div class="relative z-10 p-6 sm:p-10 lg:p-12 grid lg:grid-cols-12 gap-8 items-center">
+              <div class="lg:col-span-7 space-y-4">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-amber-300/40 text-xs font-bold text-amber-200">
+                  <i class="fas fa-sparkles text-amber-300"></i>
+                  <span>Portal Resmi Informasi Pendidikan • ${s.kabupaten}</span>
+                </span>
+                <h1 class="text-2xl sm:text-4xl lg:text-[40px] font-extrabold leading-tight tracking-tight">
+                  Selamat Datang di <span class="text-amber-300">${s.namaLengkap}</span>
+                </h1>
+                <p class="text-xs sm:text-sm text-sky-100/95 leading-relaxed max-w-2xl">
+                  Mewujudkan generasi cerdas, berkarakter Profil Pelajar Pancasila, unggul dalam prestasi akademik maupun non-akademik, serta peduli lingkungan.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-3">
+                  <button onclick="navigate('profil')" class="px-5 py-2.5 rounded-full bg-white text-[#062d68] font-extrabold text-xs sm:text-sm shadow-lg hover:bg-sky-50 transition cursor-pointer flex items-center gap-2">
+                    <span>Jelajahi Profil</span>
+                    <i class="fas fa-arrow-right text-xs"></i>
+                  </button>
+                  <button onclick="navigate('pengumuman')" class="px-5 py-2.5 rounded-full bg-white/15 hover:bg-white/25 border border-amber-300/45 text-white font-semibold text-xs sm:text-sm transition cursor-pointer flex items-center gap-2">
+                    <i class="fas fa-bullhorn text-xs text-amber-300"></i>
+                    <span>Pengumuman Terbaru</span>
+                  </button>
+                </div>
+              </div>
+              <div class="lg:col-span-5">
+                <div class="relative rounded-2xl overflow-hidden border-2 border-amber-300/50 shadow-2xl">
+                  <img src="${s.heroBannerUrl}" onerror="this.src='https://placehold.co/720x420/0b469e/fde047?text=SMP+Negeri+02+Martapura'" alt="Gedung SMPN 02 Martapura" class="w-full h-56 sm:h-64 object-cover" />
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#062d68] via-[#062d68]/85 to-transparent p-4 flex items-center justify-between">
+                    <div>
+                      <p class="text-xs font-bold text-white">NPSN: ${s.npsn}</p>
+                      <p class="text-[11px] text-amber-200">Akreditasi ${s.akreditasi}</p>
+                    </div>
+                    <span class="px-3 py-1 rounded-full bg-amber-400/20 border border-amber-300/50 text-[11px] font-bold text-amber-200">
+                      ${s.kurikulum}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8 Kartu Menu Cepat -->
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2.5">
+                <span class="w-8 h-8 rounded-xl bg-[#062d68] text-amber-300 flex items-center justify-center text-sm shadow"><i class="fas fa-th-large"></i></span>
+                <span>Akses Cepat Layanan Sekolah</span>
+              </h2>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4">
+              ${quickMenus.map(m => `
+                <button onclick="navigate('${m.page}')" class="glossy-panel card-hover rounded-2xl p-4 text-left flex flex-col justify-between gap-3 cursor-pointer group">
+                  <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 border border-blue-200 text-[#0b469e] group-hover:from-[#062d68] group-hover:to-[#1d63dc] group-hover:text-amber-300 flex items-center justify-center text-lg transition-all shadow-2xs">
+                    <i class="fas ${m.icon}"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xs sm:text-sm font-bold text-[#062d68] group-hover:text-[#0b469e] transition">${m.label}</h3>
+                    <p class="text-[11px] text-slate-500 mt-0.5">${m.desc}</p>
+                  </div>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Sambutan Kepala Sekolah & Sekilas Sekolah -->
+          <div class="grid lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-7 glossy-panel rounded-3xl p-6 sm:p-7 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+              <div class="flex-shrink-0 text-center">
+                <img src="${s.kepalaSekolah.fotoUrl}" onerror="this.src='https://placehold.co/240x280/0b469e/fde047?text=Kepala+Sekolah'" alt="${s.kepalaSekolah.nama}" class="w-32 h-36 sm:w-36 sm:h-44 object-cover rounded-2xl border-2 border-blue-200 shadow-md mx-auto" />
+                <span class="inline-block mt-2.5 px-3 py-1 rounded-full bg-[#062d68] text-amber-300 text-[10px] font-bold">Kepala Sekolah</span>
+              </div>
+              <div class="space-y-3 text-center sm:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-[#062d68] text-[11px] font-bold">
+                  <i class="fas fa-quote-left text-amber-500"></i>
+                  <span>Sambutan Kepala Sekolah</span>
+                </div>
+                <h3 class="text-lg font-extrabold text-[#062d68]">${s.kepalaSekolah.nama}</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${s.kepalaSekolah.sambutan}</p>
+                <p class="text-[11px] font-semibold text-slate-400">NIP. ${s.kepalaSekolah.nip}</p>
+              </div>
+            </div>
+
+            <!-- Statistik Sekolah 4 Kotak -->
+            <div class="lg:col-span-5 rounded-3xl p-6 sm:p-7 flex flex-col justify-between bg-gradient-to-br from-[#062d68] to-[#0b469e] text-white border-b-4 border-[#eab308] shadow-lg">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300">Data Pokok Pendidikan</span>
+                <h3 class="text-lg font-extrabold mt-1">Statistik Warga Sekolah</h3>
+                <p class="text-xs text-sky-100/85 mt-1">Rekapitulasi data aktif Tahun Ajaran ${s.tahunAjaran}</p>
+              </div>
+              <div class="grid grid-cols-2 gap-3.5 mt-5">
+                <div class="p-4 rounded-2xl bg-white/10 border border-white/15">
+                  <p class="text-2xl sm:text-3xl font-extrabold text-white">${st.pesertaDidik}</p>
+                  <p class="text-xs text-sky-100 mt-0.5">Peserta Didik</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-white/10 border border-white/15">
+                  <p class="text-2xl sm:text-3xl font-extrabold text-amber-300">${st.guru}</p>
+                  <p class="text-xs text-sky-100 mt-0.5">Tenaga Pendidik</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-white/10 border border-white/15">
+                  <p class="text-2xl sm:text-3xl font-extrabold text-amber-300">${st.tendik}</p>
+                  <p class="text-xs text-sky-100 mt-0.5">Tenaga Kependidikan</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-white/10 border border-white/15">
+                  <p class="text-2xl sm:text-3xl font-extrabold text-white">${st.rombel}</p>
+                  <p class="text-xs text-sky-100 mt-0.5">Rombongan Belajar</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pengumuman Terbaru & Agenda Kegiatan -->
+          <div class="grid lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-8 glossy-panel rounded-3xl overflow-hidden">
+              <div class="px-6 py-4 royal-panel-header text-white flex items-center justify-between">
+                <h3 class="text-base sm:text-lg font-extrabold flex items-center gap-2.5">
+                  <i class="fas fa-bullhorn text-amber-300"></i>
+                  <span>Pengumuman Terbaru</span>
+                </h3>
+                <button onclick="navigate('pengumuman')" class="text-xs font-bold text-amber-300 hover:underline cursor-pointer">Lihat Semua →</button>
+              </div>
+              <div class="p-5 space-y-3">
+                ${siteData.pengumuman.slice(0, 3).map(p => `
+                  <div onclick="openPengumumanModal(${p.id})" class="p-4 rounded-2xl bg-white hover:bg-sky-50/90 border border-blue-200/80 transition cursor-pointer flex items-center justify-between gap-4 shadow-2xs">
+                    <div class="space-y-1">
+                      <div class="flex items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded-full bg-[#0b469e] text-white text-[10px] font-bold">${p.kategori}</span>
+                        <span class="text-[11px] text-slate-500"><i class="far fa-calendar-alt mr-1"></i>${p.tanggal}</span>
+                      </div>
+                      <h4 class="text-sm font-extrabold text-[#062d68]">${p.judul}</h4>
+                      <p class="text-xs text-slate-600 line-clamp-2">${p.ringkasan}</p>
+                    </div>
+                    <span class="royal-pill-btn w-9 h-9 rounded-full text-white flex items-center justify-center flex-shrink-0">
+                      <i class="fas fa-arrow-right text-xs"></i>
+                    </span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 glossy-panel rounded-3xl overflow-hidden">
+              <div class="px-6 py-4 royal-panel-header text-white">
+                <h3 class="text-base sm:text-lg font-extrabold flex items-center gap-2.5">
+                  <i class="fas fa-calendar-check text-amber-300"></i>
+                  <span>Agenda Sekolah</span>
+                </h3>
+              </div>
+              <div class="p-5 space-y-3">
+                ${siteData.agenda.map(ag => `
+                  <div class="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-blue-100 shadow-2xs">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#062d68] to-[#0b469e] text-white border-b-2 border-[#eab308] flex flex-col items-center justify-center flex-shrink-0">
+                      <span class="text-xs font-extrabold leading-none">${ag.tanggal.split(' ')[0]}</span>
+                      <span class="text-[10px] text-amber-300 mt-0.5">${ag.tanggal.split(' ')[1] || ''}</span>
+                    </div>
+                    <div class="min-w-0">
+                      <h4 class="text-xs font-bold text-[#062d68] truncate">${ag.judul}</h4>
+                      <p class="text-[11px] text-slate-500 mt-0.5 truncate">${ag.waktu}</p>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+
+          <!-- Berita & Dokumentasi Kegiatan -->
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2.5">
+                <span class="w-8 h-8 rounded-xl bg-[#062d68] text-amber-300 flex items-center justify-center text-sm shadow"><i class="fas fa-newspaper"></i></span>
+                <span>Berita & Kegiatan Terbaru</span>
+              </h3>
+            </div>
+            <div class="grid md:grid-cols-3 gap-5">
+              ${siteData.berita.map(b => `
+                <article class="glossy-panel card-hover rounded-3xl overflow-hidden flex flex-col">
+                  <div class="relative h-44 bg-[#062d68]">
+                    <img src="${b.gambar}" onerror="this.src='https://placehold.co/600x360/0b469e/fde047?text=Berita+Sekolah'" alt="${b.judul}" class="w-full h-full object-cover" />
+                    <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#062d68]/95 text-amber-300 text-[10px] font-bold border border-amber-300/40">${b.kategori}</span>
+                  </div>
+                  <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                      <p class="text-[11px] text-slate-400 font-medium">${b.tanggal}</p>
+                      <h4 class="text-sm font-extrabold text-[#062d68] mt-1 leading-snug">${b.judul}</h4>
+                      <p class="text-xs text-slate-600 mt-2 leading-relaxed">${b.ringkasan}</p>
+                    </div>
+                  </div>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Footer Informasi Kontak -->
+          <footer class="rounded-3xl bg-gradient-to-r from-[#062d68] via-[#0b469e] to-[#062d68] text-white p-6 sm:p-8 shadow-lg border-t-4 border-[#eab308]">
+            <div class="grid md:grid-cols-3 gap-6 text-xs">
+              <div class="space-y-2">
+                <h4 class="text-sm font-extrabold text-amber-300">${s.namaLengkap}</h4>
+                <p class="text-sky-100/90 leading-relaxed">${s.alamat}</p>
+              </div>
+              <div class="space-y-1.5">
+                <h4 class="text-sm font-extrabold text-amber-300">Kontak Resmi</h4>
+                <p class="text-sky-100/90"><i class="fas fa-phone mr-2 text-amber-300"></i>${s.telepon}</p>
+                <p class="text-sky-100/90"><i class="fas fa-envelope mr-2 text-amber-300"></i>${s.email}</p>
+                <p class="text-sky-100/90"><i class="fas fa-globe mr-2 text-amber-300"></i>${s.website}</p>
+              </div>
+              <div class="space-y-1.5">
+                <h4 class="text-sm font-extrabold text-amber-300">Jam Layanan Tata Usaha</h4>
+                <p class="text-sky-100/90">Senin – Kamis: 07.15 – 14.30 WIB</p>
+                <p class="text-sky-100/90">Jumat: 07.15 – 11.30 WIB</p>
+                <p class="text-sky-100/90">Sabtu: 07.15 – 13.00 WIB</p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 6. HALAMAN PROFIL SEKOLAH
+    // =========================================================================
+    function renderProfilPage() {
+      const s = siteData.sekolah;
+      const sarana = [
+        { nama: 'Ruang Kelas Nyaman', jumlah: '21 Ruang', ikon: 'fa-door-open' },
+        { nama: 'Laboratorium IPA', jumlah: '2 Ruang', ikon: 'fa-microscope' },
+        { nama: 'Laboratorium Komputer', jumlah: '2 Ruang', ikon: 'fa-desktop' },
+        { nama: 'Perpustakaan Digital', jumlah: '1 Gedung', ikon: 'fa-book-open' },
+        { nama: 'Musholla Al-Ikhlas', jumlah: '1 Unit', ikon: 'fa-mosque' },
+        { nama: 'Lapangan Olahraga', jumlah: '2 Area', ikon: 'fa-futbol' }
+      ];
+      return `
+        <div class="animate-page space-y-6">
+          ${buildPageHero({
+            icon: 'fa-school',
+            title: 'Profil Sekolah',
+            subtitle: `Identitas, Pimpinan, Struktur Organisasi, Sarana Prasarana, serta Visi & Misi ${s.namaLengkap}.`,
+            breadcrumb: ['Profil Sekolah']
+          })}
+
+          <!-- 1. Identitas Sekolah -->
+          <div class="glossy-panel rounded-3xl p-6 sm:p-7 space-y-5">
+            <h2 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2.5">
+              <span class="w-9 h-9 rounded-xl bg-[#062d68] text-amber-300 flex items-center justify-center text-sm shadow"><i class="fas fa-id-card"></i></span>
+              <span>Identitas Sekolah</span>
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="p-4 rounded-2xl bg-white border border-blue-200/80 shadow-2xs">
+                <p class="text-[11px] font-semibold text-slate-500">NPSN</p>
+                <p class="text-base font-extrabold text-[#062d68] mt-1">${s.npsn}</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white border border-blue-200/80 shadow-2xs">
+                <p class="text-[11px] font-semibold text-slate-500">Status Sekolah</p>
+                <p class="text-base font-extrabold text-[#062d68] mt-1">${s.status}</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white border border-blue-200/80 shadow-2xs">
+                <p class="text-[11px] font-semibold text-slate-500">Akreditasi</p>
+                <p class="text-base font-extrabold text-emerald-700 mt-1">${s.akreditasi}</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white border border-blue-200/80 shadow-2xs">
+                <p class="text-[11px] font-semibold text-slate-500">Kurikulum</p>
+                <p class="text-base font-extrabold text-[#0b469e] mt-1">${s.kurikulum}</p>
+              </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-3 text-xs bg-white/80 p-4 rounded-2xl border border-blue-100">
+              <p><span class="font-bold text-[#062d68]">Alamat Lengkap:</span> ${s.alamat}</p>
+              <p><span class="font-bold text-[#062d68]">Email & Telepon:</span> ${s.email} • ${s.telepon}</p>
+            </div>
+          </div>
+
+          <!-- 2. Visi & Misi -->
+          <div class="grid lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-5 rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-[#062d68] to-[#0b469e] text-white border-b-4 border-[#eab308] shadow-lg">
+              <span class="px-3 py-1 rounded-full bg-amber-400/20 border border-amber-300/40 text-[11px] font-bold text-amber-200">Visi Sekolah</span>
+              <h3 class="text-lg font-extrabold mt-3 leading-snug">“${s.visi}”</h3>
+            </div>
+            <div class="lg:col-span-7 glossy-panel rounded-3xl p-6 sm:p-7">
+              <h3 class="text-base sm:text-lg font-extrabold text-[#062d68] mb-3 flex items-center gap-2">
+                <i class="fas fa-bullseye text-[#0b469e]"></i>
+                <span>Misi Sekolah</span>
+              </h3>
+              <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700">
+                ${s.misi.map((m, i) => `
+                  <li class="flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-full bg-[#062d68] text-amber-300 font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">${i + 1}</span>
+                    <span>${m}</span>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. Struktur Organisasi & Pimpinan -->
+          <div class="glossy-panel rounded-3xl p-6 sm:p-7 space-y-5">
+            <h3 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2">
+              <i class="fas fa-sitemap text-[#0b469e]"></i>
+              <span>Struktur Pimpinan Sekolah</span>
+            </h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="p-4 rounded-2xl bg-gradient-to-b from-amber-50/70 to-white border border-amber-200 text-center">
+                <span class="text-[10px] font-extrabold uppercase text-amber-700">Kepala Sekolah</span>
+                <p class="text-sm font-extrabold text-[#062d68] mt-1">${s.kepalaSekolah.nama}</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">NIP. ${s.kepalaSekolah.nip}</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white border border-blue-100 text-center">
+                <span class="text-[10px] font-extrabold uppercase text-[#0b469e]">Wakil Bidang Kurikulum</span>
+                <p class="text-sm font-extrabold text-[#062d68] mt-1">Hj. Siti Aminah, S.Pd., M.Pd.</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Pembina Tk. I</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white border border-blue-100 text-center">
+                <span class="text-[10px] font-extrabold uppercase text-[#0b469e]">Wakil Bidang Kesiswaan</span>
+                <p class="text-sm font-extrabold text-[#062d68] mt-1">Budi Santoso, S.Pd.</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Penata Tk. I</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white border border-blue-100 text-center">
+                <span class="text-[10px] font-extrabold uppercase text-[#0b469e]">Kepala Tata Usaha</span>
+                <p class="text-sm font-extrabold text-[#062d68] mt-1">Hendra Wijaya, S.E.</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Koordinator Administrasi</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Sarana & Prasarana -->
+          <div class="glossy-panel rounded-3xl p-6 sm:p-7 space-y-4">
+            <h3 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2">
+              <i class="fas fa-building text-[#0b469e]"></i>
+              <span>Sarana & Prasarana Utama</span>
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+              ${sarana.map(sr => `
+                <div class="p-4 rounded-2xl bg-white border border-blue-200/80 text-center shadow-2xs">
+                  <div class="w-10 h-10 rounded-xl bg-[#062d68] text-amber-300 flex items-center justify-center mx-auto mb-2.5 text-sm">
+                    <i class="fas ${sr.ikon}"></i>
+                  </div>
+                  <p class="text-xs font-bold text-[#062d68]">${sr.nama}</p>
+                  <p class="text-[11px] font-extrabold text-[#0b469e] mt-1">${sr.jumlah}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 7. HALAMAN DIREKTORI PTK (MODE GESER HORIZONTAL + FILTER)
+    // =========================================================================
+    function renderPtkPage(defaultTab) {
+      if (defaultTab && (currentPage === 'ptk-guru' || currentPage === 'ptk-tendik')) {
+        ptkState.tab = defaultTab;
+      }
+      const activeTab = ptkState.tab;
+      const q = ptkState.search.toLowerCase();
+      const filtered = siteData.ptk.filter(item => {
+        const matchTab = activeTab === 'semua' || item.kategori === activeTab;
+        const matchStatus = ptkState.filter === 'Semua' || item.status === ptkState.filter;
+        const matchQuery = !q || item.nama.toLowerCase().includes(q) || item.jabatan.toLowerCase().includes(q) || item.nip.includes(q);
+        return matchTab && matchStatus && matchQuery;
+      });
+      const totalGuru = siteData.ptk.filter(p => p.kategori === 'guru').length;
+      const totalTendik = siteData.ptk.filter(p => p.kategori === 'tendik').length;
+
+      return `
+        <div class="animate-page space-y-6">
+          ${buildPageHero({
+            icon: 'fa-chalkboard-teacher',
+            title: activeTab === 'tendik' ? 'Direktori Tenaga Administrasi' : 'Direktori Pendidik & Tenaga Kependidikan',
+            subtitle: 'Profil Guru dan Staf Tata Usaha profesional SMP Negeri 02 Martapura.',
+            breadcrumb: ['PTK', activeTab === 'tendik' ? 'Tenaga Administrasi' : 'Guru']
+          })}
+
+          <!-- 4 Kartu Statistik PTK -->
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="glossy-panel rounded-2xl p-4 flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-sky-100 text-[#062d68] flex items-center justify-center text-lg"><i class="fas fa-users"></i></div>
+              <div>
+                <p class="text-xl font-extrabold text-[#062d68]">${siteData.statistik.guru + siteData.statistik.tendik}</p>
+                <p class="text-xs text-slate-500">Total PTK Aktif</p>
+              </div>
+            </div>
+            <div class="glossy-panel rounded-2xl p-4 flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-blue-100 text-[#0b469e] flex items-center justify-center text-lg"><i class="fas fa-chalkboard-user"></i></div>
+              <div>
+                <p class="text-xl font-extrabold text-[#062d68]">${siteData.statistik.guru}</p>
+                <p class="text-xs text-slate-500">Tenaga Pendidik (Guru)</p>
+              </div>
+            </div>
+            <div class="glossy-panel rounded-2xl p-4 flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg"><i class="fas fa-user-tie"></i></div>
+              <div>
+                <p class="text-xl font-extrabold text-[#062d68]">${siteData.statistik.tendik}</p>
+                <p class="text-xs text-slate-500">Tenaga Administrasi</p>
+              </div>
+            </div>
+            <div class="glossy-panel rounded-2xl p-4 flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg"><i class="fas fa-certificate"></i></div>
+              <div>
+                <p class="text-xl font-extrabold text-[#062d68]">94%</p>
+                <p class="text-xs text-slate-500">Tersertifikasi Pendidik</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bar Tab Kategori + Filter & Pencarian -->
+          <div class="glossy-panel rounded-3xl p-5 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div class="flex flex-wrap gap-2">
+                <button onclick="setPtkTab('semua')" class="px-4 py-2 rounded-full text-xs font-bold transition cursor-pointer ${activeTab === 'semua' ? 'bg-[#062d68] text-white shadow' : 'bg-white text-[#0b469e] border border-blue-200 hover:bg-sky-50'}">
+                  Semua PTK (${totalGuru + totalTendik})
+                </button>
+                <button onclick="setPtkTab('guru')" class="px-4 py-2 rounded-full text-xs font-bold transition cursor-pointer ${activeTab === 'guru' ? 'bg-[#062d68] text-white shadow' : 'bg-white text-[#0b469e] border border-blue-200 hover:bg-sky-50'}">
+                  Guru (${totalGuru})
+                </button>
+                <button onclick="setPtkTab('tendik')" class="px-4 py-2 rounded-full text-xs font-bold transition cursor-pointer ${activeTab === 'tendik' ? 'bg-[#062d68] text-white shadow' : 'bg-white text-[#0b469e] border border-blue-200 hover:bg-sky-50'}">
+                  Tenaga Administrasi (${totalTendik})
+                </button>
+              </div>
+              <div class="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
+                <select onchange="ptkState.filter = this.value; renderPage(currentPage)" class="px-3.5 py-2 rounded-full bg-white border border-blue-200 text-xs font-semibold text-[#062d68] focus:outline-none">
+                  <option value="Semua" ${ptkState.filter === 'Semua' ? 'selected' : ''}>Semua Status</option>
+                  <option value="PNS" ${ptkState.filter === 'PNS' ? 'selected' : ''}>PNS</option>
+                  <option value="PPPK" ${ptkState.filter === 'PPPK' ? 'selected' : ''}>PPPK</option>
+                  <option value="Honorer" ${ptkState.filter === 'Honorer' ? 'selected' : ''}>Honorer</option>
+                </select>
+                <div class="relative flex-1 sm:w-60">
+                  <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                  <input type="text" value="${ptkState.search}" oninput="ptkState.search = this.value; renderPage(currentPage)" placeholder="Cari nama / mapel..." class="w-full pl-9 pr-3 py-2 rounded-full bg-white border border-blue-200 text-xs focus:outline-none focus:border-[#0b469e]" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Kontrol Geser Carousel PTK -->
+            <div class="flex items-center justify-between pt-2 border-t border-blue-100">
+              <p class="text-xs text-slate-500">Geser ke samping atau gunakan tombol panah untuk melihat profil lengkap (${filtered.length} ditampilkan)</p>
+              <div class="flex items-center gap-2">
+                <button onclick="scrollCarousel('ptkCarousel', -320)" class="w-9 h-9 rounded-full bg-white hover:bg-[#062d68] text-[#062d68] hover:text-white border border-blue-200 flex items-center justify-center transition cursor-pointer">
+                  <i class="fas fa-chevron-left text-xs"></i>
+                </button>
+                <button onclick="scrollCarousel('ptkCarousel', 320)" class="w-9 h-9 rounded-full bg-white hover:bg-[#062d68] text-[#062d68] hover:text-white border border-blue-200 flex items-center justify-center transition cursor-pointer">
+                  <i class="fas fa-chevron-right text-xs"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Carousel Kartu PTK Mode Geser Horizontal -->
+            <div id="ptkCarousel" class="flex gap-4 overflow-x-auto no-scrollbar pb-2 scroll-smooth">
+              ${filtered.length ? filtered.map(p => `
+                <div class="min-w-[250px] sm:min-w-[270px] rounded-3xl bg-gradient-to-b from-white to-sky-50/80 border border-blue-200/90 p-5 flex flex-col items-center text-center shadow-xs card-hover flex-shrink-0">
+                  <div class="relative mb-3">
+                    <img src="${p.foto}" onerror="this.src='https://placehold.co/200x200/0b469e/fde047?text=PTK'" alt="${p.nama}" class="w-20 h-20 rounded-2xl object-cover border-2 border-blue-200 shadow" />
+                    <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-[#062d68] text-amber-300 text-[10px] font-bold shadow">
+                      ${p.status}
+                    </span>
+                  </div>
+                  <h4 class="text-sm font-extrabold text-[#062d68] mt-1 line-clamp-1">${p.nama}</h4>
+                  <p class="text-xs font-semibold text-[#0b469e] mt-1">${p.jabatan}</p>
+                  <p class="text-[11px] text-slate-400 mt-2 font-mono">NIP. ${p.nip}</p>
+                </div>
+              `).join('') : `<p class="text-xs text-slate-500 py-8 text-center w-full">Tidak ada data PTK yang cocok dengan filter pencarian.</p>`}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function setPtkTab(tab) {
+      ptkState.tab = tab;
+      currentPage = 'ptk-custom';
+      renderPage('ptk-custom');
+    }
+
+    function scrollCarousel(id, offset) {
+      const el = document.getElementById(id);
+      if (el) el.scrollBy({ left: offset, behavior: 'smooth' });
+    }
+
+    // =========================================================================
+    // 8. HALAMAN SISWA – DATA & ROMBEL (6 / 8 / 7 SLOT KELAS)
+    // =========================================================================
+    function renderRombelPage() {
+      const list = siteData.rombel[rombelActive] || [];
+      const totalVII = siteData.rombel.VII.reduce((a, b) => a + b.laki + b.perempuan, 0);
+      const totalVIII = siteData.rombel.VIII.reduce((a, b) => a + b.laki + b.perempuan, 0);
+      const totalIX = siteData.rombel.IX.reduce((a, b) => a + b.laki + b.perempuan, 0);
+
+      return `
+        <div class="animate-page space-y-6">
+          ${buildPageHero({
+            icon: 'fa-users',
+            title: 'Data Peserta Didik & Rombongan Belajar',
+            subtitle: 'Sebaran jumlah siswa dan wali kelas per rombongan belajar Tingkat VII (6 Kelas), VIII (8 Kelas), dan IX (7 Kelas).',
+            breadcrumb: ['Siswa', 'Data & Rombel']
+          })}
+
+          <!-- 4 Kartu Ringkasan Siswa -->
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="glossy-panel rounded-2xl p-4">
+              <p class="text-xs text-slate-500 font-semibold">Total Peserta Didik</p>
+              <p class="text-2xl font-extrabold text-[#062d68] mt-1">${totalVII + totalVIII + totalIX} <span class="text-xs font-normal text-slate-400">Siswa</span></p>
+            </div>
+            <div class="glossy-panel rounded-2xl p-4">
+              <p class="text-xs text-slate-500 font-semibold">Tingkat VII (${siteData.rombel.VII.length} Rombel)</p>
+              <p class="text-2xl font-extrabold text-[#0b469e] mt-1">${totalVII} <span class="text-xs font-normal text-slate-400">Siswa</span></p>
+            </div>
+            <div class="glossy-panel rounded-2xl p-4">
+              <p class="text-xs text-slate-500 font-semibold">Tingkat VIII (${siteData.rombel.VIII.length} Rombel)</p>
+              <p class="text-2xl font-extrabold text-[#1d63dc] mt-1">${totalVIII} <span class="text-xs font-normal text-slate-400">Siswa</span></p>
+            </div>
+            <div class="glossy-panel rounded-2xl p-4">
+              <p class="text-xs text-slate-500 font-semibold">Tingkat IX (${siteData.rombel.IX.length} Rombel)</p>
+              <p class="text-2xl font-extrabold text-amber-600 mt-1">${totalIX} <span class="text-xs font-normal text-slate-400">Siswa</span></p>
+            </div>
+          </div>
+
+          <!-- Pemilih Tingkat Kelas -->
+          <div class="glossy-panel rounded-3xl p-6 space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div class="flex flex-wrap gap-2">
+                ${['VII', 'VIII', 'IX'].map(tk => `
+                  <button onclick="rombelActive = '${tk}'; renderPage('siswa-rombel')" class="px-5 py-2.5 rounded-full text-xs font-extrabold transition cursor-pointer ${rombelActive === tk ? 'bg-[#062d68] text-white shadow-md' : 'bg-white text-[#0b469e] hover:bg-sky-50 border border-blue-200'}">
+                    Tingkat ${tk} (${siteData.rombel[tk].length} Slot Kelas)
+                  </button>
+                `).join('')}
+              </div>
+              <span class="text-xs font-semibold text-slate-500">Klik kartu kelas untuk melihat rincian</span>
+            </div>
+
+            <!-- Grid Slot Kelas -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              ${list.map(r => {
+                const total = r.laki + r.perempuan;
+                return `
+                  <div onclick="openRombelModal('${rombelActive}', '${r.kelas}')" class="rounded-2xl bg-gradient-to-br from-white to-sky-50/80 border border-blue-200 p-5 card-hover cursor-pointer space-y-3">
+                    <div class="flex items-center justify-between">
+                      <span class="px-3.5 py-1 rounded-xl bg-[#062d68] text-amber-300 font-extrabold text-sm">Kelas ${r.kelas}</span>
+                      <span class="text-xs font-bold text-[#0b469e] bg-blue-100 px-2.5 py-1 rounded-full">${total} Siswa</span>
+                    </div>
+                    <div>
+                      <p class="text-[11px] text-slate-400">Wali Kelas</p>
+                      <p class="text-xs font-bold text-[#062d68] mt-0.5 truncate">${r.wali}</p>
+                    </div>
+                    <div class="pt-2 border-t border-blue-100 flex items-center justify-between text-[11px] text-slate-600">
+                      <span><i class="fas fa-mars text-[#0b469e] mr-1"></i>L: <b>${r.laki}</b></span>
+                      <span><i class="fas fa-venus text-cyan-600 mr-1"></i>P: <b>${r.perempuan}</b></span>
+                      <span class="text-slate-400">${r.ruangan}</span>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function openRombelModal(tingkat, kelasNama) {
+      const r = (siteData.rombel[tingkat] || []).find(item => item.kelas === kelasNama);
+      if (!r) return;
+      openGlobalModal(`Rincian Rombongan Belajar • Kelas ${r.kelas}`, `
+        <div class="space-y-4">
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div class="p-3.5 rounded-2xl bg-sky-50 border border-blue-200">
+              <p class="text-slate-500">Wali Kelas</p>
+              <p class="font-bold text-[#062d68] mt-0.5">${r.wali}</p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-sky-50 border border-blue-200">
+              <p class="text-slate-500">Lokasi Ruang</p>
+              <p class="font-bold text-[#062d68] mt-0.5">${r.ruangan}</p>
+            </div>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#062d68] text-white border-b-2 border-[#eab308] flex items-center justify-around text-center">
+            <div>
+              <p class="text-xl font-extrabold text-amber-300">${r.laki}</p>
+              <p class="text-[11px] text-sky-100">Siswa Laki-laki</p>
+            </div>
+            <div class="h-8 w-px bg-white/20"></div>
+            <div>
+              <p class="text-xl font-extrabold text-amber-300">${r.perempuan}</p>
+              <p class="text-[11px] text-sky-100">Siswa Perempuan</p>
+            </div>
+            <div class="h-8 w-px bg-white/20"></div>
+            <div>
+              <p class="text-xl font-extrabold text-white">${r.laki + r.perempuan}</p>
+              <p class="text-[11px] text-sky-100">Total Siswa</p>
+            </div>
+          </div>
+        </div>
+      `);
+    }
+
+    // =========================================================================
+    // 9. HALAMAN SISWA – PENCAPAIAN, JUARA KELAS & JUARA UMUM PER TINGKAT
+    // =========================================================================
+    function renderPencapaianSiswaPage() {
+      const tk = pencapaianState.juaraTingkat;
+      const listJuaraKelas = siteData.juaraKelas[tk] || [];
+      const listJuaraUmum = siteData.juaraUmum[tk] || [];
+
+      return `
+        <div class="animate-page space-y-6">
+          ${buildPageHero({
+            icon: 'fa-medal',
+            title: 'Pencapaian & Prestasi Peserta Didik',
+            subtitle: 'Daftar prestasi olimpiade akademik, daftar Juara Kelas, dan Juara Umum terpisah per tingkat VII, VIII, dan IX.',
+            breadcrumb: ['Siswa', 'Pencapaian']
+          })}
+
+          <!-- Prestasi Olimpiade & Kompetisi -->
+          <div class="glossy-panel rounded-3xl p-6 space-y-4">
+            <h2 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2">
+              <i class="fas fa-award text-amber-500"></i>
+              <span>Prestasi Akademik & Kompetisi Siswa</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              ${siteData.prestasiSiswa.map(pr => `
+                <div class="p-4 rounded-2xl bg-gradient-to-r from-white to-sky-50 border border-blue-200 flex items-center gap-4 card-hover">
+                  <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#062d68] to-[#0b469e] text-white flex flex-col items-center justify-center flex-shrink-0 shadow">
+                    <i class="fas fa-medal text-lg text-amber-300"></i>
+                    <span class="text-[10px] font-bold mt-0.5">${pr.medali}</span>
+                  </div>
+                  <div class="min-w-0">
+                    <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-blue-100 text-[#062d68]">${pr.tingkat} • ${pr.tahun}</span>
+                    <h3 class="text-xs sm:text-sm font-extrabold text-[#062d68] mt-1">${pr.judul}</h3>
+                    <p class="text-xs text-slate-600 mt-0.5 font-medium">${pr.siswa}</p>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Filter Tingkat VII / VIII / IX untuk Juara Umum & Juara Kelas -->
+          <div class="glossy-panel rounded-3xl p-6 space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-blue-100 pb-4">
+              <div>
+                <h3 class="text-base sm:text-lg font-extrabold text-[#062d68]">Peringkat Juara Umum & Juara Kelas</h3>
+                <p class="text-xs text-slate-500">Pilih tingkat kelas untuk menampilkan Juara Umum & Juara Kelas masing-masing tingkat</p>
+              </div>
+              <div class="flex gap-2">
+                ${['VII', 'VIII', 'IX'].map(t => `
+                  <button onclick="pencapaianState.juaraTingkat = '${t}'; renderPage('siswa-pencapaian')" class="px-4 py-2 rounded-full text-xs font-extrabold transition cursor-pointer ${tk === t ? 'bg-[#062d68] text-white shadow' : 'bg-white text-[#0b469e] hover:bg-sky-50 border border-blue-200'}">
+                    Tingkat ${t}
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- 3 Kartu Juara Umum Tingkat Terpilih -->
+            <div>
+              <h4 class="text-sm font-extrabold text-[#0b469e] mb-3 flex items-center gap-2">
+                <i class="fas fa-crown text-amber-500"></i>
+                <span>Juara Umum Tingkat ${tk}</span>
+              </h4>
+              <div class="grid md:grid-cols-3 gap-4">
+                ${listJuaraUmum.map(ju => `
+                  <div class="rounded-2xl p-5 bg-gradient-to-br ${ju.peringkat === 1 ? 'from-[#062d68] to-[#0b469e] text-white border-b-4 border-[#eab308]' : 'from-white to-sky-50 text-[#062d68] border border-blue-200'} shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl ${ju.peringkat === 1 ? 'bg-amber-400 text-[#062d68]' : 'bg-[#062d68] text-amber-300'} font-extrabold flex flex-col items-center justify-center flex-shrink-0">
+                      <span class="text-[9px] uppercase">Juara</span>
+                      <span class="text-lg leading-none">${ju.peringkat}</span>
+                    </div>
+                    <div class="min-w-0">
+                      <h5 class="text-sm font-extrabold truncate">${ju.nama}</h5>
+                      <p class="text-xs ${ju.peringkat === 1 ? 'text-sky-100' : 'text-slate-500'} mt-0.5">Kelas ${ju.kelas} • Rata-rata: <b>${ju.rataRata}</b></p>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- Tabel Juara Kelas Tingkat Terpilih -->
+            <div>
+              <h4 class="text-sm font-extrabold text-[#0b469e] mb-3 flex items-center gap-2">
+                <i class="fas fa-list-ol text-[#0b469e]"></i>
+                <span>Daftar Juara Kelas Tingkat ${tk}</span>
+              </h4>
+              <div class="overflow-x-auto rounded-2xl border border-blue-200">
+                <table class="w-full text-left text-xs">
+                  <thead class="bg-[#062d68] text-white">
+                    <tr>
+                      <th class="py-3 px-4 font-bold">Kelas</th>
+                      <th class="py-3 px-4 font-bold">Peringkat 1</th>
+                      <th class="py-3 px-4 font-bold">Peringkat 2</th>
+                      <th class="py-3 px-4 font-bold">Peringkat 3</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-blue-100 bg-white">
+                    ${listJuaraKelas.map(jk => `
+                      <tr class="hover:bg-sky-50/70">
+                        <td class="py-3 px-4 font-extrabold text-[#062d68]">${jk.kelas}</td>
+                        <td class="py-3 px-4 font-bold text-[#0b469e]"><i class="fas fa-medal text-amber-500 mr-1.5"></i>${jk.juara1}</td>
+                        <td class="py-3 px-4 text-slate-700">${jk.juara2}</td>
+                        <td class="py-3 px-4 text-slate-600">${jk.juara3}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 10. HALAMAN EKSTRAKURIKULER – DAFTAR & DETAIL KEGIATAN
+    // =========================================================================
+    function renderEkskulDaftarPage() {
+      const selected = ekskulState.selectedId
+        ? siteData.ekskul.find(e => e.id === ekskulState.selectedId)
+        : null;
+
+      return `
+        <div class="animate-page space-y-6">
+          ${buildPageHero({
+            icon: 'fa-campground',
+            title: 'Ekstrakurikuler & Pengembangan Bakat',
+            subtitle: 'Wadah pembinaan minat, bakat, kepemimpinan, seni, olahraga, dan kerohanian peserta didik SMP Negeri 02 Martapura.',
+            breadcrumb: ['Ekstrakurikuler', 'Daftar & Kegiatan']
+          })}
+
+          ${selected ? `
+            <!-- Panel Detail Kegiatan Ekstrakurikuler Terpilih -->
+            <div class="glossy-panel rounded-3xl p-6 sm:p-8 border-2 border-[#0b469e] space-y-5">
+              <div class="flex flex-wrap items-center justify-between gap-3 border-b border-blue-100 pb-4">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#062d68] to-[#1d63dc] text-amber-300 flex items-center justify-center text-2xl shadow">
+                    <i class="fas ${selected.ikon}"></i>
+                  </div>
+                  <div>
+                    <span class="text-[11px] font-bold text-[#0b469e] uppercase">${selected.kategori}</span>
+                    <h2 class="text-xl font-extrabold text-[#062d68]">${selected.nama}</h2>
+                  </div>
+                </div>
+                <button onclick="ekskulState.selectedId = null; renderPage('ekskul-daftar')" class="px-4 py-2 rounded-full bg-blue-100 hover:bg-blue-200 text-[#062d68] text-xs font-bold transition cursor-pointer">
+                  ← Kembali ke Semua Ekskul
+                </button>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${selected.deskripsi}</p>
+              <div class="grid sm:grid-cols-3 gap-3 text-xs">
+                <div class="p-3.5 rounded-2xl bg-white border border-blue-200">
+                  <p class="text-slate-500">Pembina Ekskul</p>
+                  <p class="font-bold text-[#062d68] mt-0.5">${selected.pembina}</p>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-white border border-blue-200">
+                  <p class="text-slate-500">Jadwal Latihan</p>
+                  <p class="font-bold text-[#062d68] mt-0.5">${selected.jadwal}</p>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-white border border-blue-200">
+                  <p class="text-slate-500">Anggota Aktif</p>
+                  <p class="font-bold text-[#0b469e] mt-0.5">${selected.anggota} Peserta Didik</p>
+                </div>
+              </div>
+              <div>
+                <h4 class="text-sm font-extrabold text-[#062d68] mb-2.5">Program & Kegiatan Utama:</h4>
+                <div class="grid sm:grid-cols-2 gap-2.5">
+                  ${selected.kegiatan.map(k => `
+                    <div class="p-3 rounded-xl bg-white border border-blue-100 flex items-center gap-2.5 text-xs font-medium text-slate-700">
+                      <i class="fas fa-check-circle text-[#0b469e]"></i>
+                      <span>${k}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          ` : ''}
+
+          <!-- Grid Kartu Ekstrakurikuler -->
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            ${siteData.ekskul.map(ex => `
+              <div class="glossy-panel card-hover rounded-3xl p-5 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#062d68] to-[#0b469e] text-amber-300 flex items-center justify-center text-lg shadow-sm">
+                      <i class="fas ${ex.ikon}"></i>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-full bg-white border border-blue-200 text-[10px] font-bold text-[#062d68]">
+                      ${ex.anggota} Anggota
+                    </span>
+                  </div>
+                  <div>
+                    <span class="text-[10px] font-bold text-[#0b469e] uppercase">${ex.kategori}</span>
+                    <h3 class="text-base font-extrabold text-[#062d68] mt-0.5">${ex.nama}</h3>
+                    <p class="text-xs text-slate-600 mt-1.5 line-clamp-3 leading-relaxed">${ex.deskripsi}</p>
+                  </div>
+                </div>
+                <div class="pt-3 border-t border-blue-100 space-y-2.5">
+                  <p class="text-[11px] text-slate-500"><i class="far fa-clock text-[#0b469e] mr-1.5"></i>${ex.jadwal}</p>
+                  <button onclick="ekskulState.selectedId = '${ex.id}'; renderPage('ekskul-daftar')" class="w-full py-2.5 rounded-xl bg-white hover:bg-[#062d68] text-[#062d68] hover:text-white border border-blue-200 font-bold text-xs transition cursor-pointer">
+                    Lihat Kegiatan →
+                  </button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 11. HALAMAN PENCAPAIAN EKSTRAKURIKULER
+    // =========================================================================
+    function renderEkskulPencapaianPage() {
+      const rek = siteData.rekapEkskul;
+      const filter = pencapaianEkskulState.filter;
+      const tabs = ['Semua', 'Pramuka', 'PMR', 'Olahraga', 'Seni', 'Paskibra', 'KIR', 'Rohis'];
+      const items = siteData.pencapaianEkskul.filter(it => filter === 'Semua' || it.ekskul === filter);
+
+      return `
+        <div class="animate-page space-y-6">
+          ${buildPageHero({
+            icon: 'fa-trophy',
+            title: 'Pencapaian Ekstrakurikuler',
+            subtitle: `Deretan prestasi membanggakan dari berbagai kegiatan ekstrakurikuler ${siteData.sekolah.namaLengkap}.`,
+            breadcrumb: ['Ekstrakurikuler', 'Pencapaian']
+          })}
+
+          <!-- Banner 4 Statistik Prestasi Biru Royal + Emas -->
+          <div class="rounded-3xl bg-gradient-to-r from-[#062d68] via-[#0b469e] to-[#062d68] text-white p-5 sm:p-6 shadow-lg border-b-4 border-[#eab308] grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="flex items-center gap-3.5 lg:border-r border-white/15 pr-3">
+              <div class="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-300/40 flex items-center justify-center text-amber-300 text-xl flex-shrink-0">
+                <i class="fas fa-award"></i>
+              </div>
+              <div>
+                <p class="text-2xl sm:text-3xl font-extrabold">${rek.total}</p>
+                <p class="text-xs text-sky-100">Total Prestasi</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3.5 lg:border-r border-white/15 pr-3">
+              <div class="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-300/40 flex items-center justify-center text-amber-300 text-xl flex-shrink-0">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div>
+                <p class="text-2xl sm:text-3xl font-extrabold">${rek.nasional}</p>
+                <p class="text-xs text-sky-100">Tingkat Nasional</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3.5 lg:border-r border-white/15 pr-3">
+              <div class="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-300/40 flex items-center justify-center text-amber-300 text-xl flex-shrink-0">
+                <i class="fas fa-medal"></i>
+              </div>
+              <div>
+                <p class="text-2xl sm:text-3xl font-extrabold">${rek.provinsi}</p>
+                <p class="text-xs text-sky-100">Tingkat Provinsi</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3.5">
+              <div class="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-300/40 flex items-center justify-center text-amber-300 text-xl flex-shrink-0">
+                <i class="fas fa-star"></i>
+              </div>
+              <div>
+                <p class="text-2xl sm:text-3xl font-extrabold">${rek.kabupaten}</p>
+                <p class="text-xs text-sky-100">Tingkat Kabupaten</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Baris Filter Pil Ekstrakurikuler -->
+          <div class="flex flex-wrap items-center gap-2">
+            ${tabs.map(t => `
+              <button onclick="pencapaianEkskulState.filter = '${t}'; renderPage('ekskul-pencapaian')" class="px-4 py-2 rounded-full text-xs font-bold transition cursor-pointer ${filter === t ? 'bg-[#062d68] text-white shadow' : 'bg-white text-[#0b469e] hover:bg-sky-50 border border-blue-200'}">
+                ${t === 'Semua' ? 'Semua Ekskul' : t}
+              </button>
+            `).join('')}
+          </div>
+
+          <!-- Header Daftar + Pemilih Tahun Ajaran -->
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <h2 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2.5">
+              <i class="fas fa-trophy text-amber-500"></i>
+              <span>Daftar Pencapaian & Prestasi Ekstrakurikuler</span>
+            </h2>
+            <select onchange="pencapaianEkskulState.year = this.value; renderPage('ekskul-pencapaian')" class="px-4 py-2 rounded-full bg-white border border-blue-200 text-xs font-bold text-[#062d68] shadow-2xs focus:outline-none">
+              <option value="2025/2026" ${pencapaianEkskulState.year === '2025/2026' ? 'selected' : ''}>Tahun Ajaran 2025/2026</option>
+              <option value="2026/2027" ${pencapaianEkskulState.year === '2026/2027' ? 'selected' : ''}>Tahun Ajaran 2026/2027</option>
+            </select>
+          </div>
+
+          <!-- Grid Kartu Prestasi Ekstrakurikuler -->
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            ${items.map(it => {
+              const medalStyle = it.juara === 1
+                ? 'from-amber-400 to-amber-600 text-[#062d68] ring-amber-200'
+                : it.juara === 2
+                ? 'from-slate-400 to-slate-600 text-white ring-slate-200'
+                : 'from-[#1d63dc] to-[#062d68] text-white ring-blue-200';
+              return `
+                <div class="glossy-panel card-hover rounded-3xl overflow-hidden flex flex-col justify-between">
+                  <div>
+                    <div class="relative h-44 bg-[#062d68]">
+                      <img src="${it.foto}" onerror="this.src='https://placehold.co/600x340/0b469e/fde047?text=${encodeURIComponent(it.judul)}'" alt="${it.judul}" class="w-full h-full object-cover" />
+                      <span class="absolute top-3 left-3 px-3.5 py-1 rounded-full bg-[#062d68]/95 text-amber-300 text-xs font-bold border border-amber-300/40 shadow">
+                        ${it.ekskul}
+                      </span>
+                      <div class="absolute -bottom-6 right-4 w-14 h-14 rounded-full bg-gradient-to-br ${medalStyle} ring-4 shadow-lg flex flex-col items-center justify-center">
+                        <span class="text-[9px] font-bold uppercase leading-none">Juara</span>
+                        <span class="text-lg font-extrabold leading-tight">${it.juara}</span>
+                      </div>
+                    </div>
+                    <div class="p-5 pt-6">
+                      <h3 class="text-sm sm:text-base font-extrabold text-[#062d68] pr-12">${it.judul}</h3>
+                      <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">${it.event}</p>
+                    </div>
+                  </div>
+                  <div class="px-5 py-3 bg-white border-t border-blue-100 flex items-center justify-between text-[11px] font-semibold text-slate-600">
+                    <span><i class="far fa-calendar-alt text-[#0b469e] mr-1"></i>${it.tanggal}</span>
+                    <span><i class="fas fa-location-dot text-[#0b469e] mr-1"></i>${it.lokasi}</span>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+
+          <!-- Panel Rekapitulasi Prestasi per Ekstrakurikuler -->
+          <div class="glossy-panel rounded-3xl p-4 sm:p-5 flex flex-col lg:flex-row items-stretch lg:items-center gap-4">
+            <div class="rounded-2xl bg-gradient-to-r from-[#062d68] to-[#0b469e] text-white border-b-2 border-[#eab308] p-4 sm:px-6 flex items-center gap-3.5 flex-shrink-0">
+              <div class="w-11 h-11 rounded-xl bg-amber-400/20 border border-amber-300/40 flex items-center justify-center text-amber-300 text-xl">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-extrabold leading-tight">Rekapitulasi</h4>
+                <p class="text-xs text-sky-100">Prestasi per Ekstrakurikuler</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 flex-1">
+              ${rek.perBidang.map(b => `
+                <div class="rounded-2xl bg-white border border-blue-200/80 p-3 text-center">
+                  <i class="fas ${b.ikon} text-[#0b469e] text-sm mb-1"></i>
+                  <p class="text-xs font-extrabold text-[#062d68]">${b.nama}</p>
+                  <p class="text-[11px] font-bold text-[#1d63dc]">${b.jumlah} Prestasi</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 12. HALAMAN PENGUMUMAN SEKOLAH (TATA LETAK 2 KOLOM BIRU ROYAL & EMAS)
+    // =========================================================================
+    function renderPengumumanPage() {
+      const cat = pengumumanState.category;
+      const q = pengumumanState.search.toLowerCase();
+      const categories = [
+        { name: 'Semua', label: 'Semua Pengumuman', icon: 'fa-th-large', count: siteData.pengumuman.length },
+        { name: 'Akademik', label: 'Akademik', icon: 'fa-graduation-cap', count: siteData.pengumuman.filter(p => p.kategori === 'Akademik').length },
+        { name: 'Kesiswaan', label: 'Kesiswaan', icon: 'fa-users', count: siteData.pengumuman.filter(p => p.kategori === 'Kesiswaan').length },
+        { name: 'Kegiatan Sekolah', label: 'Kegiatan Sekolah', icon: 'fa-calendar-check', count: siteData.pengumuman.filter(p => p.kategori === 'Kegiatan Sekolah').length },
+        { name: 'Ekstrakurikuler', label: 'Ekstrakurikuler', icon: 'fa-trophy', count: siteData.pengumuman.filter(p => p.kategori === 'Ekstrakurikuler').length },
+        { name: 'Info Sekolah', label: 'Info Sekolah', icon: 'fa-circle-info', count: siteData.pengumuman.filter(p => p.kategori === 'Info Sekolah').length }
+      ];
+      const filtered = siteData.pengumuman.filter(p => {
+        const matchCat = cat === 'Semua' || p.kategori === cat;
+        const matchQ = !q || p.judul.toLowerCase().includes(q) || p.ringkasan.toLowerCase().includes(q);
+        return matchCat && matchQ;
+      });
+
+      return `
+        <div class="animate-page space-y-6">
+          ${buildPageHero({
+            icon: 'fa-bullhorn',
+            title: 'Pengumuman Sekolah',
+            subtitle: `Informasi resmi dan terbaru dari ${siteData.sekolah.namaLengkap}.`,
+            breadcrumb: ['Informasi', 'Pengumuman Sekolah']
+          })}
+
+          <!-- Tata Letak 2 Kolom: Kategori Pengumuman (Kiri) & Pengumuman Terbaru (Kanan) -->
+          <div class="grid lg:grid-cols-12 gap-6 items-start">
+            <!-- Kolom Kiri: Kategori Pengumuman -->
+            <div class="lg:col-span-4 glossy-panel rounded-3xl overflow-hidden">
+              <div class="px-5 py-4 royal-panel-header text-white flex items-center gap-2.5">
+                <i class="fas fa-layer-group text-amber-300"></i>
+                <h2 class="font-extrabold text-sm sm:text-base">Kategori Pengumuman</h2>
+              </div>
+              <div class="p-3.5 space-y-1.5">
+                ${categories.map(c => {
+                  const active = cat === c.name;
+                  return `
+                    <button onclick="pengumumanState.category = '${c.name}'; renderPage('pengumuman')" class="w-full px-3.5 py-2.5 rounded-2xl flex items-center justify-between text-xs font-bold transition cursor-pointer ${active ? 'bg-gradient-to-r from-[#8fc5fb] to-[#cde5ff] text-[#062d68] border-l-4 border-[#0b469e] shadow-2xs' : 'text-slate-600 hover:bg-white'}">
+                      <span class="flex items-center gap-2.5">
+                        <i class="fas ${c.icon} w-4 text-center ${active ? 'text-[#062d68]' : 'text-[#0b469e]'}"></i>
+                        <span>${c.label}</span>
+                      </span>
+                      <span class="px-2.5 py-0.5 rounded-full text-[11px] ${active ? 'bg-[#062d68] text-white' : 'bg-white border border-blue-200 text-[#062d68]'}">${c.count}</span>
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+              <!-- Gelombang Biru Royal + Emas Bawah Kartu Kategori -->
+              <svg viewBox="0 0 300 45" class="w-full h-9 block" preserveAspectRatio="none">
+                <path d="M0,45 L0,10 C95,35 190,42 300,25 L300,45 Z" fill="#062d68"></path>
+                <path d="M0,10 C95,35 190,42 300,25" fill="none" stroke="#eab308" stroke-width="3"></path>
+              </svg>
+            </div>
+
+            <!-- Kolom Kanan: Daftar Pengumuman Terbaru -->
+            <div class="lg:col-span-8 glossy-panel rounded-3xl overflow-hidden">
+              <div class="px-5 py-3.5 royal-panel-header text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div class="flex items-center gap-2.5">
+                  <i class="fas fa-bullhorn text-amber-300"></i>
+                  <h2 class="font-extrabold text-sm sm:text-base">Pengumuman Terbaru</h2>
+                </div>
+                <div class="relative sm:w-64">
+                  <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                  <input type="text" value="${pengumumanState.search}" oninput="pengumumanState.search = this.value; renderPage('pengumuman')" placeholder="Cari pengumuman..." class="w-full pl-9 pr-3 py-1.5 rounded-full bg-white text-slate-800 text-xs font-medium focus:outline-none" />
+                </div>
+              </div>
+              <div class="p-4 sm:p-5 space-y-4">
+                ${filtered.length ? filtered.map((p, idx) => {
+                  const iconBox = idx % 3 === 0
+                    ? 'from-sky-100 to-blue-100 text-[#1d63dc] border-blue-200'
+                    : idx % 3 === 1
+                    ? 'from-amber-100 to-yellow-50 text-amber-600 border-amber-200'
+                    : 'from-indigo-100 to-blue-50 text-indigo-600 border-indigo-200';
+                  const badgeStyle = idx % 3 === 0
+                    ? 'bg-[#1d63dc] text-white'
+                    : idx % 3 === 1
+                    ? 'bg-amber-500 text-white'
+                    : 'bg-indigo-600 text-white';
+                  const iconName = idx % 3 === 0 ? 'fa-calendar-check' : idx % 3 === 1 ? 'fa-trophy' : 'fa-file-signature';
+                  return `
+                    <div class="rounded-2xl bg-white border border-blue-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 card-hover">
+                      <div class="flex items-start gap-4 flex-1">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${iconBox} border flex items-center justify-center text-2xl flex-shrink-0 shadow-xs">
+                          <i class="fas ${iconName}"></i>
+                        </div>
+                        <div class="space-y-1">
+                          <div class="flex flex-wrap items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-full ${badgeStyle} text-[10px] font-bold uppercase">${p.kategori}</span>
+                            <span class="text-[11px] text-slate-500 font-medium"><i class="far fa-calendar-alt mr-1"></i>${p.tanggal}</span>
+                          </div>
+                          <h3 class="text-sm sm:text-base font-extrabold text-[#062d68]">${p.judul}</h3>
+                          <p class="text-xs text-slate-600 leading-relaxed">${p.ringkasan}</p>
+                        </div>
+                      </div>
+                      <div class="hidden sm:block h-14 w-px bg-blue-100"></div>
+                      <button onclick="openPengumumanModal(${p.id})" class="royal-pill-btn px-4 py-2.5 rounded-full text-white text-xs font-bold flex items-center gap-2 flex-shrink-0 transition cursor-pointer">
+                        <span>Baca Selengkapnya</span>
+                        <i class="fas fa-arrow-right text-[10px]"></i>
+                      </button>
+                    </div>
+                  `;
+                }).join('') : `<p class="text-xs text-slate-500 text-center py-8">Tidak ditemukan pengumuman yang sesuai.</p>`}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function openPengumumanModal(id) {
+      const p = siteData.pengumuman.find(item => item.id === id);
+      if (!p) return;
+      openGlobalModal(p.judul, `
+        <div class="space-y-4">
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-[#0b469e] text-white font-bold">${p.kategori}</span>
+            <span class="text-slate-500 font-semibold"><i class="far fa-calendar-alt mr-1"></i>${p.tanggal}</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed bg-sky-50/70 p-4 rounded-2xl border border-blue-100">
+            ${p.isiLengkap || p.ringkasan}
+          </p>
+          ${p.lampiran ? `
+            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-3 text-xs">
+              <div class="flex items-center gap-2.5 font-semibold text-[#062d68]">
+                <i class="fas fa-file-pdf text-rose-600 text-base"></i>
+                <span>${p.lampiran}</span>
+              </div>
+              <button onclick="showToast('Mengunduh dokumen ${p.lampiran}...')" class="royal-pill-btn px-3.5 py-1.5 rounded-full text-white font-bold cursor-pointer">
+                Unduh Lampiran
+              </button>
+            </div>
+          ` : ''}
+        </div>
+      `);
+    }
+
+    // =========================================================================
+    // 13. PENGATURAN ADMIN LENGKAP + UPLOAD FOTO & DATA JSON (AKSES TERSEMBUNYI)
+    // =========================================================================
+    function checkSecretAdminUrl() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const queryCode = (params.get('akses') || '').trim();
+        const hashCode = window.location.hash.replace(/^#/, '').trim();
+        const isValidSecret =
+          encodeSecret(queryCode) === URL_SECRET_HASH ||
+          encodeSecret(hashCode) === URL_SECRET_HASH;
+
+        if (isValidSecret) {
+          if (window.history && window.history.replaceState) {
+            window.history.replaceState(null, '', window.location.pathname);
+          }
+          if (adminState.unlocked) {
+            navigate('admin');
+          } else {
+            openAdminGate();
+          }
+        }
+      } catch (e) {
+        console.warn('Pemeriksaan tautan akses:', e);
+      }
+    }
+
+    function toggleAdminPassVisibility() {
+      const inp = document.getElementById('adminPinInput');
+      const icon = document.getElementById('adminPassEyeIcon');
+      if (!inp) return;
+      if (inp.type === 'password') {
+        inp.type = 'text';
+        if (icon) icon.className = 'fas fa-eye-slash text-xs';
+      } else {
+        inp.type = 'password';
+        if (icon) icon.className = 'fas fa-eye text-xs';
+      }
+    }
+
+    function openAdminGate() {
+      if (adminState.unlocked) {
+        navigate('admin');
+        return;
+      }
+      openGlobalModal('Verifikasi Administrator Sekolah', `
+        <div class="space-y-4">
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Area ini khusus untuk <b>Administrator Resmi SMP Negeri 02 Martapura</b>. Masukkan kata sandi administrator untuk mengelola konten dan foto portal.
+          </p>
+          <div>
+            <label class="block text-xs font-bold text-[#062d68] mb-1.5">Password Admin</label>
+            <div class="relative">
+              <input type="password" id="adminPinInput" placeholder="Masukkan password admin..." onkeydown="if(event.key==='Enter') unlockAdmin()" class="w-full pl-4 pr-10 py-2.5 rounded-xl border border-blue-200 text-sm focus:outline-none focus:border-[#0b469e]" />
+              <button type="button" onclick="toggleAdminPassVisibility()" title="Tampilkan / Sembunyikan Password" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#062d68] cursor-pointer">
+                <i id="adminPassEyeIcon" class="fas fa-eye text-xs"></i>
+              </button>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2.5 pt-2">
+            <button onclick="unlockAdmin()" class="royal-pill-btn px-5 py-2.5 rounded-full text-white text-xs font-bold cursor-pointer">
+              Masuk Panel Admin
+            </button>
+            <button onclick="closeGlobalModal()" class="px-4 py-2.5 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold cursor-pointer">
+              Batal
+            </button>
+          </div>
+        </div>
+      `);
+      setTimeout(() => document.getElementById('adminPinInput')?.focus(), 80);
+    }
+
+    function unlockAdmin() {
+      const val = (document.getElementById('adminPinInput')?.value || '').trim();
+      if (val && encodeSecret(val) === adminState.passHash) {
+        adminState.unlocked = true;
+        closeGlobalModal();
+        navigate('admin');
+        showToast('Akses Administrator berhasil dibuka.');
+      } else {
+        showToast('Password Admin tidak sesuai!');
+      }
+    }
+
+    function logoutAdmin() {
+      adminState.unlocked = false;
+      navigate('beranda');
+      showToast('Mode Admin dikunci kembali.');
+    }
+
+    // Helper Komponen Upload & Pratinjau Foto
+    function renderPhotoUploader({ label, inputId, previewId, currentValue, aspectClass = 'w-20 h-20' }) {
+      const safeVal = (currentValue || '').replace(/"/g, '&quot;');
+      return `
+        <div class="p-3.5 rounded-2xl bg-sky-50/70 border border-blue-200 space-y-2.5 text-xs">
+          <div class="flex items-center justify-between gap-2">
+            <label class="font-bold text-[#062d68]">${label}</label>
+            <label class="px-3 py-1.5 rounded-full bg-[#062d68] hover:bg-[#0b469e] text-white text-[11px] font-bold cursor-pointer inline-flex items-center gap-1.5 transition">
+              <i class="fas fa-camera"></i>
+              <span>Pilih Foto dari Perangkat</span>
+              <input type="file" accept="image/*" onchange="handlePhotoFileUpload(event, '${inputId}', '${previewId}')" class="hidden" />
+            </label>
+          </div>
+          <div class="flex items-center gap-3">
+            <img id="${previewId}" src="${safeVal || 'https://placehold.co/200x200/0b469e/fde047?text=Foto'}" onerror="this.src='https://placehold.co/200x200/0b469e/fde047?text=Foto'" alt="Pratinjau" class="${aspectClass} rounded-xl object-cover border border-blue-200 bg-white flex-shrink-0" />
+            <div class="flex-1 min-w-0 space-y-1">
+              <p class="text-[11px] text-slate-500">Atau tempel tautan URL gambar:</p>
+              <input id="${inputId}" value="${safeVal}" oninput="document.getElementById('${previewId}').src = this.value || 'https://placehold.co/200x200/0b469e/fde047?text=Foto'" placeholder="https://..." class="w-full px-3 py-2 rounded-xl border border-blue-200 bg-white text-xs" />
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function handlePhotoFileUpload(event, inputId, previewId) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const maxDim = 640;
+          let w = img.width;
+          let h = img.height;
+          if (w > maxDim || h > maxDim) {
+            if (w > h) {
+              h = Math.round((h * maxDim) / w);
+              w = maxDim;
+            } else {
+              w = Math.round((w * maxDim) / h);
+              h = maxDim;
+            }
+          }
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          const compressed = canvas.toDataURL('image/jpeg', 0.82);
+          const inp = document.getElementById(inputId);
+          const prev = document.getElementById(previewId);
+          if (inp) inp.value = compressed;
+          if (prev) prev.src = compressed;
+          showToast('Foto berhasil dimuat! Klik Simpan untuk menerapkan.');
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function renderAdminPage() {
+      if (!adminState.unlocked) {
+        return renderBerandaPage();
+      }
+      const tab = adminState.activeTab;
+      const s = siteData.sekolah;
+      const st = siteData.statistik;
+
+      // Data yang sedang diedit (jika ada)
+      const editPeng = adminState.editPengIdx >= 0 ? siteData.pengumuman[adminState.editPengIdx] : null;
+      const editBer = adminState.editBeritaIdx >= 0 ? siteData.berita[adminState.editBeritaIdx] : null;
+      const editPtk = adminState.editPtkIdx >= 0 ? siteData.ptk[adminState.editPtkIdx] : null;
+      const editRombel = adminState.editRombelIdx >= 0 ? (siteData.rombel[adminState.rombelTingkat] || [])[adminState.editRombelIdx] : null;
+      const editEkskul = adminState.editEkskulIdx >= 0 ? siteData.ekskul[adminState.editEkskulIdx] : null;
+      const editPencEkskul = adminState.editPencapaianEkskulIdx >= 0 ? siteData.pencapaianEkskul[adminState.editPencapaianEkskulIdx] : null;
+
+      return `
+        <div class="animate-page space-y-6">
+          ${buildPageHero({
+            icon: 'fa-sliders-h',
+            title: 'Pengaturan Admin & Data JSON',
+            subtitle: 'Kelola seluruh teks, foto sekolah, guru, siswa, ekskul, maupun file JSON tanpa menyentuh kode coding.',
+            breadcrumb: ['Pengaturan Admin', 'Editor Tanpa Coding']
+          })}
+
+          <!-- Tab Navigasi Admin Lengkap -->
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-2">
+              ${[
+                { id: 'umum', label: 'Identitas, Foto & Visi Misi', icon: 'fa-school' },
+                { id: 'pengumuman', label: 'Pengumuman, Berita & Agenda', icon: 'fa-bullhorn' },
+                { id: 'ptk', label: 'Guru & Tendik (+Foto)', icon: 'fa-chalkboard-teacher' },
+                { id: 'siswa', label: 'Rombel, Prestasi & Juara', icon: 'fa-user-graduate' },
+                { id: 'ekskul', label: 'Ekskul & Prestasi (+Foto)', icon: 'fa-trophy' },
+                { id: 'json', label: 'Database JSON', icon: 'fa-code' }
+              ].map(t => `
+                <button onclick="adminState.activeTab = '${t.id}'; renderPage('admin')" class="px-4 py-2.5 rounded-full text-xs font-bold flex items-center gap-2 transition cursor-pointer ${tab === t.id ? 'bg-[#062d68] text-white shadow' : 'bg-white text-[#0b469e] border border-blue-200 hover:bg-sky-50'}">
+                  <i class="fas ${t.icon}"></i>
+                  <span>${t.label}</span>
+                </button>
+              `).join('')}
+            </div>
+            <button onclick="logoutAdmin()" class="px-4 py-2.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold flex items-center gap-1.5 shadow cursor-pointer">
+              <i class="fas fa-lock"></i>
+              <span>Kunci & Keluar Admin</span>
+            </button>
+          </div>
+
+          <!-- ==================== TAB 1: IDENTITAS, FOTO SEKOLAH & VISI MISI ==================== -->
+          ${tab === 'umum' ? `
+            <div class="glossy-panel rounded-3xl p-6 space-y-6">
+              <h3 class="text-base font-extrabold text-[#062d68]">1. Foto Utama Sekolah (Logo, Gedung & Kepala Sekolah)</h3>
+              <div class="grid md:grid-cols-3 gap-4">
+                ${renderPhotoUploader({
+                  label: 'Logo Sekolah',
+                  inputId: 'admLogoUrl',
+                  previewId: 'prevLogoUrl',
+                  currentValue: s.logoUrl,
+                  aspectClass: 'w-16 h-16'
+                })}
+                ${renderPhotoUploader({
+                  label: 'Foto Gedung / Hero Banner',
+                  inputId: 'admHeroUrl',
+                  previewId: 'prevHeroUrl',
+                  currentValue: s.heroBannerUrl,
+                  aspectClass: 'w-24 h-16'
+                })}
+                ${renderPhotoUploader({
+                  label: 'Foto Kepala Sekolah',
+                  inputId: 'admKepsekFoto',
+                  previewId: 'prevKepsekFoto',
+                  currentValue: s.kepalaSekolah.fotoUrl,
+                  aspectClass: 'w-16 h-20'
+                })}
+              </div>
+
+              <h3 class="text-base font-extrabold text-[#062d68] pt-2 border-t border-blue-100">2. Identitas, Kontak & Statistik Sekolah</h3>
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Nama Lengkap Sekolah</label>
+                  <input id="admNamaLengkap" value="${s.namaLengkap}" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Nama Singkat (Sidebar)</label>
+                  <input id="admNamaSingkat" value="${s.namaSingkat}" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">NPSN</label>
+                  <input id="admNpsn" value="${s.npsn}" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Akreditasi & Kurikulum</label>
+                  <input id="admAkreditasi" value="${s.akreditasi}" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Tahun Ajaran Aktif</label>
+                  <input id="admTahunAjaran" value="${s.tahunAjaran}" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Telepon & Email</label>
+                  <input id="admTelepon" value="${s.telepon}" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Nama Kepala Sekolah</label>
+                  <input id="admKepsek" value="${s.kepalaSekolah.nama}" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">NIP Kepala Sekolah</label>
+                  <input id="admNipKepsek" value="${s.kepalaSekolah.nip}" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Ganti Password Admin (Opsional)</label>
+                  <input type="password" id="admNewPin" placeholder="Kosongkan jika tidak diubah" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Jumlah Peserta Didik</label>
+                  <input type="number" id="admJmlSiswa" value="${st.pesertaDidik}" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Jumlah Guru</label>
+                  <input type="number" id="admJmlGuru" value="${st.guru}" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Jumlah Tendik & Rombel</label>
+                  <div class="grid grid-cols-2 gap-2">
+                    <input type="number" id="admJmlTendik" value="${st.tendik}" title="Tendik" class="w-full px-3 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                    <input type="number" id="admJmlRombel" value="${st.rombel}" title="Rombel" class="w-full px-3 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4 text-xs">
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Sambutan Kepala Sekolah</label>
+                  <textarea id="admSambutan" rows="3" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">${s.kepalaSekolah.sambutan}</textarea>
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Visi Sekolah</label>
+                  <textarea id="admVisi" rows="3" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">${s.visi}</textarea>
+                </div>
+              </div>
+              <div class="text-xs">
+                <label class="font-bold text-slate-700 block mb-1">Misi Sekolah (Satu poin per baris)</label>
+                <textarea id="admMisi" rows="4" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">${s.misi.join('\n')}</textarea>
+              </div>
+
+              <button onclick="saveAdminGeneral()" class="royal-pill-btn px-6 py-2.5 rounded-full text-white text-xs font-bold cursor-pointer">
+                <i class="fas fa-save mr-1.5"></i>Simpan Semua Perubahan Identitas & Foto
+              </button>
+            </div>
+          ` : ''}
+
+          <!-- ==================== TAB 2: PENGUMUMAN, BERITA & AGENDA ==================== -->
+          ${tab === 'pengumuman' ? `
+            <div class="space-y-6">
+              <!-- Kelola Pengumuman -->
+              <div class="glossy-panel rounded-3xl p-6 space-y-4">
+                <h3 class="text-base font-extrabold text-[#062d68]">${editPeng ? 'Edit Pengumuman' : 'Tambah Pengumuman Baru'}</h3>
+                <div class="grid sm:grid-cols-3 gap-3 text-xs">
+                  <input id="admPengJudul" value="${editPeng ? editPeng.judul : ''}" placeholder="Judul Pengumuman..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <select id="admPengKat" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">
+                    ${['Akademik', 'Kesiswaan', 'Kegiatan Sekolah', 'Ekstrakurikuler', 'Info Sekolah'].map(k => `
+                      <option value="${k}" ${editPeng && editPeng.kategori === k ? 'selected' : ''}>${k}</option>
+                    `).join('')}
+                  </select>
+                  <input id="admPengTgl" value="${editPeng ? editPeng.tanggal : '22 November 2026'}" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <textarea id="admPengRingkas" rows="2" placeholder="Ringkasan pengumuman..." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white text-xs">${editPeng ? editPeng.ringkasan : ''}</textarea>
+                <textarea id="admPengLengkap" rows="2" placeholder="Isi lengkap pengumuman (opsional)..." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white text-xs">${editPeng ? (editPeng.isiLengkap || '') : ''}</textarea>
+                <div class="flex gap-2">
+                  <button onclick="saveAdminPengumuman()" class="royal-pill-btn px-5 py-2.5 rounded-full text-white text-xs font-bold cursor-pointer">
+                    ${editPeng ? 'Simpan Perubahan Pengumuman' : '+ Tambah Pengumuman'}
+                  </button>
+                  ${editPeng ? `<button onclick="adminState.editPengIdx = -1; renderPage('admin')" class="px-4 py-2.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold cursor-pointer">Batal Edit</button>` : ''}
+                </div>
+                <div class="pt-3 border-t border-blue-100 space-y-2">
+                  ${siteData.pengumuman.map((p, idx) => `
+                    <div class="p-3 rounded-2xl bg-white border border-blue-100 flex items-center justify-between gap-2 text-xs">
+                      <div class="min-w-0">
+                        <span class="font-bold text-[#0b469e]">[${p.kategori}]</span>
+                        <span class="font-bold text-[#062d68] ml-1">${p.judul}</span>
+                        <span class="text-slate-400 ml-1">(${p.tanggal})</span>
+                      </div>
+                      <div class="flex gap-1.5 flex-shrink-0">
+                        <button onclick="adminState.editPengIdx = ${idx}; renderPage('admin')" class="px-3 py-1 rounded-full bg-sky-100 text-[#062d68] font-bold cursor-pointer">Edit</button>
+                        <button onclick="deleteAdminItem('pengumuman', ${idx})" class="px-3 py-1 rounded-full bg-rose-100 text-rose-700 font-bold cursor-pointer">Hapus</button>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- Kelola Berita (+Foto) -->
+              <div class="glossy-panel rounded-3xl p-6 space-y-4">
+                <h3 class="text-base font-extrabold text-[#062d68]">${editBer ? 'Edit Berita & Foto' : 'Tambah Berita & Foto Kegiatan'}</h3>
+                ${renderPhotoUploader({
+                  label: 'Foto Dokumentasi Berita',
+                  inputId: 'admBerFoto',
+                  previewId: 'prevBerFoto',
+                  currentValue: editBer ? editBer.gambar : 'https://placehold.co/600x360/0b469e/fde047?text=Berita+Baru',
+                  aspectClass: 'w-24 h-16'
+                })}
+                <div class="grid sm:grid-cols-3 gap-3 text-xs">
+                  <input id="admBerJudul" value="${editBer ? editBer.judul : ''}" placeholder="Judul Berita..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input id="admBerKat" value="${editBer ? editBer.kategori : 'Prestasi'}" placeholder="Kategori (Prestasi/Literasi)..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input id="admBerTgl" value="${editBer ? editBer.tanggal : '22 November 2026'}" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <textarea id="admBerRingkas" rows="2" placeholder="Ringkasan berita..." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white text-xs">${editBer ? editBer.ringkasan : ''}</textarea>
+                <div class="flex gap-2">
+                  <button onclick="saveAdminBerita()" class="royal-pill-btn px-5 py-2.5 rounded-full text-white text-xs font-bold cursor-pointer">
+                    ${editBer ? 'Simpan Perubahan Berita' : '+ Tambah Berita'}
+                  </button>
+                  ${editBer ? `<button onclick="adminState.editBeritaIdx = -1; renderPage('admin')" class="px-4 py-2.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold cursor-pointer">Batal Edit</button>` : ''}
+                </div>
+                <div class="grid sm:grid-cols-3 gap-3 pt-3 border-t border-blue-100">
+                  ${siteData.berita.map((b, idx) => `
+                    <div class="p-3 rounded-2xl bg-white border border-blue-100 space-y-2 text-xs">
+                      <img src="${b.gambar}" class="w-full h-24 object-cover rounded-xl" />
+                      <p class="font-bold text-[#062d68] line-clamp-1">${b.judul}</p>
+                      <div class="flex gap-1.5">
+                        <button onclick="adminState.editBeritaIdx = ${idx}; renderPage('admin')" class="px-3 py-1 rounded-full bg-sky-100 text-[#062d68] font-bold cursor-pointer">Edit</button>
+                        <button onclick="deleteAdminItem('berita', ${idx})" class="px-3 py-1 rounded-full bg-rose-100 text-rose-700 font-bold cursor-pointer">Hapus</button>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          ` : ''}
+
+          <!-- ==================== TAB 3: GURU & TENDIK (+FOTO) ==================== -->
+          ${tab === 'ptk' ? `
+            <div class="glossy-panel rounded-3xl p-6 space-y-5">
+              <h3 class="text-base font-extrabold text-[#062d68]">${editPtk ? 'Edit Data & Foto PTK' : 'Tambah Data & Foto Guru / Tenaga Administrasi'}</h3>
+              ${renderPhotoUploader({
+                label: 'Foto Profil Guru / Staf Administrasi',
+                inputId: 'admPtkFoto',
+                previewId: 'prevPtkFoto',
+                currentValue: editPtk ? editPtk.foto : 'https://placehold.co/200x200/0b469e/fde047?text=PTK',
+                aspectClass: 'w-16 h-16'
+              })}
+              <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
+                <input id="admPtkNama" value="${editPtk ? editPtk.nama : ''}" placeholder="Nama Lengkap & Gelar..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                <input id="admPtkNip" value="${editPtk ? editPtk.nip : ''}" placeholder="NIP / NI PPPK..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                <input id="admPtkJabatan" value="${editPtk ? editPtk.jabatan : ''}" placeholder="Mapel / Jabatan..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                <select id="admPtkKat" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">
+                  <option value="guru" ${editPtk && editPtk.kategori === 'guru' ? 'selected' : ''}>Guru</option>
+                  <option value="tendik" ${editPtk && editPtk.kategori === 'tendik' ? 'selected' : ''}>Tenaga Administrasi</option>
+                </select>
+                <select id="admPtkStatus" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">
+                  <option value="PNS" ${editPtk && editPtk.status === 'PNS' ? 'selected' : ''}>PNS</option>
+                  <option value="PPPK" ${editPtk && editPtk.status === 'PPPK' ? 'selected' : ''}>PPPK</option>
+                  <option value="Honorer" ${editPtk && editPtk.status === 'Honorer' ? 'selected' : ''}>Honorer</option>
+                </select>
+              </div>
+              <div class="flex gap-2">
+                <button onclick="saveAdminPtk()" class="royal-pill-btn px-5 py-2.5 rounded-full text-white text-xs font-bold cursor-pointer">
+                  ${editPtk ? 'Simpan Perubahan PTK' : '+ Tambah PTK'}
+                </button>
+                ${editPtk ? `<button onclick="adminState.editPtkIdx = -1; renderPage('admin')" class="px-4 py-2.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold cursor-pointer">Batal Edit</button>` : ''}
+              </div>
+              <div class="pt-4 border-t border-blue-100 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                ${siteData.ptk.map((p, idx) => `
+                  <div class="p-3 rounded-2xl bg-white border border-blue-100 flex items-center justify-between gap-2.5 text-xs">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                      <img src="${p.foto}" class="w-11 h-11 rounded-xl object-cover border border-blue-200 flex-shrink-0" />
+                      <div class="min-w-0">
+                        <p class="font-bold text-[#062d68] truncate">${p.nama}</p>
+                        <p class="text-[11px] text-slate-500 truncate">${p.jabatan} (${p.status})</p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-1 flex-shrink-0">
+                      <button onclick="adminState.editPtkIdx = ${idx}; renderPage('admin')" class="px-2.5 py-0.5 rounded-full bg-sky-100 text-[#062d68] font-bold cursor-pointer">Edit</button>
+                      <button onclick="deleteAdminItem('ptk', ${idx})" class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 font-bold cursor-pointer">Hapus</button>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+
+          <!-- ==================== TAB 4: ROMBEL, PRESTASI & JUARA ==================== -->
+          ${tab === 'siswa' ? `
+            <div class="space-y-6">
+              <!-- Kelola Slot Rombel -->
+              <div class="glossy-panel rounded-3xl p-6 space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <h3 class="text-base font-extrabold text-[#062d68]">Kelola Slot Rombel & Wali Kelas</h3>
+                  <div class="flex gap-1.5">
+                    ${['VII', 'VIII', 'IX'].map(tk => `
+                      <button onclick="adminState.rombelTingkat = '${tk}'; adminState.editRombelIdx = -1; renderPage('admin')" class="px-3.5 py-1.5 rounded-full text-xs font-bold cursor-pointer ${adminState.rombelTingkat === tk ? 'bg-[#062d68] text-white' : 'bg-white border border-blue-200 text-[#062d68]'}">Tingkat ${tk}</button>
+                    `).join('')}
+                  </div>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
+                  <input id="admRomKelas" value="${editRombel ? editRombel.kelas : ''}" placeholder="Nama Kelas (cth: VII.7)..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input id="admRomWali" value="${editRombel ? editRombel.wali : ''}" placeholder="Nama Wali Kelas..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input type="number" id="admRomL" value="${editRombel ? editRombel.laki : 18}" placeholder="Jumlah Laki-laki" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input type="number" id="admRomP" value="${editRombel ? editRombel.perempuan : 18}" placeholder="Jumlah Perempuan" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input id="admRomRuang" value="${editRombel ? editRombel.ruangan : 'Gedung A'}" placeholder="Ruangan..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div class="flex gap-2">
+                  <button onclick="saveAdminRombel()" class="royal-pill-btn px-5 py-2 rounded-full text-white text-xs font-bold cursor-pointer">
+                    ${editRombel ? 'Simpan Perubahan Kelas' : '+ Tambah Slot Kelas'}
+                  </button>
+                  ${editRombel ? `<button onclick="adminState.editRombelIdx = -1; renderPage('admin')" class="px-4 py-2 rounded-full bg-slate-200 text-slate-700 text-xs font-bold cursor-pointer">Batal</button>` : ''}
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2.5 pt-3 border-t border-blue-100">
+                  ${(siteData.rombel[adminState.rombelTingkat] || []).map((r, idx) => `
+                    <div class="p-3 rounded-2xl bg-white border border-blue-100 flex items-center justify-between gap-2 text-xs">
+                      <div>
+                        <p class="font-extrabold text-[#062d68]">${r.kelas} • ${r.wali}</p>
+                        <p class="text-[11px] text-slate-500">L: ${r.laki}, P: ${r.perempuan} (${r.ruangan})</p>
+                      </div>
+                      <div class="flex gap-1">
+                        <button onclick="adminState.editRombelIdx = ${idx}; renderPage('admin')" class="px-2.5 py-1 rounded-full bg-sky-100 text-[#062d68] font-bold cursor-pointer">Edit</button>
+                        <button onclick="deleteAdminRombel(${idx})" class="px-2.5 py-1 rounded-full bg-rose-100 text-rose-700 font-bold cursor-pointer">Hapus</button>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- Kelola Prestasi Olimpiade Siswa -->
+              <div class="glossy-panel rounded-3xl p-6 space-y-4">
+                <h3 class="text-base font-extrabold text-[#062d68]">Kelola Prestasi Akademik & Olimpiade Siswa</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
+                  <input id="admPresJudul" placeholder="Judul Juara / Lomba..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input id="admPresSiswa" placeholder="Nama Siswa & Kelas..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input id="admPresTingkat" placeholder="Tingkat (Kabupaten/Provinsi)..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input id="admPresTahun" value="2026" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <select id="admPresMedali" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">
+                    <option value="Emas">Emas</option>
+                    <option value="Perak">Perak</option>
+                    <option value="Perunggu">Perunggu</option>
+                  </select>
+                </div>
+                <button onclick="addAdminPrestasiSiswa()" class="royal-pill-btn px-5 py-2 rounded-full text-white text-xs font-bold cursor-pointer">+ Tambah Prestasi Siswa</button>
+                <div class="space-y-2 pt-3 border-t border-blue-100">
+                  ${siteData.prestasiSiswa.map((pr, idx) => `
+                    <div class="p-3 rounded-2xl bg-white border border-blue-100 flex items-center justify-between gap-2 text-xs">
+                      <span><b>${pr.judul}</b> — ${pr.siswa} (${pr.medali})</span>
+                      <button onclick="deleteAdminItem('prestasiSiswa', ${idx})" class="px-3 py-1 rounded-full bg-rose-100 text-rose-700 font-bold cursor-pointer">Hapus</button>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          ` : ''}
+
+          <!-- ==================== TAB 5: EKSKUL & PENCAPAIAN EKSKUL (+FOTO) ==================== -->
+          ${tab === 'ekskul' ? `
+            <div class="space-y-6">
+              <!-- Tambah / Edit Prestasi Ekskul + Foto -->
+              <div class="glossy-panel rounded-3xl p-6 space-y-4">
+                <h3 class="text-base font-extrabold text-[#062d68]">${editPencEkskul ? 'Edit Pencapaian Ekstrakurikuler' : 'Tambah Pencapaian Ekstrakurikuler (+Foto Piala/Kegiatan)'}</h3>
+                ${renderPhotoUploader({
+                  label: 'Foto Dokumentasi Prestasi Ekstrakurikuler',
+                  inputId: 'admPencEksFoto',
+                  previewId: 'prevPencEksFoto',
+                  currentValue: editPencEkskul ? editPencEkskul.foto : 'https://placehold.co/600x340/0b469e/fde047?text=Prestasi+Ekskul',
+                  aspectClass: 'w-24 h-16'
+                })}
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
+                  <select id="admPencEksNama" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">
+                    ${['Pramuka', 'PMR', 'Olahraga', 'Seni', 'Paskibra', 'KIR', 'Rohis'].map(e => `
+                      <option value="${e}" ${editPencEkskul && editPencEkskul.ekskul === e ? 'selected' : ''}>${e}</option>
+                    `).join('')}
+                  </select>
+                  <select id="admPencEksJuara" class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">
+                    <option value="1" ${editPencEkskul && editPencEkskul.juara === 1 ? 'selected' : ''}>Juara 1</option>
+                    <option value="2" ${editPencEkskul && editPencEkskul.juara === 2 ? 'selected' : ''}>Juara 2</option>
+                    <option value="3" ${editPencEkskul && editPencEkskul.juara === 3 ? 'selected' : ''}>Juara 3</option>
+                  </select>
+                  <input id="admPencEksJudul" value="${editPencEkskul ? editPencEkskul.judul : ''}" placeholder="Judul Kejuaraan..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input id="admPencEksEvent" value="${editPencEkskul ? editPencEkskul.event : ''}" placeholder="Nama Event / Lomba..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input id="admPencEksLokasi" value="${editPencEkskul ? editPencEkskul.lokasi : 'Kab. OKU Timur'}" placeholder="Lokasi & Tanggal..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <div class="flex gap-2">
+                  <button onclick="saveAdminPencapaianEkskul()" class="royal-pill-btn px-5 py-2.5 rounded-full text-white text-xs font-bold cursor-pointer">
+                    ${editPencEkskul ? 'Simpan Perubahan Prestasi' : '+ Tambah Prestasi Ekskul'}
+                  </button>
+                  ${editPencEkskul ? `<button onclick="adminState.editPencapaianEkskulIdx = -1; renderPage('admin')" class="px-4 py-2.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold cursor-pointer">Batal</button>` : ''}
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-3 border-t border-blue-100">
+                  ${siteData.pencapaianEkskul.map((it, idx) => `
+                    <div class="p-3 rounded-2xl bg-white border border-blue-100 space-y-2 text-xs">
+                      <img src="${it.foto}" class="w-full h-24 object-cover rounded-xl" />
+                      <p class="font-bold text-[#062d68]">[${it.ekskul}] Juara ${it.juara} - ${it.judul}</p>
+                      <div class="flex gap-1.5">
+                        <button onclick="adminState.editPencapaianEkskulIdx = ${idx}; renderPage('admin')" class="px-3 py-1 rounded-full bg-sky-100 text-[#062d68] font-bold cursor-pointer">Edit</button>
+                        <button onclick="deleteAdminItem('pencapaianEkskul', ${idx})" class="px-3 py-1 rounded-full bg-rose-100 text-rose-700 font-bold cursor-pointer">Hapus</button>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- Kelola Daftar Ekstrakurikuler -->
+              <div class="glossy-panel rounded-3xl p-6 space-y-4">
+                <h3 class="text-base font-extrabold text-[#062d68]">${editEkskul ? 'Edit Data Ekstrakurikuler' : 'Tambah Bidang Ekstrakurikuler Baru'}</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                  <input id="admEksNama" value="${editEkskul ? editEkskul.nama : ''}" placeholder="Nama Ekskul..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input id="admEksKat" value="${editEkskul ? editEkskul.kategori : ''}" placeholder="Kategori..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input id="admEksPembina" value="${editEkskul ? editEkskul.pembina : ''}" placeholder="Nama Pembina..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                  <input id="admEksJadwal" value="${editEkskul ? editEkskul.jadwal : ''}" placeholder="Jadwal Latihan..." class="px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                </div>
+                <textarea id="admEksDesk" rows="2" placeholder="Deskripsi kegiatan ekstrakurikuler..." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white text-xs">${editEkskul ? editEkskul.deskripsi : ''}</textarea>
+                <div class="flex gap-2">
+                  <button onclick="saveAdminEkskul()" class="royal-pill-btn px-5 py-2 rounded-full text-white text-xs font-bold cursor-pointer">
+                    ${editEkskul ? 'Simpan Perubahan Ekskul' : '+ Tambah Ekstrakurikuler'}
+                  </button>
+                  ${editEkskul ? `<button onclick="adminState.editEkskulIdx = -1; renderPage('admin')" class="px-4 py-2 rounded-full bg-slate-200 text-slate-700 text-xs font-bold cursor-pointer">Batal</button>` : ''}
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-2.5 pt-3 border-t border-blue-100">
+                  ${siteData.ekskul.map((ex, idx) => `
+                    <div class="p-3 rounded-2xl bg-white border border-blue-100 flex items-center justify-between gap-2 text-xs">
+                      <span class="font-bold text-[#062d68] truncate">${ex.nama}</span>
+                      <div class="flex gap-1 flex-shrink-0">
+                        <button onclick="adminState.editEkskulIdx = ${idx}; renderPage('admin')" class="px-2.5 py-1 rounded-full bg-sky-100 text-[#062d68] font-bold cursor-pointer">Edit</button>
+                        <button onclick="deleteAdminItem('ekskul', ${idx})" class="px-2.5 py-1 rounded-full bg-rose-100 text-rose-700 font-bold cursor-pointer">Hapus</button>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          ` : ''}
+
+          <!-- ==================== TAB 6: DATABASE JSON ==================== -->
+          ${tab === 'json' ? `
+            <div class="glossy-panel rounded-3xl p-6 space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h3 class="text-base font-extrabold text-[#062d68]">Database JSON Portal Sekolah</h3>
+                  <p class="text-xs text-slate-500">Unduh cadangan data <code>.json</code>, unggah file JSON baru, atau edit langsung struktur data di bawah ini.</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <button onclick="downloadJsonFile()" class="royal-pill-btn px-4 py-2 rounded-full text-white text-xs font-bold cursor-pointer">
+                    <i class="fas fa-download mr-1.5"></i>Unduh .JSON
+                  </button>
+                  <label class="px-4 py-2 rounded-full bg-sky-100 hover:bg-sky-200 text-[#062d68] text-xs font-bold cursor-pointer">
+                    <i class="fas fa-upload mr-1.5"></i>Unggah .JSON
+                    <input type="file" accept=".json" onchange="uploadJsonFile(event)" class="hidden" />
+                  </label>
+                  <button onclick="resetAllData()" class="px-4 py-2 rounded-full bg-rose-100 text-rose-700 text-xs font-bold cursor-pointer">
+                    Reset Awal
+                  </button>
+                </div>
+              </div>
+              <textarea id="rawJsonEditor" rows="16" class="w-full p-4 rounded-2xl bg-slate-900 text-sky-200 font-mono text-xs leading-relaxed focus:outline-none">${JSON.stringify(siteData, null, 2)}</textarea>
+              <div class="flex flex-wrap gap-2.5">
+                <button onclick="applyRawJson()" class="royal-pill-btn px-6 py-2.5 rounded-full text-white text-xs font-bold cursor-pointer">
+                  <i class="fas fa-check mr-1.5"></i>Terapkan & Simpan JSON
+                </button>
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }
+
+    function saveAdminGeneral() {
+      siteData.sekolah.logoUrl = document.getElementById('admLogoUrl').value.trim() || siteData.sekolah.logoUrl;
+      siteData.sekolah.heroBannerUrl = document.getElementById('admHeroUrl').value.trim() || siteData.sekolah.heroBannerUrl;
+      siteData.sekolah.kepalaSekolah.fotoUrl = document.getElementById('admKepsekFoto').value.trim() || siteData.sekolah.kepalaSekolah.fotoUrl;
+
+      siteData.sekolah.namaLengkap = document.getElementById('admNamaLengkap').value.trim() || siteData.sekolah.namaLengkap;
+      siteData.sekolah.namaSingkat = document.getElementById('admNamaSingkat').value.trim() || siteData.sekolah.namaSingkat;
+      siteData.sekolah.npsn = document.getElementById('admNpsn').value.trim() || siteData.sekolah.npsn;
+      siteData.sekolah.akreditasi = document.getElementById('admAkreditasi').value.trim() || siteData.sekolah.akreditasi;
+      siteData.sekolah.tahunAjaran = document.getElementById('admTahunAjaran').value.trim() || siteData.sekolah.tahunAjaran;
+      siteData.sekolah.telepon = document.getElementById('admTelepon').value.trim() || siteData.sekolah.telepon;
+      siteData.sekolah.kepalaSekolah.nama = document.getElementById('admKepsek').value.trim() || siteData.sekolah.kepalaSekolah.nama;
+      siteData.sekolah.kepalaSekolah.nip = document.getElementById('admNipKepsek').value.trim() || siteData.sekolah.kepalaSekolah.nip;
+      siteData.sekolah.kepalaSekolah.sambutan = document.getElementById('admSambutan').value.trim() || siteData.sekolah.kepalaSekolah.sambutan;
+      siteData.sekolah.visi = document.getElementById('admVisi').value.trim() || siteData.sekolah.visi;
+      const misiLines = document.getElementById('admMisi').value.split('\n').map(l => l.trim()).filter(Boolean);
+      if (misiLines.length) siteData.sekolah.misi = misiLines;
+
+      siteData.statistik.pesertaDidik = parseInt(document.getElementById('admJmlSiswa').value, 10) || siteData.statistik.pesertaDidik;
+      siteData.statistik.guru = parseInt(document.getElementById('admJmlGuru').value, 10) || siteData.statistik.guru;
+      siteData.statistik.tendik = parseInt(document.getElementById('admJmlTendik').value, 10) || siteData.statistik.tendik;
+      siteData.statistik.rombel = parseInt(document.getElementById('admJmlRombel').value, 10) || siteData.statistik.rombel;
+
+      const newPin = document.getElementById('admNewPin').value.trim();
+      if (newPin) {
+        const encoded = encodeSecret(newPin);
+        adminState.passHash = encoded;
+        try { localStorage.setItem('smpn02_admin_auth_v2', encoded); } catch (e) {}
+      }
+
+      saveSiteDataToStorage();
+      showToast('Identitas, foto sekolah, visi & misi berhasil disimpan!');
+      renderPage('admin');
+    }
+
+    function saveAdminPengumuman() {
+      const judul = document.getElementById('admPengJudul').value.trim();
+      const kategori = document.getElementById('admPengKat').value;
+      const tanggal = document.getElementById('admPengTgl').value.trim() || '22 November 2026';
+      const ringkasan = document.getElementById('admPengRingkas').value.trim();
+      const isiLengkap = document.getElementById('admPengLengkap').value.trim() || ringkasan;
+      if (!judul || !ringkasan) {
+        showToast('Mohon isi judul dan ringkasan pengumuman.');
+        return;
+      }
+      if (adminState.editPengIdx >= 0) {
+        const existing = siteData.pengumuman[adminState.editPengIdx];
+        siteData.pengumuman[adminState.editPengIdx] = { ...existing, judul, kategori, tanggal, ringkasan, isiLengkap };
+        adminState.editPengIdx = -1;
+        showToast('Pengumuman berhasil diperbarui!');
+      } else {
+        siteData.pengumuman.unshift({ id: Date.now(), kategori, tanggal, judul, ringkasan, isiLengkap });
+        showToast('Pengumuman baru berhasil ditambahkan!');
+      }
+      saveSiteDataToStorage();
+      renderPage('admin');
+    }
+
+    function saveAdminBerita() {
+      const gambar = document.getElementById('admBerFoto').value.trim() || 'https://placehold.co/600x360/0b469e/fde047?text=Berita';
+      const judul = document.getElementById('admBerJudul').value.trim();
+      const kategori = document.getElementById('admBerKat').value.trim() || 'Kegiatan';
+      const tanggal = document.getElementById('admBerTgl').value.trim() || '22 November 2026';
+      const ringkasan = document.getElementById('admBerRingkas').value.trim();
+      if (!judul || !ringkasan) {
+        showToast('Mohon isi judul dan ringkasan berita.');
+        return;
+      }
+      if (adminState.editBeritaIdx >= 0) {
+        siteData.berita[adminState.editBeritaIdx] = { gambar, judul, kategori, tanggal, ringkasan };
+        adminState.editBeritaIdx = -1;
+        showToast('Berita & foto berhasil diperbarui!');
+      } else {
+        siteData.berita.unshift({ gambar, judul, kategori, tanggal, ringkasan });
+        showToast('Berita baru berhasil ditambahkan!');
+      }
+      saveSiteDataToStorage();
+      renderPage('admin');
+    }
+
+    function saveAdminPtk() {
+      const foto = document.getElementById('admPtkFoto').value.trim() || 'https://placehold.co/200x200/0b469e/fde047?text=PTK';
+      const nama = document.getElementById('admPtkNama').value.trim();
+      const nip = document.getElementById('admPtkNip').value.trim() || '-';
+      const jabatan = document.getElementById('admPtkJabatan').value.trim();
+      const kategori = document.getElementById('admPtkKat').value;
+      const status = document.getElementById('admPtkStatus').value;
+      if (!nama || !jabatan) {
+        showToast('Mohon isi nama dan jabatan PTK.');
+        return;
+      }
+      if (adminState.editPtkIdx >= 0) {
+        siteData.ptk[adminState.editPtkIdx] = { nama, nip, kategori, jabatan, status, foto };
+        adminState.editPtkIdx = -1;
+        showToast('Data & foto PTK berhasil diperbarui!');
+      } else {
+        siteData.ptk.unshift({ nama, nip, kategori, jabatan, status, foto });
+        showToast('Data PTK baru berhasil ditambahkan!');
+      }
+      saveSiteDataToStorage();
+      renderPage('admin');
+    }
+
+    function saveAdminRombel() {
+      const tk = adminState.rombelTingkat;
+      const kelas = document.getElementById('admRomKelas').value.trim();
+      const wali = document.getElementById('admRomWali').value.trim();
+      const laki = parseInt(document.getElementById('admRomL').value, 10) || 0;
+      const perempuan = parseInt(document.getElementById('admRomP').value, 10) || 0;
+      const ruangan = document.getElementById('admRomRuang').value.trim() || 'Ruang Kelas';
+      if (!kelas || !wali) {
+        showToast('Mohon isi nama kelas dan wali kelas.');
+        return;
+      }
+      if (adminState.editRombelIdx >= 0) {
+        siteData.rombel[tk][adminState.editRombelIdx] = { kelas, wali, laki, perempuan, ruangan };
+        adminState.editRombelIdx = -1;
+        showToast('Data kelas berhasil diperbarui!');
+      } else {
+        siteData.rombel[tk].push({ kelas, wali, laki, perempuan, ruangan });
+        showToast('Slot kelas baru berhasil ditambahkan!');
+      }
+      saveSiteDataToStorage();
+      renderPage('admin');
+    }
+
+    function deleteAdminRombel(idx) {
+      siteData.rombel[adminState.rombelTingkat].splice(idx, 1);
+      saveSiteDataToStorage();
+      showToast('Slot kelas berhasil dihapus.');
+      renderPage('admin');
+    }
+
+    function addAdminPrestasiSiswa() {
+      const judul = document.getElementById('admPresJudul').value.trim();
+      const siswa = document.getElementById('admPresSiswa').value.trim();
+      const tingkat = document.getElementById('admPresTingkat').value.trim() || 'Kabupaten OKU Timur';
+      const tahun = document.getElementById('admPresTahun').value.trim() || '2026';
+      const medali = document.getElementById('admPresMedali').value;
+      if (!judul || !siswa) {
+        showToast('Mohon isi judul prestasi dan nama siswa.');
+        return;
+      }
+      siteData.prestasiSiswa.unshift({ judul, siswa, tingkat, tahun, medali });
+      saveSiteDataToStorage();
+      showToast('Prestasi siswa berhasil ditambahkan!');
+      renderPage('admin');
+    }
+
+    function saveAdminPencapaianEkskul() {
+      const foto = document.getElementById('admPencEksFoto').value.trim() || 'https://placehold.co/600x340/0b469e/fde047?text=Prestasi';
+      const ekskul = document.getElementById('admPencEksNama').value;
+      const juara = parseInt(document.getElementById('admPencEksJuara').value, 10) || 1;
+      const judul = document.getElementById('admPencEksJudul').value.trim();
+      const event = document.getElementById('admPencEksEvent').value.trim();
+      const lokasi = document.getElementById('admPencEksLokasi').value.trim() || 'Kab. OKU Timur';
+      if (!judul || !event) {
+        showToast('Mohon isi judul kejuaraan dan nama event.');
+        return;
+      }
+      const itemObj = {
+        ekskul,
+        tahun: '2025/2026',
+        juara,
+        judul,
+        event,
+        tanggal: '22 November 2026',
+        lokasi,
+        foto
+      };
+      if (adminState.editPencapaianEkskulIdx >= 0) {
+        siteData.pencapaianEkskul[adminState.editPencapaianEkskulIdx] = itemObj;
+        adminState.editPencapaianEkskulIdx = -1;
+        showToast('Prestasi ekskul berhasil diperbarui!');
+      } else {
+        siteData.pencapaianEkskul.unshift(itemObj);
+        showToast('Prestasi ekskul baru berhasil ditambahkan!');
+      }
+      saveSiteDataToStorage();
+      renderPage('admin');
+    }
+
+    function saveAdminEkskul() {
+      const nama = document.getElementById('admEksNama').value.trim();
+      const kategori = document.getElementById('admEksKat').value.trim() || 'Pengembangan Bakat';
+      const pembina = document.getElementById('admEksPembina').value.trim() || '-';
+      const jadwal = document.getElementById('admEksJadwal').value.trim() || '-';
+      const deskripsi = document.getElementById('admEksDesk').value.trim() || '-';
+      if (!nama) {
+        showToast('Mohon isi nama ekstrakurikuler.');
+        return;
+      }
+      if (adminState.editEkskulIdx >= 0) {
+        const old = siteData.ekskul[adminState.editEkskulIdx];
+        siteData.ekskul[adminState.editEkskulIdx] = { ...old, nama, kategori, pembina, jadwal, deskripsi };
+        adminState.editEkskulIdx = -1;
+        showToast('Data ekstrakurikuler berhasil diperbarui!');
+      } else {
+        siteData.ekskul.push({
+          id: 'ekskul-' + Date.now(),
+          nama,
+          kategori,
+          pembina,
+          jadwal,
+          anggota: 40,
+          ikon: 'fa-star',
+          deskripsi,
+          kegiatan: ['Latihan Rutin Mingguan', 'Pembinaan Bakat & Kompetisi']
+        });
+        showToast('Bidang ekstrakurikuler baru berhasil ditambahkan!');
+      }
+      saveSiteDataToStorage();
+      renderPage('admin');
+    }
+
+    function deleteAdminItem(collectionKey, idx) {
+      if (!Array.isArray(siteData[collectionKey])) return;
+      siteData[collectionKey].splice(idx, 1);
+      saveSiteDataToStorage();
+      showToast('Data berhasil dihapus.');
+      renderPage('admin');
+    }
+
+    function applyRawJson() {
+      try {
+        const raw = document.getElementById('rawJsonEditor').value;
+        const parsed = JSON.parse(raw);
+        siteData = parsed;
+        saveSiteDataToStorage();
+        showToast('Data JSON valid dan berhasil diterapkan!');
+      } catch (err) {
+        showToast('Format JSON tidak valid: ' + err.message);
+      }
+    }
+
+    function downloadJsonFile() {
+      const blob = new Blob([JSON.stringify(siteData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'data-smpn02-martapura.json';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('File data-smpn02-martapura.json berhasil diunduh.');
+    }
+
+    function uploadJsonFile(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          siteData = parsed;
+          saveSiteDataToStorage();
+          renderPage('admin');
+          showToast('File JSON berhasil diimpor!');
+        } catch (err) {
+          showToast('Gagal membaca file JSON: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function resetAllData() {
+      siteData = JSON.parse(JSON.stringify(defaultSiteData));
+      saveSiteDataToStorage();
+      renderPage('admin');
+      showToast('Seluruh data dikembalikan ke pengaturan awal.');
+    }
+
+    // =========================================================================
+    // 14. MODAL HELPER & INISIALISASI AWAL
+    // =========================================================================
+    function openGlobalModal(title, htmlBody) {
+      const modal = document.getElementById('globalModal');
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalBody').innerHTML = htmlBody;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeGlobalModal() {
+      const modal = document.getElementById('globalModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    window.addEventListener('hashchange', checkSecretAdminUrl);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      syncSchoolBrandUI();
+      applySidebarLayout();
+      navigate('beranda');
+      checkSecretAdminUrl();
+    });
+  </script>
+</body>
+</html>
