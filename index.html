@@ -115,20 +115,12 @@
       animation: fadeSlideUp 0.32s ease-out forwards;
     }
   </style>
-  <!-- Supabase JS Client v2 -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    const supabaseUrl = 'https://lzcgduxqaktyjmnjugfu.supabase.co';
-const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6Y2dkdXhxYWt0eWptbmp1Z2Z1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTU1MjQyNTIsImV4cCI6MjExMTEwMDI1Mn0.zvw-p-Cjmw2G0NBlp7erYC1wf7ooeWOzcb0jTr6wWnQ;
-    const supabaseClient = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
-    const SUPABASE_ROW_ID = 'smpn02_martapura_main';
-  </script>
 </head>
 <body class="ocean-canvas min-h-screen flex relative selection:bg-sky-200 selection:text-blue-950">
   <!-- Bingkai Garis Cahaya Sisi Layar (Biru Langit & Emas Tipis) -->
   <div class="pointer-events-none fixed inset-y-0 left-0 w-1.5 bg-gradient-to-b from-[#0b469e]/45 via-amber-400/35 to-[#062d68]/50 z-50"></div>
   <div class="pointer-events-none fixed inset-y-0 right-0 w-1.5 bg-gradient-to-b from-[#0b469e]/45 via-amber-400/35 to-[#062d68]/50 z-50"></div>
-
+ 
   <!-- ORNAMEN SUDUT BAWAH KIRI & KANAN (BIRU ROYAL + GARIS EMAS METALIK + SUTRA BIRU) -->
   <div class="pointer-events-none fixed bottom-0 left-0 w-44 sm:w-64 h-24 sm:h-32 z-20 overflow-hidden">
     <svg viewBox="0 0 300 150" class="w-full h-full" preserveAspectRatio="none">
@@ -144,10 +136,10 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       <path d="M300,56 C246,75 206,122 134,150" fill="none" stroke="#eab308" stroke-width="3.5"></path>
     </svg>
   </div>
-
+ 
   <!-- OVERLAY SIDEBAR UNTUK LAYAR KECIL -->
   <div id="sidebarOverlay" onclick="closeSidebar()" class="fixed inset-0 bg-slate-950/40 backdrop-blur-xs z-30 hidden transition-opacity"></div>
-
+ 
   <!-- ==================== SIDEBAR NAVIGASI KIRI (CERAH BIRU LANGIT SUTRA & BIRU ROYAL) ==================== -->
   <aside id="sidebar-menu" style="width: 280px; min-width: 280px;" class="relative inset-y-0 left-0 z-40 bg-gradient-to-b from-[#f5faff] via-[#eaf3fe] to-[#dcebfb] text-[#09254d] flex flex-col transition-all duration-300 ease-in-out shadow-[8px_0_30px_rgba(6,45,104,0.12)] border-r border-blue-200/90 overflow-hidden flex-shrink-0">
     <!-- Header Logo Sidebar Biru Royal + Garis Emas -->
@@ -168,7 +160,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         <i class="fas fa-times text-xs"></i>
       </button>
     </div>
-
+ 
     <!-- Kolom Pencarian Cepat di Sidebar -->
     <div class="px-4 pt-3.5 pb-2 flex-shrink-0">
       <div class="relative">
@@ -176,7 +168,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         <input type="text" id="sidebarSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Cari data, guru, pendidikan..." class="w-full pl-9 pr-3 py-2 rounded-full bg-white border border-blue-200 text-xs text-[#062d68] placeholder-slate-400 shadow-2xs focus:outline-none focus:border-[#0b469e] transition" />
       </div>
     </div>
-
+ 
     <!-- Daftar Menu Navigasi Utama -->
     <nav class="flex-1 px-3.5 py-2 space-y-1.5 overflow-y-auto no-scrollbar text-[13px] font-semibold">
       <!-- Beranda -->
@@ -184,13 +176,13 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         <i class="fas fa-home w-4 text-center text-[#0b469e]"></i>
         <span>Beranda</span>
       </button>
-
+ 
       <!-- Profil Sekolah -->
       <button onclick="navigate('profil')" data-nav="profil" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-left transition-all text-[#09254d] hover:bg-white/80 hover:text-[#0b469e]">
         <i class="fas fa-school w-4 text-center text-[#0b469e]"></i>
         <span>Profil Sekolah</span>
       </button>
-
+ 
       <!-- Dropdown PTK -->
       <div class="space-y-1">
         <button onclick="toggleSubmenu('submenu-ptk')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-[#09254d] hover:bg-white/80 hover:text-[#0b469e] transition-all">
@@ -211,7 +203,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           </button>
         </div>
       </div>
-
+ 
       <!-- Dropdown Siswa -->
       <div class="space-y-1">
         <button onclick="toggleSubmenu('submenu-siswa')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-[#09254d] hover:bg-white/80 hover:text-[#0b469e] transition-all">
@@ -232,7 +224,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           </button>
         </div>
       </div>
-
+ 
       <!-- Dropdown Ekstrakurikuler -->
       <div class="space-y-1">
         <button onclick="toggleSubmenu('submenu-ekskul')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-[#09254d] hover:bg-white/80 hover:text-[#0b469e] transition-all">
@@ -253,14 +245,14 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           </button>
         </div>
       </div>
-
+ 
       <!-- Pengumuman -->
       <button onclick="navigate('pengumuman')" data-nav="pengumuman" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-left transition-all text-[#09254d] hover:bg-white/80 hover:text-[#0b469e]">
         <i class="fas fa-bullhorn w-4 text-center text-[#0b469e]"></i>
         <span>Pengumuman</span>
       </button>
     </nav>
-
+ 
     <!-- Kartu Footer Akreditasi -->
     <div class="p-3.5 border-t border-blue-200/80 bg-white/75 flex-shrink-0 relative overflow-hidden">
       <div class="p-3 rounded-2xl bg-gradient-to-r from-[#062d68] to-[#0b469e] text-white border border-amber-300/40 flex items-center justify-between gap-2 shadow-sm">
@@ -276,20 +268,20 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       </div>
     </div>
   </aside>
-
+ 
   <!-- ==================== AREA KONTEN UTAMA KANAN ==================== -->
   <div class="flex-1 flex flex-col min-w-0 relative">
     <!-- TOP BAR BIRU ROYAL + AKSEN EMAS (OTOMATIS ANTI-DOUBLE DENGAN SIDEBAR) -->
     <header class="sticky top-0 z-30 bg-gradient-to-r from-[#062d68] via-[#0b469e] to-[#062d68] text-white shadow-md border-b-2 border-[#eab308]">
       <div class="relative px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
         <div class="absolute inset-0 songket-pattern opacity-15 pointer-events-none"></div>
-
+ 
         <!-- Kiri: Tombol Toggle Sidebar + Brand & Menu Horizontal (Muncul Saat Sidebar Ditutup) -->
         <div class="flex items-center gap-3 sm:gap-4 relative z-10 min-w-0">
           <button onclick="toggleSidebar()" title="Buka / Tutup Menu Samping" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 text-white transition cursor-pointer flex-shrink-0">
             <i class="fas fa-bars text-base"></i>
           </button>
-
+ 
           <!-- Identitas Sekolah Top Bar (Sembunyi saat sidebar terbuka di desktop) -->
           <div id="topBrandInfo" onclick="navigate('beranda')" style="display: none;" class="items-center gap-3 cursor-pointer min-w-0">
             <img id="topbar-logo" src="https://placehold.co/96x96/0b469e/fde047?text=SMPN2" alt="Logo SMPN 02 Martapura" class="w-10 h-10 object-contain rounded-xl bg-white/95 p-0.5 border border-amber-300/70 shadow flex-shrink-0" />
@@ -298,7 +290,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <p id="topbar-school-sub" class="text-[10px] sm:text-[11px] text-sky-100 font-medium truncate">Kabupaten Ogan Komering Ulu Timur</p>
             </div>
           </div>
-
+ 
           <!-- Menu Horizontal Top Bar (Otomatis Muncul Saat Sidebar Ditutup) -->
           <div id="topNavLinks" style="display: none;" class="items-center gap-1.5">
             <div class="h-7 w-px bg-white/25 mx-1.5"></div>
@@ -309,7 +301,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <button onclick="navigate('profil')" data-topnav="profil" class="top-nav-item px-3.5 py-2 rounded-full text-sky-100 hover:text-white hover:bg-white/10 transition cursor-pointer">
                 Profil
               </button>
-
+ 
               <!-- Dropdown PTK Top Bar -->
               <div class="relative">
                 <button onclick="toggleTopDropdown('top-dd-ptk')" data-topnav="ptk" class="top-nav-item px-3.5 py-2 rounded-full text-sky-100 hover:text-white hover:bg-white/10 transition flex items-center gap-1.5 cursor-pointer">
@@ -321,7 +313,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   <button onclick="navigate('ptk-tendik')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-sky-50 hover:text-[#0b469e] transition">Tenaga Administrasi</button>
                 </div>
               </div>
-
+ 
               <!-- Dropdown Siswa Top Bar -->
               <div class="relative">
                 <button onclick="toggleTopDropdown('top-dd-siswa')" data-topnav="siswa" class="top-nav-item px-3.5 py-2 rounded-full text-sky-100 hover:text-white hover:bg-white/10 transition flex items-center gap-1.5 cursor-pointer">
@@ -333,7 +325,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   <button onclick="navigate('siswa-pencapaian')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-sky-50 hover:text-[#0b469e] transition">Pencapaian & Prestasi</button>
                 </div>
               </div>
-
+ 
               <!-- Dropdown Ekstrakurikuler Top Bar -->
               <div class="relative">
                 <button onclick="toggleTopDropdown('top-dd-ekskul')" data-topnav="ekskul" class="top-nav-item px-3.5 py-2 rounded-full text-sky-100 hover:text-white hover:bg-white/10 transition flex items-center gap-1.5 cursor-pointer">
@@ -345,14 +337,14 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   <button onclick="navigate('ekskul-pencapaian')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-sky-50 hover:text-[#0b469e] transition">Pencapaian Ekskul</button>
                 </div>
               </div>
-
+ 
               <button onclick="navigate('pengumuman')" data-topnav="pengumuman" class="top-nav-item px-3.5 py-2 rounded-full text-sky-100 hover:text-white hover:bg-white/10 transition cursor-pointer">
                 Pengumuman
               </button>
             </nav>
           </div>
         </div>
-
+ 
         <!-- Kanan Top Bar: Indikator Halaman Aktif + Tombol Pencarian Melingkar -->
         <div class="flex items-center gap-2.5 sm:gap-3 relative z-10 flex-shrink-0">
           <div class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/25 text-xs font-semibold text-white">
@@ -364,7 +356,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           </button>
         </div>
       </div>
-
+ 
       <!-- Bar Pencarian Pop-Down Top Bar -->
       <div id="topSearchBox" class="hidden px-4 sm:px-8 pb-3.5 pt-1 bg-[#052352]/95 border-t border-white/15">
         <div class="max-w-2xl mx-auto relative">
@@ -376,13 +368,13 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       </div>
     </header>
-
+ 
     <!-- KONTAINER RENDER HALAMAN DINAMIS -->
     <main id="app-content" class="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto relative z-10 pb-16">
       <!-- Konten halaman dirender oleh JavaScript -->
     </main>
   </div>
-
+ 
   <!-- MODAL UMUM (DETAIL PENGUMUMAN / DETAIL ROMBEL / PREVIEW GAMBAR / ADMIN GATE) -->
   <div id="globalModal" class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl border border-blue-200 flex flex-col animate-page">
@@ -400,29 +392,178 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       </div>
     </div>
   </div>
-
+ 
   <!-- TOAST NOTIFIKASI HALUS -->
   <div id="toastBox" class="fixed bottom-5 right-5 z-50 hidden items-center gap-2.5 px-4 py-3 rounded-2xl bg-[#062d68] text-white text-xs font-semibold shadow-xl border border-amber-300/60">
     <i class="fas fa-check-circle text-amber-300 text-sm"></i>
     <span id="toastMessage">Perubahan berhasil disimpan.</span>
   </div>
-
+ 
   <script>
     // =========================================================================
     // 1. STATE APLIKASI & KEAMANAN AKSES ADMIN
     // =========================================================================
-    let currentPage = 'beranda';
+ 
+   // =========================================================================
+   // KONFIGURASI DATABASE ONLINE SUPABASE
+   // Konfigurasi Supabase SMPN02MPA (menggunakan Project URL dan Publishable key).
+   // Jangan pernah memasukkan service_role key ke file HTML.
+   // =========================================================================
+   const SUPABASE_URL = 'https://muvxlcbztjssmoifaoio.supabase.co';
+   const SUPABASE_ANON_KEY = 'sb_publishable_r9mTZ7tUAmPuTg3gWwVi0A_3Ow_EzgV';
+   const SUPABASE_TABLE = 'school_portal';
+   let supabaseClient = null;
+   let supabaseRealtimeChannel = null;
+   let remoteSaveQueue = Promise.resolve();
+   let remoteSyncReady = false;
+ 
+   function initializeSupabaseClient() {
+     const configured =
+       SUPABASE_URL.startsWith('https://') &&
+       !SUPABASE_URL.includes('ISI_URL_') &&
+       SUPABASE_ANON_KEY &&
+       !SUPABASE_ANON_KEY.includes('ISI_ANON_') &&
+       window.supabase?.createClient;
+ 
+     if (!configured) {
+       console.warn('Supabase belum dikonfigurasi. Portal berjalan dengan penyimpanan lokal.');
+       return false;
+     }
+ 
+     supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+       auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+     });
+     return true;
+   }
+ 
+   function normalizePortalData(data) {
+     const parsed = data && typeof data === 'object' ? data : {};
+     const mergedSekolah = { ...defaultSiteData.sekolah, ...(parsed.sekolah || {}) };
+     if (!mergedSekolah.logoUrl || String(mergedSekolah.logoUrl).includes('placehold.co/96x96')) {
+       mergedSekolah.logoUrl = OFFICIAL_LOGO_SVG;
+     }
+     return {
+       ...defaultSiteData,
+       ...parsed,
+       sekolah: mergedSekolah,
+       statistik: { ...defaultSiteData.statistik, ...(parsed.statistik || {}) },
+       rombel: { ...defaultSiteData.rombel, ...(parsed.rombel || {}) },
+       juaraKelas: { ...defaultSiteData.juaraKelas, ...(parsed.juaraKelas || {}) },
+       juaraUmum: { ...defaultSiteData.juaraUmum, ...(parsed.juaraUmum || {}) },
+       rekapEkskul: { ...defaultSiteData.rekapEkskul, ...(parsed.rekapEkskul || {}) }
+     };
+   }
+ 
+   function saveLocalPortalData() {
+     try {
+       localStorage.setItem('smpn02_martapura_portal_v3', JSON.stringify(siteData));
+       return true;
+     } catch (e) {
+       console.warn('Penyimpanan lokal gagal:', e);
+       showToast('Penyimpanan lokal penuh. Kurangi ukuran foto atau gunakan URL gambar.');
+       return false;
+     }
+   }
+ 
+   async function fetchRemotePortalData() {
+     if (!supabaseClient) return null;
+     const { data, error } = await supabaseClient
+       .from(SUPABASE_TABLE)
+       .select('data')
+       .eq('id', 1)
+       .maybeSingle();
+ 
+     if (error) throw error;
+     return data?.data || null;
+   }
+ 
+   async function writeRemotePortalData(showSuccess = false) {
+     if (!supabaseClient) return false;
+     const { data: sessionData, error: sessionError } = await supabaseClient.auth.getSession();
+     if (sessionError) throw sessionError;
+     if (!sessionData?.session) return false;
+ 
+     const payload = {
+       id: 1,
+       data: siteData,
+       updated_at: new Date().toISOString()
+     };
+     const { error } = await supabaseClient
+       .from(SUPABASE_TABLE)
+       .upsert(payload, { onConflict: 'id' });
+ 
+     if (error) throw error;
+     remoteSyncReady = true;
+     if (showSuccess) showToast('Data berhasil disimpan ke database online.');
+     return true;
+   }
+ 
+   function queueRemotePortalSave() {
+     if (!supabaseClient) return;
+     remoteSaveQueue = remoteSaveQueue
+       .then(() => writeRemotePortalData(false))
+       .catch(error => {
+         console.error('Sinkronisasi database gagal:', error);
+         showToast('Gagal sinkron ke database. Periksa koneksi dan pengaturan Supabase.');
+       });
+   }
+ 
+   function subscribePortalRealtime() {
+     if (!supabaseClient || supabaseRealtimeChannel) return;
+     supabaseRealtimeChannel = supabaseClient
+       .channel('school-portal-live-sync')
+       .on('postgres_changes', {
+         event: '*',
+         schema: 'public',
+         table: SUPABASE_TABLE,
+         filter: 'id=eq.1'
+       }, payload => {
+         const incoming = payload.new?.data;
+         if (!incoming || adminState.unlocked) return;
+ 
+         const currentJson = JSON.stringify(siteData);
+         const incomingData = normalizePortalData(incoming);
+         if (currentJson === JSON.stringify(incomingData)) return;
+ 
+         siteData = incomingData;
+         saveLocalPortalData();
+         syncSchoolBrandUI();
+         renderPage(currentPage);
+       })
+       .subscribe(status => {
+         if (status === 'SUBSCRIBED') console.info('Sinkronisasi langsung portal aktif.');
+       });
+   }
+ 
+   async function initializeRemotePortalData() {
+     if (!initializeSupabaseClient()) return;
+     try {
+       const remoteData = await fetchRemotePortalData();
+       if (remoteData) {
+         siteData = normalizePortalData(remoteData);
+         saveLocalPortalData();
+         remoteSyncReady = true;
+       }
+       subscribePortalRealtime();
+     } catch (error) {
+       console.error('Gagal mengambil data database online:', error);
+       showToast('Database online belum dapat diakses. Periksa konfigurasi Supabase.');
+     }
+   }
+ 
+ 
+   let currentPage = 'beranda';
     let isSidebarOpen = window.innerWidth >= 768;
     let heroSlideIdx = 0;
     let heroAutoTimer = null;
-
+ 
     const ptkState = { tab: 'semua', search: '', filter: 'Semua', eduFilter: 'Semua', slide: 0, totalSlides: 1, touchStartX: 0, touchStartY: 0 };
     let rombelActive = 'VII';
     const pencapaianState = { juaraTingkat: 'VII' };
     const ekskulState = { selectedId: null, subTab: 'profil' };
     const pencapaianEkskulState = { filter: 'Semua', year: '2025/2026', showMore: false };
     const pengumumanState = { category: 'Semua', search: '' };
-
+ 
     function encodeSecret(str) {
       let h = 5381;
       for (let i = 0; i < str.length; i++) {
@@ -430,13 +571,13 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       }
       return 'h_' + (h >>> 0).toString(16);
     }
-
+ 
     const URL_SECRET_HASH = encodeSecret('admin02');
     let savedPassHash = null;
     try {
       savedPassHash = localStorage.getItem('smpn02_admin_auth_v2');
     } catch (e) {}
-
+ 
     const adminState = {
       unlocked: false,
       passHash: savedPassHash || encodeSecret('09052005'),
@@ -449,7 +590,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       editEkskulIdx: 0,
       editPencapaianEkskulIdx: -1
     };
-
+ 
     // =========================================================================
     // 2. DATA BAWAAN PORTAL (DEFAULT SITE DATA)
     // =========================================================================
@@ -491,7 +632,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         <path d="M155,154 Q144,149 132,155 L132,160 Q144,154 155,159 Z" fill="#ffffff"/>
       </svg>
     `.trim());
-
+ 
     const defaultSiteData = {
       sekolah: {
         namaLengkap: 'SMP Negeri 02 Martapura',
@@ -1080,115 +1221,28 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         ]
       }
     };
-
+ 
     let siteData = loadSiteDataFromStorage();
-
+ 
     function loadSiteDataFromStorage() {
       try {
         const raw = localStorage.getItem('smpn02_martapura_portal_v3');
         if (raw) {
           const parsed = JSON.parse(raw);
-          if (parsed && parsed.sekolah) {
-            const mergedSekolah = { ...defaultSiteData.sekolah, ...(parsed.sekolah || {}) };
-            if (!mergedSekolah.logoUrl || mergedSekolah.logoUrl.includes('placehold.co/96x96')) {
-              mergedSekolah.logoUrl = OFFICIAL_LOGO_SVG;
-            }
-            return {
-              ...defaultSiteData,
-              ...parsed,
-              sekolah: mergedSekolah,
-              statistik: { ...defaultSiteData.statistik, ...(parsed.statistik || {}) },
-              rombel: { ...defaultSiteData.rombel, ...(parsed.rombel || {}) },
-              juaraKelas: { ...defaultSiteData.juaraKelas, ...(parsed.juaraKelas || {}) },
-              juaraUmum: { ...defaultSiteData.juaraUmum, ...(parsed.juaraUmum || {}) },
-              rekapEkskul: { ...defaultSiteData.rekapEkskul, ...(parsed.rekapEkskul || {}) }
-            };
-          }
+          if (parsed && parsed.sekolah) return normalizePortalData(parsed);
         }
       } catch (e) {
-        console.warn('Memuat data bawaan portal:', e);
+        console.warn('Memuat data lokal portal:', e);
       }
       return JSON.parse(JSON.stringify(defaultSiteData));
     }
-
-    async function syncFromSupabaseCloud() {
-      if (!supabaseClient) return;
-      try {
-        const { data, error } = await supabaseClient
-          .from('portal_data')
-          .select('payload')
-          .eq('id', SUPABASE_ROW_ID)
-          .maybeSingle();
-
-        if (error) {
-          console.warn('Supabase sync read:', error.message);
-          return;
-        }
-
-        if (data && data.payload && data.payload.sekolah) {
-          const mergedSekolah = { ...defaultSiteData.sekolah, ...(data.payload.sekolah || {}) };
-          if (!mergedSekolah.logoUrl || mergedSekolah.logoUrl.includes('placehold.co/96x96')) {
-            mergedSekolah.logoUrl = OFFICIAL_LOGO_SVG;
-          }
-          siteData = {
-            ...defaultSiteData,
-            ...data.payload,
-            sekolah: mergedSekolah,
-            statistik: { ...defaultSiteData.statistik, ...(data.payload.statistik || {}) },
-            rombel: { ...defaultSiteData.rombel, ...(data.payload.rombel || {}) },
-            juaraKelas: { ...defaultSiteData.juaraKelas, ...(data.payload.juaraKelas || {}) },
-            juaraUmum: { ...defaultSiteData.juaraUmum, ...(data.payload.juaraUmum || {}) },
-            rekapEkskul: { ...defaultSiteData.rekapEkskul, ...(data.payload.rekapEkskul || {}) }
-          };
-          try {
-            localStorage.setItem('smpn02_martapura_portal_v3', JSON.stringify(siteData));
-          } catch (e) {}
-          syncSchoolBrandUI();
-          renderPage(currentPage);
-        } else {
-          await pushToSupabaseCloud();
-        }
-      } catch (err) {
-        console.warn('Gagal memuat data cloud Supabase:', err);
-      }
-    }
-
-    async function pushToSupabaseCloud() {
-      if (!supabaseClient) return;
-      try {
-        const { error } = await supabaseClient
-          .from('portal_data')
-          .upsert(
-            {
-              id: SUPABASE_ROW_ID,
-              payload: siteData,
-              updated_at: new Date().toISOString()
-            },
-            { onConflict: 'id' }
-          );
-
-        if (error) {
-          console.warn('Supabase sync write:', error.message);
-          if (currentPage === 'admin') {
-            showToast('Tersimpan lokal, namun gagal sinkron ke Supabase: ' + error.message);
-          }
-        }
-      } catch (err) {
-        console.warn('Gagal mengirim ke Supabase:', err);
-      }
-    }
-
+ 
     function saveSiteDataToStorage() {
-      try {
-        localStorage.setItem('smpn02_martapura_portal_v3', JSON.stringify(siteData));
-      } catch (e) {
-        console.warn('Penyimpanan lokal penuh:', e);
-        showToast('Peringatan: Memori browser hampir penuh. Gunakan foto ukuran lebih ringkas atau unduh cadangan JSON.');
-      }
+      saveLocalPortalData();
       syncSchoolBrandUI();
-      pushToSupabaseCloud();
+      if (supabaseClient) queueRemotePortalSave();
     }
-
+ 
     function syncSchoolBrandUI() {
       const s = siteData.sekolah;
       const logoEls = ['school-logo', 'topbar-logo'];
@@ -1209,7 +1263,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       const npsnEl = document.getElementById('sidebar-npsn');
       if (npsnEl) npsnEl.textContent = `NPSN: ${s.npsn} • OKU Timur`;
     }
-
+ 
     function showToast(msg) {
       const box = document.getElementById('toastBox');
       const txt = document.getElementById('toastMessage');
@@ -1223,7 +1277,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         box.classList.remove('flex');
       }, 3000);
     }
-
+ 
     // =========================================================================
     // 3. NAVIGASI SIDEBAR, TOP BAR & PENCARIAN GLOBAL
     // =========================================================================
@@ -1233,9 +1287,9 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       const topBrand = document.getElementById('topBrandInfo');
       const topNav = document.getElementById('topNavLinks');
       const isMobile = window.innerWidth < 768;
-
+ 
       if (!sidebar) return;
-
+ 
       if (isSidebarOpen) {
         if (isMobile) {
           sidebar.className = 'fixed inset-y-0 left-0 z-40 bg-gradient-to-b from-[#f5faff] via-[#eaf3fe] to-[#dcebfb] text-[#09254d] flex flex-col transition-all duration-300 ease-in-out shadow-[8px_0_30px_rgba(6,45,104,0.2)] border-r border-blue-200/90 overflow-hidden flex-shrink-0';
@@ -1259,21 +1313,21 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         if (topNav) topNav.style.display = window.innerWidth >= 1024 ? 'flex' : 'none';
       }
     }
-
+ 
     function toggleSidebar() {
       isSidebarOpen = !isSidebarOpen;
       applySidebarLayout();
     }
-
+ 
     function closeSidebar() {
       isSidebarOpen = false;
       applySidebarLayout();
     }
-
+ 
     window.addEventListener('resize', () => {
       applySidebarLayout();
     });
-
+ 
     function toggleSubmenu(id) {
       const sub = document.getElementById(id);
       const icon = document.getElementById('icon-' + id);
@@ -1283,7 +1337,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         icon.classList.toggle('rotate-180');
       }
     }
-
+ 
     function toggleTopDropdown(id) {
       document.querySelectorAll('.top-dropdown').forEach(el => {
         if (el.id !== id) el.classList.add('hidden');
@@ -1291,13 +1345,13 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       const target = document.getElementById(id);
       if (target) target.classList.toggle('hidden');
     }
-
+ 
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.top-nav-item') && !e.target.closest('.top-dropdown')) {
         document.querySelectorAll('.top-dropdown').forEach(el => el.classList.add('hidden'));
       }
     });
-
+ 
     function toggleTopSearch() {
       const box = document.getElementById('topSearchBox');
       const inp = document.getElementById('topGlobalSearchInput');
@@ -1307,17 +1361,17 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         inp.focus();
       }
     }
-
+ 
     function handleGlobalSearch(rawQuery) {
       const q = (rawQuery || '').trim();
       const sInp = document.getElementById('sidebarSearchInput');
       const tInp = document.getElementById('topGlobalSearchInput');
       if (sInp && sInp.value !== q) sInp.value = q;
       if (tInp && tInp.value !== q) tInp.value = q;
-
+ 
       if (q.length < 2) return;
       const ql = q.toLowerCase();
-
+ 
       const matchPtk = siteData.ptk.filter(p =>
         p.nama.toLowerCase().includes(ql) ||
         p.jabatan.toLowerCase().includes(ql) ||
@@ -1329,7 +1383,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       const matchEks = siteData.ekskul.filter(e =>
         e.nama.toLowerCase().includes(ql) || e.deskripsi.toLowerCase().includes(ql)
       );
-
+ 
       clearTimeout(window.__searchModalTimer);
       window.__searchModalTimer = setTimeout(() => {
         openGlobalModal(`Hasil Pencarian: "${q}"`, `
@@ -1367,7 +1421,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         `);
       }, 450);
     }
-
+ 
     function navigate(pageId) {
       if (pageId === 'admin' && !adminState.unlocked) {
         openAdminGate();
@@ -1378,7 +1432,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       if (window.innerWidth < 768 && isSidebarOpen) {
         closeSidebar();
       }
-
+ 
       const pageLabels = {
         beranda: 'Beranda',
         profil: 'Profil Sekolah',
@@ -1391,10 +1445,10 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         pengumuman: 'Pengumuman Sekolah',
         admin: 'Panel Administrator'
       };
-
+ 
       const titleEl = document.getElementById('page-title');
       if (titleEl) titleEl.textContent = pageLabels[pageId] || 'Beranda';
-
+ 
       document.querySelectorAll('.nav-btn').forEach(btn => {
         const isMatch = btn.getAttribute('data-nav') === pageId;
         if (isMatch) {
@@ -1414,7 +1468,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           }
         }
       });
-
+ 
       const topGroup = pageId.startsWith('ptk')
         ? 'ptk'
         : pageId.startsWith('siswa')
@@ -1431,20 +1485,20 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           btn.classList.add('text-sky-100');
         }
       });
-
+ 
       renderPage(pageId);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
+ 
     function renderPage(pageId) {
       const container = document.getElementById('app-content');
       if (!container) return;
-
+ 
       if (heroAutoTimer) {
         clearInterval(heroAutoTimer);
         heroAutoTimer = null;
       }
-
+ 
       switch (pageId) {
         case 'profil':
           container.innerHTML = renderProfilPage();
@@ -1480,7 +1534,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           break;
       }
     }
-
+ 
     // =========================================================================
     // 4. KOMPONEN PEMBANTU HALAMAN & PRATINJAU GAMBAR
     // =========================================================================
@@ -1497,7 +1551,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <span class="${i === breadcrumb.length - 1 ? 'text-[#0b469e]' : 'text-[#062d68]'}">${b}</span>
             `).join('')}
           </nav>
-
+ 
           <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#eef6ff] via-[#dcebfb] to-[#cbe2fc] border border-blue-200/90 shadow-md p-6 sm:p-8 flex items-center justify-between gap-4">
             <svg viewBox="0 0 260 160" class="pointer-events-none absolute bottom-0 right-0 w-40 sm:w-56 h-24 sm:h-32" preserveAspectRatio="none">
               <path d="M260,160 L260,20 C210,75 155,120 60,160 Z" fill="#062d68"></path>
@@ -1517,7 +1571,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `;
     }
-
+ 
     function openImagePreviewModal(title, src, caption = '') {
       openGlobalModal(title, `
         <div class="space-y-3 text-center">
@@ -1528,7 +1582,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `);
     }
-
+ 
     function openProfilImageByType(type) {
       const s = siteData.sekolah;
       if (type === 'gedung') {
@@ -1540,13 +1594,13 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         openImagePreviewModal(st.judul || 'Struktur Organisasi Sekolah', st.fotoUrl, st.keterangan || '');
       }
     }
-
+ 
     function openSaranaImageModal(idx) {
       const sr = (siteData.sekolah.sarana || [])[idx];
       if (!sr) return;
       openImagePreviewModal(`${sr.nama} (${sr.jumlah})`, sr.foto, `Kondisi Fasilitas: ${sr.kondisi} • ${siteData.sekolah.namaLengkap}`);
     }
-
+ 
     // =========================================================================
     // 5. HALAMAN BERANDA (SESUAI DESAIN RESMI SMPN 02 MARTAPURA)
     // =========================================================================
@@ -1567,7 +1621,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           : 'hero-slide-dot w-2.5 h-2.5 rounded-full bg-white/80 hover:bg-white transition cursor-pointer';
       });
     }
-
+ 
     function startHeroSlider() {
       const slides = siteData.sekolah.heroSlides || [];
       if (slides.length <= 1) return;
@@ -1575,7 +1629,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         setHeroSlide(heroSlideIdx + 1);
       }, 6500);
     }
-
+ 
     function renderBerandaPage() {
       const s = siteData.sekolah;
       const st = siteData.statistik;
@@ -1583,7 +1637,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         ? s.heroSlides
         : [{ judul: s.namaLengkap.toUpperCase(), subjudul: 'Mewujudkan Peserta Didik yang Berkarakter, Berprestasi, dan Berbudaya', gambar: s.heroBannerUrl }];
       const activeSlide = slides[heroSlideIdx % slides.length];
-
+ 
       const quickMenus = [
         { label: 'Kurikulum', icon: 'fa-graduation-cap', action: "navigate('profil')" },
         { label: 'GTK', icon: 'fa-users', action: "navigate('ptk-guru')" },
@@ -1594,7 +1648,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         { label: 'Sarana Prasarana', icon: 'fa-school', action: "navigate('profil')" },
         { label: 'Unduhan', icon: 'fa-download', action: "navigate('pengumuman')" }
       ];
-
+ 
       const mainBerita = siteData.berita[0] || {
         tanggal: '16 November 2026',
         kategori: 'Kegiatan Sekolah',
@@ -1602,14 +1656,14 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         gambar: s.heroBannerUrl
       };
       const sideBerita = siteData.berita.slice(1, 4);
-
+ 
       return `
         <div class="animate-page space-y-6">
           <!-- 1. HERO BANNER UTAMA -->
           <div class="relative rounded-3xl overflow-hidden bg-[#062d68] shadow-xl border border-blue-200/80 min-h-[290px] sm:min-h-[360px] flex items-center">
             <img id="heroBannerImg" src="${activeSlide.gambar || s.heroBannerUrl}" onerror="this.src='https://placehold.co/1200x520/0b469e/fde047?text=SMP+NEGERI+02+MARTAPURA'" alt="${s.namaLengkap}" class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-500" />
             <div class="absolute inset-0 bg-gradient-to-r from-[#062d68]/95 via-[#093c8a]/80 to-[#062d68]/25"></div>
-
+ 
             <!-- Ornamen Lengkung Kiri & Kanan Bawah -->
             <svg viewBox="0 0 240 160" class="pointer-events-none absolute bottom-0 left-0 w-36 sm:w-52 h-24 sm:h-32" preserveAspectRatio="none">
               <path d="M0,160 L0,15 C55,70 110,120 210,160 Z" fill="#062d68"></path>
@@ -1619,7 +1673,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <path d="M240,160 L240,15 C185,70 130,120 30,160 Z" fill="#062d68"></path>
               <path d="M240,12 C182,68 126,119 24,160" fill="none" stroke="#eab308" stroke-width="5"></path>
             </svg>
-
+ 
             <div class="relative z-10 px-6 sm:px-12 py-10 max-w-2xl text-white space-y-3">
               <p class="text-sm sm:text-lg font-semibold text-sky-100">Selamat Datang di Website Resmi</p>
               <h1 id="heroBannerTitle" class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.08] uppercase drop-shadow">
@@ -1638,7 +1692,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 </button>
               </div>
             </div>
-
+ 
             <!-- Titik Indikator Slide Hero -->
             <div class="absolute bottom-3.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
               ${slides.map((_, i) => `
@@ -1646,7 +1700,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               `).join('')}
             </div>
           </div>
-
+ 
           <!-- 2. BARIS 8 MENU CEPAT IKON -->
           <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
             ${quickMenus.map(m => `
@@ -1658,7 +1712,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </button>
             `).join('')}
           </div>
-
+ 
           <!-- 3. SAMBUTAN KEPALA SEKOLAH & SEKILAS TENTANG SEKOLAH -->
           <div class="grid lg:grid-cols-12 gap-5 items-stretch">
             <!-- Sambutan Kepala Sekolah -->
@@ -1677,7 +1731,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 </p>
               </div>
             </div>
-
+ 
             <!-- Sekilas Tentang Sekolah -->
             <div class="lg:col-span-6 glossy-panel rounded-3xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5">
               <div class="flex-1 space-y-3">
@@ -1702,7 +1756,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           </div>
-
+ 
           <!-- 4. GRID 3 KOLOM: PENGUMUMAN, BERITA TERBARU, AGENDA SEKOLAH -->
           <div class="grid lg:grid-cols-12 gap-5 items-stretch">
             <!-- Pengumuman -->
@@ -1733,7 +1787,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 `).join('')}
               </div>
             </div>
-
+ 
             <!-- Berita Terbaru (1 Utama + 3 Samping) -->
             <div class="lg:col-span-5 glossy-panel rounded-3xl p-5 flex flex-col justify-between space-y-3">
               <div class="flex items-center justify-between">
@@ -1761,7 +1815,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                     <p class="text-[11px] text-slate-500"><i class="far fa-calendar-alt mr-1"></i>${mainBerita.tanggal}</p>
                   </div>
                 </div>
-
+ 
                 <!-- 3 Berita Kecil Kanan -->
                 <div class="sm:col-span-6 flex flex-col justify-between gap-2.5">
                   ${sideBerita.map(b => `
@@ -1776,7 +1830,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 </div>
               </div>
             </div>
-
+ 
             <!-- Agenda Sekolah -->
             <div class="lg:col-span-3 glossy-panel rounded-3xl p-5 flex flex-col justify-between space-y-3">
               <h2 class="text-base font-extrabold text-[#062d68] flex items-center gap-2">
@@ -1798,7 +1852,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           </div>
-
+ 
           <!-- 5. PITA HORIZONTAL STATISTIK SEKOLAH -->
           <div class="rounded-3xl bg-gradient-to-r from-[#062d68] via-[#0b469e] to-[#062d68] text-white p-5 sm:p-6 shadow-lg border-b-4 border-[#eab308] grid grid-cols-2 lg:grid-cols-5 gap-4 items-center">
             <div class="col-span-2 lg:col-span-1 flex items-center gap-3 lg:border-r border-white/20 pr-3">
@@ -1839,7 +1893,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           </div>
-
+ 
           <!-- 6. PROGRAM UNGGULAN & PRESTASI TERBARU -->
           <div class="grid lg:grid-cols-12 gap-5 items-stretch">
             <!-- Program Unggulan -->
@@ -1859,7 +1913,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 `).join('')}
               </div>
             </div>
-
+ 
             <!-- Prestasi Terbaru -->
             <div class="lg:col-span-7 glossy-panel rounded-3xl p-5 space-y-4">
               <div class="flex items-center justify-between">
@@ -1886,7 +1940,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           </div>
-
+ 
           <!-- 7. GALERI KEGIATAN & SARANA DAN PRASARANA -->
           <div class="grid lg:grid-cols-12 gap-5 items-stretch">
             <!-- Galeri Kegiatan -->
@@ -1910,7 +1964,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 `).join('')}
               </div>
             </div>
-
+ 
             <!-- Sarana dan Prasarana -->
             <div class="lg:col-span-6 glossy-panel rounded-3xl p-5 space-y-3.5">
               <div class="flex items-center justify-between">
@@ -1936,7 +1990,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           </div>
-
+ 
           <!-- 8. FOOTER KONTAK, LOKASI & MEDIA SOSIAL -->
           <footer class="rounded-3xl overflow-hidden bg-white border border-blue-200/90 shadow-md">
             <div class="p-6 grid md:grid-cols-12 gap-6 items-center">
@@ -1950,7 +2004,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   </div>
                 </div>
               </div>
-
+ 
               <!-- Kontak & Lokasi -->
               <div class="md:col-span-4 space-y-2 text-xs">
                 <h3 class="text-sm font-extrabold text-[#062d68]">Kontak & Lokasi</h3>
@@ -1967,7 +2021,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   <span>${s.email}</span>
                 </p>
               </div>
-
+ 
               <!-- Ikuti Kami & Identitas -->
               <div class="md:col-span-4 flex flex-col sm:flex-row md:flex-col lg:flex-row items-start sm:items-center justify-between gap-4">
                 <div class="space-y-2">
@@ -1987,7 +2041,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 </div>
               </div>
             </div>
-
+ 
             <div class="bg-[#062d68] text-white px-6 py-3 flex flex-wrap items-center justify-between gap-2 text-[11px]">
               <p>© 2026 ${s.namaLengkap}. All Rights Reserved.</p>
               <div class="flex items-center gap-3 text-sky-200">
@@ -2002,7 +2056,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `;
     }
-
+ 
     // =========================================================================
     // 6. HALAMAN PROFIL SEKOLAH (DENGAN FOTO & 1 SLOT BAGAN STRUKTUR ORGANISASI)
     // =========================================================================
@@ -2010,7 +2064,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       const s = siteData.sekolah;
       const struktur = s.strukturOrganisasi || defaultSiteData.sekolah.strukturOrganisasi;
       const saranaList = Array.isArray(s.sarana) && s.sarana.length ? s.sarana : defaultSiteData.sekolah.sarana;
-
+ 
       return `
         <div class="animate-page space-y-6">
           ${buildPageHero({
@@ -2019,7 +2073,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
             subtitle: `Identitas lengkap, Visi & Misi, Bagan Struktur Organisasi, serta Sarana Prasarana ${s.namaLengkap}.`,
             breadcrumb: ['Profil Sekolah']
           })}
-
+ 
           <!-- 1. Identitas Sekolah + Foto Gedung -->
           <div class="glossy-panel rounded-3xl p-6 grid lg:grid-cols-12 gap-6 items-center">
             <div class="lg:col-span-7 space-y-4">
@@ -2052,7 +2106,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 </div>
               </div>
             </div>
-
+ 
             <div class="lg:col-span-5">
               <div onclick="openProfilImageByType('gedung')" class="relative rounded-2xl overflow-hidden border-2 border-blue-200 shadow-md bg-[#062d68] h-60 cursor-pointer group">
                 <img src="${s.heroBannerUrl}" onerror="this.src='https://placehold.co/800x480/0b469e/fde047?text=Gedung+Sekolah'" alt="Gedung ${s.namaLengkap}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -2065,7 +2119,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           </div>
-
+ 
           <!-- 2. Visi & Misi + Foto Kegiatan -->
           <div class="grid lg:grid-cols-12 gap-6 items-stretch">
             <div class="lg:col-span-5 glossy-panel rounded-3xl p-6 flex flex-col justify-between gap-4">
@@ -2087,7 +2141,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 </span>
               </div>
             </div>
-
+ 
             <div class="lg:col-span-7 glossy-panel rounded-3xl p-6 space-y-4">
               <h2 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2.5">
                 <span class="w-8 h-8 rounded-xl bg-sky-100 text-[#0b469e] flex items-center justify-center text-sm">
@@ -2107,7 +2161,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           </div>
-
+ 
           <!-- 3. Struktur Organisasi Sekolah (1 Slot Foto Besar Bagan / Peta Mindmap) -->
           <div class="glossy-panel rounded-3xl p-6 space-y-4">
             <div class="flex flex-wrap items-center justify-between gap-3">
@@ -2125,12 +2179,12 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 <span>Perbesar Bagan</span>
               </button>
             </div>
-
+ 
             <div onclick="openProfilImageByType('struktur')" class="rounded-2xl bg-white border-2 border-blue-200/90 p-3 sm:p-4 flex items-center justify-center cursor-pointer group overflow-hidden">
               <img src="${struktur.fotoUrl}" onerror="this.src='https://placehold.co/1280x720/eef6ff/062d68?text=Bagan+Struktur+Organisasi+Sekolah'" alt="${struktur.judul || 'Bagan Struktur Organisasi'}" class="w-full max-h-[540px] object-contain rounded-xl group-hover:scale-[1.01] transition-transform duration-300" />
             </div>
           </div>
-
+ 
           <!-- 4. Sarana & Prasarana Utama (Dengan Foto Fasilitas) -->
           <div class="glossy-panel rounded-3xl p-6 space-y-4">
             <h2 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2.5">
@@ -2164,7 +2218,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `;
     }
-
+ 
     // =========================================================================
     // 7. HALAMAN PTK (GURU & TENAGA ADMINISTRASI) - MODE SWIPE
     // =========================================================================
@@ -2174,13 +2228,13 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       ptkState.slide = (ptkState.slide + step + total) % total;
       updatePtkSwipeUI();
     }
-
+ 
     function goToPtkSlide(idx) {
       const total = ptkState.totalSlides || 1;
       ptkState.slide = Math.max(0, Math.min(idx, total - 1));
       updatePtkSwipeUI();
     }
-
+ 
     function updatePtkSwipeUI() {
       const track = document.getElementById('ptkSwipeTrack');
       const counter = document.getElementById('ptkSlideCounter');
@@ -2198,13 +2252,13 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         }
       });
     }
-
+ 
     function handlePtkTouchStart(e) {
       if (!e.touches || !e.touches.length) return;
       ptkState.touchStartX = e.touches[0].clientX;
       ptkState.touchStartY = e.touches[0].clientY;
     }
-
+ 
     function handlePtkTouchEnd(e) {
       if (!e.changedTouches || !e.changedTouches.length) return;
       const dx = e.changedTouches[0].clientX - ptkState.touchStartX;
@@ -2214,12 +2268,12 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         else changePtkSlide(-1);
       }
     }
-
+ 
     function handlePtkMouseDown(e) {
       ptkState.touchStartX = e.clientX;
       ptkState.touchStartY = e.clientY;
     }
-
+ 
     function handlePtkMouseUp(e) {
       const dx = e.clientX - ptkState.touchStartX;
       const dy = e.clientY - ptkState.touchStartY;
@@ -2228,7 +2282,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         else changePtkSlide(-1);
       }
     }
-
+ 
     function renderPtkPage(defaultCat) {
       if (defaultCat && ptkState.lastRoute !== defaultCat) {
         ptkState.tab = defaultCat;
@@ -2239,7 +2293,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       const q = ptkState.search.toLowerCase();
       const statusFilter = ptkState.filter;
       const eduFilter = ptkState.eduFilter;
-
+ 
       const filtered = siteData.ptk.filter(p => {
         const matchCat = activeCat === 'semua' || p.kategori === activeCat;
         const matchStatus = statusFilter === 'Semua' || p.status === statusFilter;
@@ -2253,7 +2307,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           p.nip.toLowerCase().includes(q);
         return matchCat && matchStatus && matchEdu && matchSearch;
       });
-
+ 
       const perSlide = window.innerWidth < 640 ? 3 : window.innerWidth < 1024 ? 4 : 6;
       const slides = [];
       for (let i = 0; i < filtered.length; i += perSlide) {
@@ -2263,9 +2317,9 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       if (ptkState.slide >= ptkState.totalSlides) {
         ptkState.slide = 0;
       }
-
+ 
       const isTendik = activeCat === 'tendik';
-
+ 
       return `
         <div class="animate-page space-y-6">
           ${buildPageHero({
@@ -2274,7 +2328,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
             subtitle: 'Direktori lengkap profil Guru dan Staf Tata Usaha beserta kualifikasi pendidikan terakhir dan status kepegawaian.',
             breadcrumb: ['PTK', isTendik ? 'Tenaga Administrasi' : 'Data Guru']
           })}
-
+ 
           <!-- Bar Filter & Pencarian -->
           <div class="glossy-panel rounded-3xl p-5 space-y-4">
             <div class="flex flex-wrap items-center justify-between gap-3">
@@ -2290,14 +2344,14 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   </button>
                 `).join('')}
               </div>
-
+ 
               <!-- Input Cari -->
               <div class="relative w-full sm:w-72">
                 <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
                 <input type="text" value="${ptkState.search}" oninput="ptkState.search = this.value; ptkState.slide = 0; renderPage(currentPage)" placeholder="Cari nama, mapel, NIP, pendidikan..." class="w-full pl-9 pr-4 py-2 rounded-full bg-white border border-blue-200 text-xs text-[#062d68] focus:outline-none focus:border-[#0b469e]" />
               </div>
             </div>
-
+ 
             <!-- Filter Status & Pendidikan Terakhir -->
             <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-blue-100 text-xs">
               <div class="flex flex-wrap items-center gap-1.5">
@@ -2308,7 +2362,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   </button>
                 `).join('')}
               </div>
-
+ 
               <div class="flex flex-wrap items-center gap-1.5">
                 <span class="font-bold text-slate-500 mr-1">Pendidikan:</span>
                 ${['Semua', 'S2', 'S1', 'D3', 'SMA'].map(ed => `
@@ -2319,7 +2373,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           </div>
-
+ 
           <!-- Area Swipe Kartu PTK -->
           ${filtered.length ? `
             <div class="space-y-4">
@@ -2342,7 +2396,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   </button>
                 </div>
               </div>
-
+ 
               <div
                 id="ptkSwipeViewport"
                 ontouchstart="handlePtkTouchStart(event)"
@@ -2384,7 +2438,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   `).join('')}
                 </div>
               </div>
-
+ 
               <!-- Indikator Titik Slide Swipe -->
               ${ptkState.totalSlides > 1 ? `
                 <div class="flex items-center justify-center gap-2 pt-1">
@@ -2403,7 +2457,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `;
     }
-
+ 
     // =========================================================================
     // 8. HALAMAN SISWA – DATA & ROMBEL
     // =========================================================================
@@ -2419,7 +2473,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       const grandTotalP = summary.reduce((a, b) => a + b.perempuan, 0);
       const grandTotal = grandTotalL + grandTotalP;
       const activeList = siteData.rombel[rombelActive] || [];
-
+ 
       return `
         <div class="animate-page space-y-6">
           ${buildPageHero({
@@ -2428,7 +2482,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
             subtitle: `Rekapitulasi jumlah peserta didik laki-laki, perempuan, dan wali kelas per rombongan belajar Tahun Ajaran ${siteData.sekolah.tahunAjaran}.`,
             breadcrumb: ['Siswa', 'Data & Rombel']
           })}
-
+ 
           <!-- Ringkasan Statistik Per Tingkat -->
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             ${summary.map(sm => `
@@ -2441,7 +2495,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 <p class="text-[11px] text-slate-600 mt-1">Laki-laki: <b>${sm.laki}</b> • Perempuan: <b>${sm.perempuan}</b></p>
               </div>
             `).join('')}
-
+ 
             <div class="rounded-3xl p-5 bg-gradient-to-br from-[#062d68] to-[#0b469e] text-white border-b-4 border-amber-400 shadow-md">
               <div class="flex items-center justify-between">
                 <span class="px-3 py-1 rounded-full bg-amber-400 text-[#062d68] text-xs font-extrabold">Total Sekolah</span>
@@ -2451,7 +2505,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <p class="text-[11px] text-sky-100 mt-1">Laki-laki: <b>${grandTotalL}</b> • Perempuan: <b>${grandTotalP}</b></p>
             </div>
           </div>
-
+ 
           <!-- Daftar Rombel Tingkat Aktif -->
           <div class="glossy-panel rounded-3xl p-6 space-y-5">
             <div class="flex flex-wrap items-center justify-between gap-3 border-b border-blue-100 pb-4">
@@ -2467,7 +2521,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 `).join('')}
               </div>
             </div>
-
+ 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               ${activeList.map(r => `
                 <div onclick="openRombelModal('${rombelActive}', '${r.kelas}')" class="p-5 rounded-2xl bg-white border border-blue-200/90 card-hover cursor-pointer space-y-3">
@@ -2494,7 +2548,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `;
     }
-
+ 
     function openRombelModal(tingkat, kelasNama) {
       const r = (siteData.rombel[tingkat] || []).find(item => item.kelas === kelasNama);
       if (!r) return;
@@ -2529,7 +2583,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `);
     }
-
+ 
     // =========================================================================
     // 9. HALAMAN SISWA – PENCAPAIAN, JUARA KELAS & JUARA UMUM PER TINGKAT
     // =========================================================================
@@ -2545,7 +2599,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
             subtitle: 'Daftar prestasi olimpiade akademik, daftar Juara Kelas, dan Juara Umum terpisah per tingkat VII, VIII, dan IX.',
             breadcrumb: ['Siswa', 'Pencapaian']
           })}
-
+ 
           <!-- Prestasi Olimpiade & Kompetisi -->
           <div class="glossy-panel rounded-3xl p-6 space-y-4">
             <h2 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2">
@@ -2568,7 +2622,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               `).join('')}
             </div>
           </div>
-
+ 
           <!-- Filter Tingkat VII / VIII / IX untuk Juara Umum & Juara Kelas -->
           <div class="glossy-panel rounded-3xl p-6 space-y-6">
             <div class="flex flex-wrap items-center justify-between gap-3 border-b border-blue-100 pb-4">
@@ -2584,7 +2638,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 `).join('')}
               </div>
             </div>
-
+ 
             <!-- 3 Kartu Juara Umum Tingkat Terpilih -->
             <div>
               <h4 class="text-sm font-extrabold text-[#0b469e] mb-3 flex items-center gap-2">
@@ -2606,7 +2660,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 `).join('')}
               </div>
             </div>
-
+ 
             <!-- Tabel Juara Kelas Tingkat Terpilih -->
             <div>
               <h4 class="text-sm font-extrabold text-[#0b469e] mb-3 flex items-center gap-2">
@@ -2640,7 +2694,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `;
     }
-
+ 
     // =========================================================================
     // 10. HALAMAN EKSTRAKURIKULER – DAFTAR & DETAIL KEGIATAN
     // =========================================================================
@@ -2650,12 +2704,12 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       const item = ex.galeriFoto[fotoIdx];
       openImagePreviewModal(`${ex.nama} • ${item.judul}`, item.foto, `Dokumentasi Kegiatan Ekstrakurikuler ${ex.nama} ${siteData.sekolah.namaLengkap}`);
     }
-
+ 
     function renderEkskulDaftarPage() {
       const selected = ekskulState.selectedId
         ? siteData.ekskul.find(e => e.id === ekskulState.selectedId)
         : null;
-
+ 
       if (!selected) {
         return `
           <div class="animate-page space-y-6">
@@ -2667,7 +2721,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <i class="fas fa-chevron-right text-[9px] text-slate-400"></i>
               <span class="text-[#0b469e]">Ekstrakurikuler</span>
             </nav>
-
+ 
             <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#eef6ff] via-[#dcebfb] to-[#cbe2fc] border border-blue-200/90 shadow-md p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div class="flex items-start sm:items-center gap-4 z-10 max-w-2xl">
                 <div class="w-16 h-16 rounded-2xl bg-white shadow-md border border-blue-200 flex items-center justify-center text-3xl text-[#062d68] flex-shrink-0">
@@ -2686,7 +2740,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 <span>Lihat Pencapaian Ekskul</span>
               </button>
             </div>
-
+ 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               ${siteData.ekskul.map(ex => `
                 <div onclick="ekskulState.selectedId = '${ex.id}'; ekskulState.subTab = 'profil'; renderPage('ekskul-daftar')" class="glossy-panel card-hover rounded-3xl overflow-hidden flex flex-col justify-between cursor-pointer group">
@@ -2719,7 +2773,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           </div>
         `;
       }
-
+ 
       const subTab = ekskulState.subTab || 'profil';
       const timeline = Array.isArray(selected.timelineProgram) && selected.timelineProgram.length
         ? selected.timelineProgram
@@ -2733,7 +2787,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       const pengurusItems = Array.isArray(selected.pengurusInti) && selected.pengurusInti.length
         ? selected.pengurusInti
         : [{ jabatan: 'Ketua', nama: selected.ketua || 'Ketua Ekskul', kelas: 'IX' }];
-
+ 
       const subTabs = [
         { id: 'profil', label: 'Profil & Kegiatan', icon: 'fa-list-ul' },
         { id: 'jadwal', label: 'Jadwal', icon: 'fa-calendar-days' },
@@ -2742,7 +2796,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         { id: 'galeri', label: 'Galeri', icon: 'fa-images' },
         { id: 'pengurus', label: 'Pengurus', icon: 'fa-users' }
       ];
-
+ 
       return `
         <div class="animate-page space-y-5">
           <!-- Breadcrumb Atas -->
@@ -2759,7 +2813,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <i class="fas fa-chevron-right text-[9px] text-slate-400"></i>
               <span class="text-[#0b469e]">${selected.nama}</span>
             </nav>
-
+ 
             <div class="flex items-center gap-2 text-xs">
               <span class="text-slate-500 font-semibold hidden sm:inline">Ganti Ekskul:</span>
               <select onchange="ekskulState.selectedId = this.value; ekskulState.subTab = 'profil'; renderPage('ekskul-daftar')" class="px-3.5 py-1.5 rounded-full bg-white border border-blue-200 font-bold text-[#062d68] shadow-2xs focus:outline-none cursor-pointer">
@@ -2769,7 +2823,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </select>
             </div>
           </div>
-
+ 
           <!-- Hero Banner Ekstrakurikuler -->
           <div class="relative rounded-3xl overflow-hidden bg-[#062d68] shadow-xl border border-blue-200/90 min-h-[200px] sm:min-h-[235px] flex items-center">
             <img src="${selected.bannerFoto || 'https://placehold.co/900x360/0b469e/fde047?text=' + encodeURIComponent(selected.nama)}" onerror="this.src='https://placehold.co/900x360/0b469e/fde047?text=Ekstrakurikuler'" alt="${selected.nama}" class="absolute right-0 top-0 h-full w-full md:w-3/5 object-cover object-center" />
@@ -2778,7 +2832,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <path d="M280,180 L280,25 C225,85 165,135 60,180 Z" fill="#062d68"></path>
               <path d="M280,22 C223,83 162,134 55,180" fill="none" stroke="#eab308" stroke-width="6"></path>
             </svg>
-
+ 
             <div class="relative z-10 px-6 sm:px-9 py-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 max-w-2xl text-white">
               <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full ${selected.badgeBg || 'bg-purple-700'} ring-4 ring-white shadow-xl flex items-center justify-center text-3xl sm:text-4xl text-white flex-shrink-0">
                 <i class="fas ${selected.ikon}"></i>
@@ -2797,7 +2851,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           </div>
-
+ 
           <!-- Baris Tab Pil Sub-Navigasi + Tombol Kembali ke Ekstrakurikuler -->
           <div class="flex flex-wrap items-center justify-between gap-2.5">
             <div class="flex flex-wrap items-center gap-2">
@@ -2816,7 +2870,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <span>Kembali ke Ekstrakurikuler</span>
             </button>
           </div>
-
+ 
           ${subTab === 'jadwal' ? `
             <div class="glossy-panel rounded-3xl p-5 border-2 border-[#0b469e] flex flex-wrap items-center justify-between gap-4">
               <div class="flex items-center gap-3.5">
@@ -2830,7 +2884,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <button onclick="ekskulState.subTab = 'profil'; renderPage('ekskul-daftar')" class="px-4 py-2 rounded-full bg-sky-100 text-[#062d68] text-xs font-bold cursor-pointer">Tampilkan Semua Panel</button>
             </div>
           ` : ''}
-
+ 
           ${subTab === 'pengurus' ? `
             <div class="glossy-panel rounded-3xl p-5 border-2 border-[#0b469e] space-y-3">
               <div class="flex items-center justify-between">
@@ -2856,7 +2910,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           ` : ''}
-
+ 
           <!-- Grid Utama 12 Kolom -->
           <div class="grid lg:grid-cols-12 gap-5 items-stretch">
             <div class="lg:col-span-4 glossy-panel rounded-3xl p-5 sm:p-6 flex flex-col justify-between space-y-4">
@@ -2871,7 +2925,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   ${selected.deskripsi}
                 </p>
               </div>
-
+ 
               <div class="space-y-2.5 pt-1">
                 <div class="p-3.5 rounded-2xl bg-sky-50/75 border border-blue-100 flex items-center gap-3.5">
                   <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-500 flex items-center justify-center text-base flex-shrink-0">
@@ -2882,7 +2936,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                     <p class="text-xs text-slate-600 truncate mt-0.5">${selected.pembina}</p>
                   </div>
                 </div>
-
+ 
                 <div class="p-3.5 rounded-2xl bg-sky-50/75 border border-blue-100 flex items-center gap-3.5">
                   <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-500 flex items-center justify-center text-base flex-shrink-0">
                     <i class="fas fa-users"></i>
@@ -2892,7 +2946,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                     <p class="text-xs text-slate-600 truncate mt-0.5">${selected.ketua || 'Ketua Ekskul'}</p>
                   </div>
                 </div>
-
+ 
                 <div class="p-3.5 rounded-2xl bg-sky-50/75 border border-blue-100 flex items-center gap-3.5">
                   <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-500 flex items-center justify-center text-base flex-shrink-0">
                     <i class="fas fa-calendar-day"></i>
@@ -2902,7 +2956,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                     <p class="text-xs text-slate-600 leading-snug mt-0.5">${selected.jadwal}</p>
                   </div>
                 </div>
-
+ 
                 <div class="p-3.5 rounded-2xl bg-sky-50/75 border border-blue-100 flex items-center gap-3.5">
                   <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-500 flex items-center justify-center text-base flex-shrink-0">
                     <i class="fas fa-location-dot"></i>
@@ -2914,7 +2968,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 </div>
               </div>
             </div>
-
+ 
             <div class="lg:col-span-8 flex flex-col justify-between gap-5">
               <div class="grid md:grid-cols-12 gap-5 items-stretch">
                 <div class="md:col-span-7 glossy-panel rounded-3xl p-5 sm:p-6 space-y-4 ${subTab === 'program' ? 'ring-2 ring-[#0b469e]' : ''}">
@@ -2936,7 +2990,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                     `).join('')}
                   </div>
                 </div>
-
+ 
                 <div class="md:col-span-5 glossy-panel rounded-3xl p-5 sm:p-6 space-y-4 ${subTab === 'prestasi' ? 'ring-2 ring-[#0b469e]' : ''}">
                   <h2 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2.5">
                     <i class="fas fa-trophy text-amber-500"></i>
@@ -2968,7 +3022,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   </div>
                 </div>
               </div>
-
+ 
               <div class="glossy-panel rounded-3xl p-5 sm:p-6 space-y-3.5 ${subTab === 'galeri' ? 'ring-2 ring-[#0b469e]' : ''}">
                 <div class="flex items-center justify-between">
                   <h2 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2.5">
@@ -2982,7 +3036,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                     <i class="fas fa-arrow-right text-[10px]"></i>
                   </button>
                 </div>
-
+ 
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   ${galeriItems.map((gl, idx) => `
                     <div onclick="openEkskulGaleriModal('${selected.id}', ${idx})" class="rounded-2xl bg-white border border-blue-200/90 overflow-hidden shadow-2xs card-hover cursor-pointer group flex flex-col">
@@ -3001,7 +3055,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `;
     }
-
+ 
     // =========================================================================
     // 11. HALAMAN PENCAPAIAN EKSTRAKURIKULER
     // =========================================================================
@@ -3031,9 +3085,9 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         Rohis: { bg: 'bg-emerald-600', icon: 'fa-mosque' },
         'English Club': { bg: 'bg-cyan-700', icon: 'fa-language' }
       };
-
+ 
       const items = siteData.pencapaianEkskul.filter(it => filter === 'Semua' || it.ekskul === filter);
-
+ 
       return `
         <div class="animate-page space-y-5">
           <nav class="flex flex-wrap items-center gap-1.5 text-xs font-bold text-[#062d68]">
@@ -3046,7 +3100,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
             <i class="fas fa-chevron-right text-[9px] text-slate-400"></i>
             <span class="text-[#0b469e]">Pencapaian</span>
           </nav>
-
+ 
           <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#f3f8ff] via-[#e2effd] to-[#cbe2fc] border border-blue-200/90 shadow-md min-h-[165px] sm:min-h-[190px] flex items-center">
             <img src="${siteData.sekolah.heroBannerUrl}" onerror="this.src='https://placehold.co/900x360/0b469e/fde047?text=SMP+Negeri+02+Martapura'" alt="${siteData.sekolah.namaLengkap}" class="hidden md:block absolute right-14 top-0 h-full w-1/2 object-cover object-center opacity-90" />
             <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-[#f3f8ff] via-[#e6f1fe]/95 to-transparent"></div>
@@ -3057,7 +3111,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
             <div class="hidden sm:flex absolute right-6 bottom-5 z-10 w-24 h-24 rounded-full bg-gradient-to-br from-amber-300 via-amber-400 to-amber-600 text-[#062d68] ring-4 ring-white/80 shadow-xl items-center justify-center text-4xl">
               <i class="fas fa-trophy"></i>
             </div>
-
+ 
             <div class="relative z-10 px-6 sm:px-8 py-6 flex items-start sm:items-center gap-4 max-w-2xl">
               <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white shadow-md border border-blue-200/80 flex items-center justify-center text-3xl sm:text-4xl text-[#062d68] flex-shrink-0">
                 <i class="fas fa-trophy"></i>
@@ -3073,7 +3127,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           </div>
-
+ 
           <div class="rounded-3xl bg-gradient-to-r from-[#062d68] via-[#0b469e] to-[#062d68] text-white p-5 sm:p-6 shadow-lg border-b-4 border-[#eab308] grid grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="flex items-center justify-center sm:justify-start gap-3.5 lg:border-r border-amber-400/50 pr-3">
               <div class="w-12 h-12 rounded-full bg-amber-400/20 border border-amber-300/50 flex items-center justify-center text-amber-300 text-xl flex-shrink-0">
@@ -3112,7 +3166,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           </div>
-
+ 
           <div class="flex flex-wrap items-center gap-2">
             ${primaryTabs.map(t => {
               const active = filter === t.id;
@@ -3137,7 +3191,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <span>${pencapaianEkskulState.showMore ? 'Ringkas' : 'Lainnya'}</span>
             </button>
           </div>
-
+ 
           <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
             <h2 class="text-base sm:text-lg font-extrabold text-[#062d68] flex items-center gap-2.5">
               <i class="fas fa-trophy text-amber-500 text-lg"></i>
@@ -3148,7 +3202,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <option value="2026/2027" ${pencapaianEkskulState.year === '2026/2027' ? 'selected' : ''}>Tahun Ajaran 2026/2027</option>
             </select>
           </div>
-
+ 
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             ${items.map(it => {
               const stBadge = badgeStyles[it.ekskul] || { bg: 'bg-[#062d68]', icon: 'fa-award' };
@@ -3184,7 +3238,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               `;
             }).join('')}
           </div>
-
+ 
           <div class="glossy-panel rounded-3xl p-4 sm:p-5 flex flex-col lg:flex-row items-stretch lg:items-center gap-4">
             <div class="rounded-2xl bg-gradient-to-r from-[#062d68] to-[#0b469e] text-white border-b-2 border-[#eab308] p-4 sm:px-6 flex items-center gap-3.5 flex-shrink-0">
               <div class="w-11 h-11 rounded-xl bg-amber-400/20 border border-amber-300/40 flex items-center justify-center text-amber-300 text-xl">
@@ -3220,7 +3274,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `;
     }
-
+ 
     // =========================================================================
     // 12. HALAMAN PENGUMUMAN SEKOLAH
     // =========================================================================
@@ -3248,7 +3302,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
             subtitle: `Informasi resmi dan terbaru dari ${siteData.sekolah.namaLengkap}.`,
             breadcrumb: ['Informasi', 'Pengumuman Sekolah']
           })}
-
+ 
           <div class="grid lg:grid-cols-12 gap-6 items-start">
             <div class="lg:col-span-4 glossy-panel rounded-3xl overflow-hidden">
               <div class="px-5 py-4 royal-panel-header text-white flex items-center gap-2.5">
@@ -3274,7 +3328,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                 <path d="M0,10 C95,35 190,42 300,25" fill="none" stroke="#eab308" stroke-width="3"></path>
               </svg>
             </div>
-
+ 
             <div class="lg:col-span-8 glossy-panel rounded-3xl overflow-hidden">
               <div class="px-5 py-3.5 royal-panel-header text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div class="flex items-center gap-2.5">
@@ -3328,7 +3382,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `;
     }
-
+ 
     function openPengumumanModal(id) {
       const p = siteData.pengumuman.find(item => item.id === id);
       if (!p) return;
@@ -3355,7 +3409,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `);
     }
-
+ 
     // =========================================================================
     // 13. PENGATURAN ADMIN LENGKAP + UPLOAD FOTO, EXCEL PTK & DATA JSON
     // =========================================================================
@@ -3381,7 +3435,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         console.warn('Pemeriksaan tautan akses:', e);
       }
     }
-
+ 
     function toggleAdminPassVisibility() {
       const inp = document.getElementById('adminPinInput');
       const icon = document.getElementById('adminPassEyeIcon');
@@ -3394,7 +3448,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         if (icon) icon.className = 'fas fa-eye text-xs';
       }
     }
-
+ 
     function openAdminGate() {
       if (adminState.unlocked) {
         navigate('admin');
@@ -3406,14 +3460,19 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
             Area ini khusus untuk <b>Administrator Resmi SMP Negeri 02 Martapura</b>. Masukkan kata sandi administrator untuk mengelola konten dan foto portal.
           </p>
           <div>
-            <label class="block text-xs font-bold text-[#062d68] mb-1.5">Password Admin</label>
+            <label class="block text-xs font-bold text-[#062d68] mb-1.5">Email Administrator Supabase</label>
+            <input type="email" id="adminEmailInput" placeholder="email-admin-sekolah@example.com" onkeydown="if(event.key==='Enter') unlockAdmin()" class="w-full px-4 py-2.5 rounded-xl border border-blue-200 text-sm focus:outline-none focus:border-[#0b469e]" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-[#062d68] mb-1.5">Password Administrator</label>
             <div class="relative">
-              <input type="password" id="adminPinInput" placeholder="Masukkan password admin..." onkeydown="if(event.key==='Enter') unlockAdmin()" class="w-full pl-4 pr-10 py-2.5 rounded-xl border border-blue-200 text-sm focus:outline-none focus:border-[#0b469e]" />
+              <input type="password" id="adminPinInput" placeholder="Masukkan password akun database..." onkeydown="if(event.key==='Enter') unlockAdmin()" class="w-full pl-4 pr-10 py-2.5 rounded-xl border border-blue-200 text-sm focus:outline-none focus:border-[#0b469e]" />
               <button type="button" onclick="toggleAdminPassVisibility()" title="Tampilkan / Sembunyikan Password" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#062d68] cursor-pointer">
                 <i id="adminPassEyeIcon" class="fas fa-eye text-xs"></i>
               </button>
             </div>
           </div>
+          <p class="text-[11px] text-slate-500">Gunakan akun administrator yang dibuat di Supabase Authentication. Password lama hanya berlaku jika database belum dikonfigurasi.</p>
           <div class="flex flex-wrap gap-2.5 pt-2">
             <button onclick="unlockAdmin()" class="royal-pill-btn px-5 py-2.5 rounded-full text-white text-xs font-bold cursor-pointer">
               Masuk Panel Admin
@@ -3426,25 +3485,64 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       `);
       setTimeout(() => document.getElementById('adminPinInput')?.focus(), 80);
     }
-
-    function unlockAdmin() {
+ 
+    async function unlockAdmin() {
       const val = (document.getElementById('adminPinInput')?.value || '').trim();
-      if (val && encodeSecret(val) === adminState.passHash) {
+ 
+      if (!supabaseClient) {
+        if (val && encodeSecret(val) === adminState.passHash) {
+          adminState.unlocked = true;
+          closeGlobalModal();
+          navigate('admin');
+          showToast('Admin dibuka dalam mode lokal. Atur Supabase agar data tersinkron antarperangkat.');
+        } else {
+          showToast('Database belum dikonfigurasi. Untuk sementara gunakan password admin lokal yang lama.');
+        }
+        return;
+      }
+ 
+      const email = (document.getElementById('adminEmailInput')?.value || '').trim();
+      if (!email || !val) {
+        showToast('Isi email dan password administrator.');
+        return;
+      }
+ 
+      try {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password: val });
+        if (error) throw error;
+        if (!data?.session) throw new Error('Sesi administrator tidak terbentuk.');
+ 
+        const remoteData = await fetchRemotePortalData();
+        if (remoteData) {
+          siteData = normalizePortalData(remoteData);
+          saveLocalPortalData();
+          remoteSyncReady = true;
+        } else {
+          // Login pertama dari perangkat admin lama akan mengirim data lokal sebagai data awal.
+          await writeRemotePortalData(false);
+          remoteSyncReady = true;
+        }
+ 
         adminState.unlocked = true;
         closeGlobalModal();
+        syncSchoolBrandUI();
         navigate('admin');
-        showToast('Akses Administrator berhasil dibuka.');
-      } else {
-        showToast('Password Admin tidak sesuai!');
+        showToast('Akses admin berhasil. Database online sudah tersambung.');
+      } catch (error) {
+        console.error('Login admin gagal:', error);
+        showToast('Login gagal. Periksa email, password, dan konfigurasi Supabase.');
       }
     }
-
-    function logoutAdmin() {
+ 
+    async function logoutAdmin() {
       adminState.unlocked = false;
+      if (supabaseClient) {
+        try { await supabaseClient.auth.signOut(); } catch (e) { console.warn(e); }
+      }
       navigate('beranda');
       showToast('Mode Admin dikunci kembali.');
     }
-
+ 
     function renderPhotoUploader({ label, inputId, previewId, currentValue, aspectClass = 'w-20 h-20' }) {
       const safeVal = (currentValue || '').replace(/"/g, '&quot;');
       return `
@@ -3467,7 +3565,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `;
     }
-
+ 
     function handlePhotoFileUpload(event, inputId, previewId) {
       const file = event.target.files?.[0];
       if (!file) return;
@@ -3495,15 +3593,42 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           const compressed = canvas.toDataURL('image/jpeg', 0.85);
           const inp = document.getElementById(inputId);
           const prev = document.getElementById(previewId);
-          if (inp) inp.value = compressed;
-          if (prev) prev.src = compressed;
-          showToast('Foto berhasil dimuat! Klik Simpan untuk menerapkan.');
+ 
+          (async () => {
+            let imageValue = compressed;
+            if (supabaseClient) {
+              try {
+                const { data: sessionData } = await supabaseClient.auth.getSession();
+                if (sessionData?.session) {
+                  const imageBlob = await (await fetch(compressed)).blob();
+                  const uniquePart = (window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}`);
+                  const storagePath = `portal/${uniquePart}.jpg`;
+                  const { error: uploadError } = await supabaseClient.storage
+                    .from('school-media')
+                    .upload(storagePath, imageBlob, { contentType: 'image/jpeg', upsert: true });
+                  if (uploadError) throw uploadError;
+                  imageValue = supabaseClient.storage.from('school-media').getPublicUrl(storagePath).data.publicUrl;
+                }
+              } catch (uploadError) {
+                console.error('Upload foto online gagal; memakai data foto lokal sementara:', uploadError);
+                showToast('Foto dimuat, tetapi upload online gagal. Periksa bucket dan izin Storage.');
+              }
+            }
+ 
+            if (inp) inp.value = imageValue;
+            if (prev) prev.src = imageValue;
+            if (imageValue === compressed) {
+              showToast('Foto dimuat. Simpan data; foto masih memakai format lokal.');
+            } else {
+              showToast('Foto berhasil diunggah ke penyimpanan online. Klik Simpan untuk menerapkan.');
+            }
+          })();
         };
         img.src = e.target.result;
       };
       reader.readAsDataURL(file);
     }
-
+ 
     function downloadPtkExcelTemplate() {
       if (typeof XLSX === 'undefined') {
         showToast('Pustaka Excel sedang dimuat, silakan coba beberapa detik lagi.');
@@ -3534,7 +3659,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       XLSX.writeFile(wb, 'Template_Import_PTK_SMPN02_Martapura.xlsx');
       showToast('Template Excel PTK berhasil diunduh!');
     }
-
+ 
     function exportPtkToExcel() {
       if (typeof XLSX === 'undefined') {
         showToast('Pustaka Excel sedang dimuat, silakan coba sebentar lagi.');
@@ -3556,7 +3681,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       XLSX.writeFile(wb, 'Data_Guru_Tendik_SMPN02_Martapura.xlsx');
       showToast('Seluruh data Guru & Tendik berhasil diekspor ke Excel!');
     }
-
+ 
     function handlePtkExcelImport(event) {
       const file = event.target.files?.[0];
       if (!file) return;
@@ -3571,28 +3696,28 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           const workbook = XLSX.read(data, { type: 'array' });
           const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
           const rawRows = XLSX.utils.sheet_to_json(firstSheet, { defval: '' });
-
+ 
           if (!rawRows.length) {
             showToast('File Excel kosong atau tidak memiliki baris data.');
             return;
           }
-
+ 
           let importedCount = 0;
           const importedItems = [];
-
+ 
           rawRows.forEach(row => {
             const norm = {};
             Object.keys(row).forEach(k => {
               norm[k.toLowerCase().trim()] = String(row[k] ?? '').trim();
             });
-
+ 
             const nama =
               norm['nama lengkap & gelar'] ||
               norm['nama lengkap'] ||
               norm['nama'] ||
               '';
             if (!nama || nama.toLowerCase().startsWith('contoh:')) return;
-
+ 
             const nip = norm['nip / ni pppk'] || norm['nip'] || '-';
             const katRaw = (norm['kategori (guru/tendik)'] || norm['kategori'] || 'guru').toLowerCase();
             const kategori = katRaw.includes('tendik') || katRaw.includes('admin') || katRaw.includes('tu') ? 'tendik' : 'guru';
@@ -3608,7 +3733,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               'S1 Pendidikan';
             const statusRaw = (norm['status (pns/pppk/honorer)'] || norm['status'] || 'PNS').toUpperCase();
             const status = statusRaw.includes('PPPK') ? 'PPPK' : statusRaw.includes('HONOR') ? 'Honorer' : 'PNS';
-
+ 
             const initials = nama
               .replace(/[^a-zA-Z\s]/g, '')
               .trim()
@@ -3616,7 +3741,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               .slice(0, 2)
               .map(w => w[0]?.toUpperCase() || '')
               .join('') || 'PTK';
-
+ 
             importedItems.push({
               nama,
               nip,
@@ -3628,19 +3753,19 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
             });
             importedCount++;
           });
-
+ 
           if (importedCount === 0) {
             showToast('Tidak ditemukan baris valid (pastikan kolom Nama terisi).');
             return;
           }
-
+ 
           const replaceMode = document.getElementById('admExcelReplaceMode')?.checked;
           if (replaceMode) {
             siteData.ptk = importedItems;
           } else {
             siteData.ptk = [...importedItems, ...siteData.ptk];
           }
-
+ 
           saveSiteDataToStorage();
           renderPage('admin');
           showToast(`Berhasil mengimpor ${importedCount} data Guru/Tendik dari Excel!`);
@@ -3650,7 +3775,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       };
       reader.readAsArrayBuffer(file);
     }
-
+ 
     function renderAdminPage() {
       if (!adminState.unlocked) {
         return renderBerandaPage();
@@ -3660,7 +3785,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       const st = siteData.statistik;
       const struktur = s.strukturOrganisasi || defaultSiteData.sekolah.strukturOrganisasi;
       const saranaList = Array.isArray(s.sarana) && s.sarana.length ? s.sarana : defaultSiteData.sekolah.sarana;
-
+ 
       const editPeng = adminState.editPengIdx >= 0 ? siteData.pengumuman[adminState.editPengIdx] : null;
       const editBer = adminState.editBeritaIdx >= 0 ? siteData.berita[adminState.editBeritaIdx] : null;
       const editPtk = adminState.editPtkIdx >= 0 ? siteData.ptk[adminState.editPtkIdx] : null;
@@ -3670,7 +3795,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       }
       const editEkskul = adminState.editEkskulIdx >= 0 ? siteData.ekskul[adminState.editEkskulIdx] : null;
       const editPencEkskul = adminState.editPencapaianEkskulIdx >= 0 ? siteData.pencapaianEkskul[adminState.editPencapaianEkskulIdx] : null;
-
+ 
       return `
         <div class="animate-page space-y-6">
           ${buildPageHero({
@@ -3679,7 +3804,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
             subtitle: 'Kelola seluruh teks, foto profil sekolah, bagan struktur organisasi, impor Excel Guru & Tendik, siswa, dan ekskul tanpa coding.',
             breadcrumb: ['Pengaturan Admin', 'Editor Tanpa Coding']
           })}
-
+ 
           <!-- Tab Navigasi Admin Lengkap -->
           <div class="flex flex-wrap items-center justify-between gap-3">
             <div class="flex flex-wrap gap-2">
@@ -3702,7 +3827,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               <span>Kunci & Keluar Admin</span>
             </button>
           </div>
-
+ 
           <!-- ==================== TAB 1: IDENTITAS, PROFIL SEKOLAH & BAGAN STRUKTUR ==================== -->
           ${tab === 'umum' ? `
             <div class="glossy-panel rounded-3xl p-6 space-y-6">
@@ -3737,7 +3862,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   aspectClass: 'w-24 h-16'
                 })}
               </div>
-
+ 
               <h3 class="text-base font-extrabold text-[#062d68] pt-2 border-t border-blue-100">2. Foto Bagan Struktur Organisasi Sekolah (1 Slot Desain Peta / Mindmap)</h3>
               <div class="p-4 rounded-2xl bg-white border border-blue-200/90 space-y-3 text-xs">
                 ${renderPhotoUploader({
@@ -3758,7 +3883,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   </div>
                 </div>
               </div>
-
+ 
               <h3 class="text-base font-extrabold text-[#062d68] pt-2 border-t border-blue-100">3. Foto & Data Sarana Prasarana Sekolah</h3>
               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 ${saranaList.map((sr, idx) => `
@@ -3779,7 +3904,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   </div>
                 `).join('')}
               </div>
-
+ 
               <h3 class="text-base font-extrabold text-[#062d68] pt-2 border-t border-blue-100">4. Identitas, Kontak & Statistik Sekolah</h3>
               <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                 <div>
@@ -3814,9 +3939,9 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   <label class="font-bold text-slate-700 block mb-1">NIP Kepala Sekolah</label>
                   <input id="admNipKepsek" value="${s.kepalaSekolah.nip}" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
                 </div>
-                <div>
-                  <label class="font-bold text-slate-700 block mb-1">Ganti Password Admin (Opsional)</label>
-                  <input type="password" id="admNewPin" placeholder="Kosongkan jika tidak diubah" class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white" />
+                <div class="p-3 rounded-xl bg-sky-50 border border-sky-100 text-xs text-slate-600">
+                  <b class="text-[#062d68]">Keamanan akun administrator</b><br>
+                  Email dan password admin dikelola melalui Supabase Authentication, bukan disimpan di file website.
                 </div>
                 <div>
                   <label class="font-bold text-slate-700 block mb-1">Jumlah Peserta Didik</label>
@@ -3853,7 +3978,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </button>
             </div>
           ` : ''}
-
+ 
           <!-- ==================== TAB 2: PENGUMUMAN, BERITA & AGENDA ==================== -->
           ${tab === 'pengumuman' ? `
             <div class="space-y-6">
@@ -3892,7 +4017,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   `).join('')}
                 </div>
               </div>
-
+ 
               <div class="glossy-panel rounded-3xl p-6 space-y-4">
                 <h3 class="text-base font-extrabold text-[#062d68]">${editBer ? 'Edit Berita & Foto' : 'Tambah Berita & Foto Kegiatan'}</h3>
                 ${renderPhotoUploader({
@@ -3929,7 +4054,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           ` : ''}
-
+ 
           <!-- ==================== TAB 3: GURU & TENDIK (+EXCEL IMPORT/EXPORT & PENDIDIKAN) ==================== -->
           ${tab === 'ptk' ? `
             <div class="space-y-6">
@@ -3966,7 +4091,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   </label>
                 </div>
               </div>
-
+ 
               <div class="glossy-panel rounded-3xl p-6 space-y-5">
                 <h3 class="text-base font-extrabold text-[#062d68]">${editPtk ? 'Edit Data & Foto PTK' : 'Tambah Data & Foto Guru / Tenaga Administrasi Satuan'}</h3>
                 ${renderPhotoUploader({
@@ -4046,7 +4171,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           ` : ''}
-
+ 
           <!-- ==================== TAB 4: ROMBEL, PRESTASI & JUARA ==================== -->
           ${tab === 'siswa' ? `
             <div class="space-y-6">
@@ -4087,7 +4212,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   `).join('')}
                 </div>
               </div>
-
+ 
               <div class="glossy-panel rounded-3xl p-6 space-y-4">
                 <h3 class="text-base font-extrabold text-[#062d68]">Kelola Prestasi Akademik & Olimpiade Siswa</h3>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
@@ -4113,7 +4238,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           ` : ''}
-
+ 
           <!-- ==================== TAB 5: EKSKUL & PENCAPAIAN EKSKUL (+FOTO) ==================== -->
           ${tab === 'ekskul' ? `
             <div class="space-y-6">
@@ -4141,7 +4266,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                     ` : ''}
                   </div>
                 </div>
-
+ 
                 <!-- 1. Identitas & Banner Ekskul -->
                 <div class="space-y-4">
                   <h4 class="text-sm font-extrabold text-[#0b469e] flex items-center gap-2">
@@ -4186,7 +4311,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                     <textarea id="admEksDesk" rows="2" placeholder="Deskripsi profil ekstrakurikuler..." class="w-full px-3.5 py-2.5 rounded-xl border border-sky-200 bg-white">${editEkskul ? editEkskul.deskripsi : ''}</textarea>
                   </div>
                 </div>
-
+ 
                 ${editEkskul ? `
                   <!-- 2. EDITOR PROGRAM KERJA BULANAN -->
                   <div class="pt-5 border-t border-blue-100 space-y-4">
@@ -4199,7 +4324,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                         <p class="text-[11px] text-slate-500 mt-0.5">Ubah langsung nama bulan atau uraian program kerja pada baris di bawah, atau tambahkan program baru.</p>
                       </div>
                     </div>
-
+ 
                     <!-- Form Tambah Program Kerja Baru -->
                     <div class="p-3.5 rounded-2xl bg-sky-50/80 border border-blue-200 grid sm:grid-cols-12 gap-2.5 items-center text-xs">
                       <div class="sm:col-span-3">
@@ -4214,7 +4339,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                         </button>
                       </div>
                     </div>
-
+ 
                     <!-- Daftar Baris Program Kerja yang Bisa Diedit Langsung -->
                     <div class="space-y-2">
                       ${(editEkskul.timelineProgram || []).map((item, pIdx) => `
@@ -4235,7 +4360,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                       `).join('')}
                     </div>
                   </div>
-
+ 
                   <!-- 3. EDITOR DOKUMENTASI FOTO KEGIATAN EKSKUL -->
                   <div class="pt-5 border-t border-blue-100 space-y-4">
                     <div>
@@ -4245,7 +4370,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                       </h4>
                       <p class="text-[11px] text-slate-500 mt-0.5">Unggah foto dokumentasi latihan, lomba, atau kegiatan ekstrakurikuler langsung dari perangkat Anda.</p>
                     </div>
-
+ 
                     <!-- Kotak Unggah Foto Baru ke Galeri Ekskul -->
                     <div class="p-4 rounded-2xl bg-gradient-to-r from-sky-50 to-blue-50/70 border border-blue-200 space-y-3 text-xs">
                       <p class="font-extrabold text-[#062d68]"><i class="fas fa-plus-circle text-[#0b469e] mr-1"></i>Tambah Foto Kegiatan Baru ke Galeri</p>
@@ -4263,7 +4388,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                         </button>
                       </div>
                     </div>
-
+ 
                     <!-- Daftar Foto Galeri Ekskul Saat Ini -->
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
                       ${(editEkskul.galeriFoto || []).map((gl, gIdx) => `
@@ -4287,7 +4412,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                     </div>
                   </div>
                 ` : ''}
-
+ 
                 <!-- Tombol Simpan Utama Ekskul -->
                 <div class="pt-4 border-t border-blue-100 flex flex-wrap items-center gap-3">
                   <button onclick="saveAdminEkskul()" class="royal-pill-btn px-6 py-3 rounded-full text-white text-xs font-extrabold cursor-pointer">
@@ -4300,7 +4425,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
                   ` : ''}
                 </div>
               </div>
-
+ 
               <!-- BAGIAN B: PENCAPAIAN & TROFI EKSTRAKURIKULER -->
               <div class="glossy-panel rounded-3xl p-6 space-y-4">
                 <h3 class="text-base font-extrabold text-[#062d68]">${editPencEkskul ? 'Edit Pencapaian Ekstrakurikuler' : 'Tambah Pencapaian Ekstrakurikuler (+Foto Piala/Kegiatan)'}</h3>
@@ -4347,14 +4472,14 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
               </div>
             </div>
           ` : ''}
-
+ 
           <!-- ==================== TAB 6: DATABASE JSON ==================== -->
           ${tab === 'json' ? `
             <div class="glossy-panel rounded-3xl p-6 space-y-4">
               <div class="flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <h3 class="text-base font-extrabold text-[#062d68]">Database JSON Portal Sekolah</h3>
-                  <p class="text-xs text-slate-500">Unduh cadangan data <code>.json</code>, unggah file JSON baru, atau edit langsung struktur data di bawah ini.</p>
+                  <p class="text-xs text-slate-500">Data utama disinkronkan melalui database online setelah Supabase dikonfigurasi. Unduh cadangan <code>.json</code> secara berkala untuk keamanan.</p>
                 </div>
                 <div class="flex flex-wrap gap-2">
                   <button onclick="downloadJsonFile()" class="royal-pill-btn px-4 py-2 rounded-full text-white text-xs font-bold cursor-pointer">
@@ -4380,20 +4505,20 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         </div>
       `;
     }
-
+ 
     function saveAdminGeneral() {
       siteData.sekolah.logoUrl = document.getElementById('admLogoUrl').value.trim() || siteData.sekolah.logoUrl;
       siteData.sekolah.heroBannerUrl = document.getElementById('admHeroUrl').value.trim() || siteData.sekolah.heroBannerUrl;
       siteData.sekolah.kepalaSekolah.fotoUrl = document.getElementById('admKepsekFoto').value.trim() || siteData.sekolah.kepalaSekolah.fotoUrl;
       siteData.sekolah.fotoVisiMisi = document.getElementById('admVisiMisiFoto').value.trim() || siteData.sekolah.fotoVisiMisi;
-
+ 
       const baseStruktur = siteData.sekolah.strukturOrganisasi || defaultSiteData.sekolah.strukturOrganisasi;
       siteData.sekolah.strukturOrganisasi = {
         fotoUrl: document.getElementById('admStrukturFoto')?.value.trim() || baseStruktur.fotoUrl,
         judul: document.getElementById('admStrukturJudul')?.value.trim() || baseStruktur.judul,
         keterangan: document.getElementById('admStrukturKet')?.value.trim() || ''
       };
-
+ 
       const currentSarana = Array.isArray(siteData.sekolah.sarana) && siteData.sekolah.sarana.length
         ? siteData.sekolah.sarana
         : defaultSiteData.sekolah.sarana;
@@ -4403,7 +4528,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         nama: document.getElementById(`admSarNama_${idx}`)?.value.trim() || sr.nama,
         jumlah: document.getElementById(`admSarJumlah_${idx}`)?.value.trim() || sr.jumlah
       }));
-
+ 
       siteData.sekolah.namaLengkap = document.getElementById('admNamaLengkap').value.trim() || siteData.sekolah.namaLengkap;
       siteData.sekolah.namaSingkat = document.getElementById('admNamaSingkat').value.trim() || siteData.sekolah.namaSingkat;
       siteData.sekolah.npsn = document.getElementById('admNpsn').value.trim() || siteData.sekolah.npsn;
@@ -4416,25 +4541,17 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       siteData.sekolah.visi = document.getElementById('admVisi').value.trim();
       const misiLines = document.getElementById('admMisi').value.split('\n').map(x => x.trim()).filter(Boolean);
       if (misiLines.length) siteData.sekolah.misi = misiLines;
-
+ 
       siteData.statistik.pesertaDidik = parseInt(document.getElementById('admJmlSiswa').value, 10) || 0;
       siteData.statistik.guru = parseInt(document.getElementById('admJmlGuru').value, 10) || 0;
       siteData.statistik.tendik = parseInt(document.getElementById('admJmlTendik').value, 10) || 0;
       siteData.statistik.rombel = parseInt(document.getElementById('admJmlRombel').value, 10) || 0;
-
-      const newPass = document.getElementById('admNewPin').value.trim();
-      if (newPass) {
-        const hashed = encodeSecret(newPass);
-        adminState.passHash = hashed;
-        try {
-          localStorage.setItem('smpn02_admin_auth_v2', hashed);
-        } catch (e) {}
-      }
+ 
       saveSiteDataToStorage();
       renderPage('admin');
       showToast('Identitas, Bagan Struktur Organisasi & Profil Sekolah berhasil disimpan!');
     }
-
+ 
     function saveAdminPengumuman() {
       const judul = document.getElementById('admPengJudul').value.trim();
       const kategori = document.getElementById('admPengKat').value;
@@ -4466,7 +4583,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       saveSiteDataToStorage();
       renderPage('admin');
     }
-
+ 
     function saveAdminBerita() {
       const gambar = document.getElementById('admBerFoto')?.value.trim() || 'https://placehold.co/600x360/0b469e/fde047?text=Berita+Sekolah';
       const judul = document.getElementById('admBerJudul')?.value.trim();
@@ -4489,7 +4606,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       saveSiteDataToStorage();
       renderPage('admin');
     }
-
+ 
     function saveAdminPtk() {
       const foto = document.getElementById('admPtkFoto')?.value.trim() || 'https://placehold.co/200x200/0b469e/fde047?text=PTK';
       const nama = document.getElementById('admPtkNama')?.value.trim();
@@ -4514,7 +4631,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       saveSiteDataToStorage();
       renderPage('admin');
     }
-
+ 
     function saveAdminRombel() {
       const tk = adminState.rombelTingkat || 'VII';
       const kelas = document.getElementById('admRomKelas')?.value.trim();
@@ -4538,7 +4655,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       saveSiteDataToStorage();
       renderPage('admin');
     }
-
+ 
     function deleteAdminRombel(idx) {
       const tk = adminState.rombelTingkat || 'VII';
       if (Array.isArray(siteData.rombel[tk])) {
@@ -4549,7 +4666,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         showToast('Slot kelas berhasil dihapus.');
       }
     }
-
+ 
     function addAdminPrestasiSiswa() {
       const judul = document.getElementById('admPresJudul')?.value.trim();
       const siswa = document.getElementById('admPresSiswa')?.value.trim();
@@ -4565,7 +4682,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       renderPage('admin');
       showToast('Prestasi siswa berhasil ditambahkan!');
     }
-
+ 
     function syncCurrentEkskulDraft() {
       if (adminState.editEkskulIdx < 0 || !siteData.ekskul[adminState.editEkskulIdx]) return;
       const ex = siteData.ekskul[adminState.editEkskulIdx];
@@ -4577,7 +4694,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       const jadwalEl = document.getElementById('admEksJadwal');
       const tempatEl = document.getElementById('admEksTempat');
       const deskEl = document.getElementById('admEksDesk');
-
+ 
       if (bannerEl && bannerEl.value.trim()) ex.bannerFoto = bannerEl.value.trim();
       if (namaEl && namaEl.value.trim()) ex.nama = namaEl.value.trim();
       if (katEl && katEl.value.trim()) ex.kategori = katEl.value.trim();
@@ -4586,7 +4703,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       if (jadwalEl && jadwalEl.value.trim()) ex.jadwal = jadwalEl.value.trim();
       if (tempatEl && tempatEl.value.trim()) ex.tempat = tempatEl.value.trim();
       if (deskEl && deskEl.value.trim()) ex.deskripsi = deskEl.value.trim();
-
+ 
       if (Array.isArray(ex.timelineProgram)) {
         ex.timelineProgram = ex.timelineProgram.map((item, idx) => {
           const bInp = document.getElementById(`admProgBulan_${idx}`);
@@ -4597,7 +4714,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
           };
         });
       }
-
+ 
       if (Array.isArray(ex.galeriFoto)) {
         ex.galeriFoto = ex.galeriFoto.map((gl, idx) => {
           const fInp = document.getElementById(`admEksGalFoto_${idx}`);
@@ -4609,7 +4726,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         });
       }
     }
-
+ 
     function addEkskulProgramRow() {
       if (adminState.editEkskulIdx < 0 || !siteData.ekskul[adminState.editEkskulIdx]) return;
       syncCurrentEkskulDraft();
@@ -4626,7 +4743,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       renderPage('admin');
       showToast('Program kerja baru berhasil ditambahkan!');
     }
-
+ 
     function removeEkskulProgramRow(pIdx) {
       if (adminState.editEkskulIdx < 0 || !siteData.ekskul[adminState.editEkskulIdx]) return;
       syncCurrentEkskulDraft();
@@ -4638,7 +4755,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       renderPage('admin');
       showToast('Baris program kerja berhasil dihapus.');
     }
-
+ 
     function addEkskulGaleriPhoto() {
       if (adminState.editEkskulIdx < 0 || !siteData.ekskul[adminState.editEkskulIdx]) return;
       syncCurrentEkskulDraft();
@@ -4655,7 +4772,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       renderPage('admin');
       showToast('Foto kegiatan berhasil ditambahkan ke galeri ekskul!');
     }
-
+ 
     function removeEkskulGaleriPhoto(gIdx) {
       if (adminState.editEkskulIdx < 0 || !siteData.ekskul[adminState.editEkskulIdx]) return;
       syncCurrentEkskulDraft();
@@ -4667,7 +4784,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       renderPage('admin');
       showToast('Foto kegiatan berhasil dihapus dari galeri.');
     }
-
+ 
     function saveAdminEkskul() {
       const bannerFoto = document.getElementById('admEksBanner')?.value.trim() || 'https://placehold.co/900x360/0b469e/fde047?text=Ekstrakurikuler';
       const nama = document.getElementById('admEksNama').value.trim();
@@ -4722,7 +4839,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       saveSiteDataToStorage();
       renderPage('admin');
     }
-
+ 
     function saveAdminPencapaianEkskul() {
       const foto = document.getElementById('admPencEksFoto').value.trim() || 'https://placehold.co/600x340/0b469e/fde047?text=Prestasi+Ekskul';
       const ekskul = document.getElementById('admPencEksNama').value;
@@ -4755,7 +4872,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       saveSiteDataToStorage();
       renderPage('admin');
     }
-
+ 
     function deleteAdminItem(collection, idx) {
       if (Array.isArray(siteData[collection])) {
         siteData[collection].splice(idx, 1);
@@ -4764,7 +4881,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         showToast('Data berhasil dihapus.');
       }
     }
-
+ 
     function downloadJsonFile() {
       const blob = new Blob([JSON.stringify(siteData, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
@@ -4775,7 +4892,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       URL.revokeObjectURL(url);
       showToast('File smpn02-martapura-data.json diunduh.');
     }
-
+ 
     function uploadJsonFile(event) {
       const file = event.target.files?.[0];
       if (!file) return;
@@ -4797,7 +4914,7 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       };
       reader.readAsText(file);
     }
-
+ 
     function applyRawJson() {
       try {
         const raw = document.getElementById('rawJsonEditor').value;
@@ -4813,14 +4930,14 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
         showToast('Kesalahan sintaks JSON: ' + err.message);
       }
     }
-
+ 
     function resetAllData() {
       siteData = JSON.parse(JSON.stringify(defaultSiteData));
       saveSiteDataToStorage();
       renderPage('admin');
       showToast('Seluruh data dikembalikan ke pengaturan awal.');
     }
-
+ 
     // =========================================================================
     // 14. MODAL GLOBAL & INISIALISASI HALAMAN
     // =========================================================================
@@ -4834,24 +4951,24 @@ const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
       modal.classList.remove('hidden');
       modal.classList.add('flex');
     }
-
+ 
     function closeGlobalModal() {
       const modal = document.getElementById('globalModal');
       if (!modal) return;
       modal.classList.add('hidden');
       modal.classList.remove('flex');
     }
-
+ 
     document.getElementById('globalModal')?.addEventListener('click', (e) => {
       if (e.target.id === 'globalModal') closeGlobalModal();
     });
-
-    window.addEventListener('DOMContentLoaded', () => {
+ 
+    window.addEventListener('DOMContentLoaded', async () => {
+      await initializeRemotePortalData();
       syncSchoolBrandUI();
       applySidebarLayout();
       navigate('beranda');
       checkSecretAdminUrl();
-      syncFromSupabaseCloud();
     });
     window.addEventListener('hashchange', checkSecretAdminUrl);
   </script>
