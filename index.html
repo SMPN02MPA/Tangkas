@@ -115,6 +115,14 @@
       animation: fadeSlideUp 0.32s ease-out forwards;
     }
   </style>
+  <!-- Supabase JS Client v2 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = 'https://lzcgduxqaktyjmnjugfu.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_Ow5HRlGG2bWbjinZLsgKjg_O4DXS4qh';
+    const supabaseClient = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+    const SUPABASE_ROW_ID = 'smpn02_martapura_main';
+  </script>
 </head>
 <body class="ocean-canvas min-h-screen flex relative selection:bg-sky-200 selection:text-blue-950">
   <!-- Bingkai Garis Cahaya Sisi Layar (Biru Langit & Emas Tipis) -->
@@ -1103,6 +1111,73 @@
       return JSON.parse(JSON.stringify(defaultSiteData));
     }
 
+    async function syncFromSupabaseCloud() {
+      if (!supabaseClient) return;
+      try {
+        const { data, error } = await supabaseClient
+          .from('portal_data')
+          .select('payload')
+          .eq('id', SUPABASE_ROW_ID)
+          .maybeSingle();
+
+        if (error) {
+          console.warn('Supabase sync read:', error.message);
+          return;
+        }
+
+        if (data && data.payload && data.payload.sekolah) {
+          const mergedSekolah = { ...defaultSiteData.sekolah, ...(data.payload.sekolah || {}) };
+          if (!mergedSekolah.logoUrl || mergedSekolah.logoUrl.includes('placehold.co/96x96')) {
+            mergedSekolah.logoUrl = OFFICIAL_LOGO_SVG;
+          }
+          siteData = {
+            ...defaultSiteData,
+            ...data.payload,
+            sekolah: mergedSekolah,
+            statistik: { ...defaultSiteData.statistik, ...(data.payload.statistik || {}) },
+            rombel: { ...defaultSiteData.rombel, ...(data.payload.rombel || {}) },
+            juaraKelas: { ...defaultSiteData.juaraKelas, ...(data.payload.juaraKelas || {}) },
+            juaraUmum: { ...defaultSiteData.juaraUmum, ...(data.payload.juaraUmum || {}) },
+            rekapEkskul: { ...defaultSiteData.rekapEkskul, ...(data.payload.rekapEkskul || {}) }
+          };
+          try {
+            localStorage.setItem('smpn02_martapura_portal_v3', JSON.stringify(siteData));
+          } catch (e) {}
+          syncSchoolBrandUI();
+          renderPage(currentPage);
+        } else {
+          await pushToSupabaseCloud();
+        }
+      } catch (err) {
+        console.warn('Gagal memuat data cloud Supabase:', err);
+      }
+    }
+
+    async function pushToSupabaseCloud() {
+      if (!supabaseClient) return;
+      try {
+        const { error } = await supabaseClient
+          .from('portal_data')
+          .upsert(
+            {
+              id: SUPABASE_ROW_ID,
+              payload: siteData,
+              updated_at: new Date().toISOString()
+            },
+            { onConflict: 'id' }
+          );
+
+        if (error) {
+          console.warn('Supabase sync write:', error.message);
+          if (currentPage === 'admin') {
+            showToast('Tersimpan lokal, namun gagal sinkron ke Supabase: ' + error.message);
+          }
+        }
+      } catch (err) {
+        console.warn('Gagal mengirim ke Supabase:', err);
+      }
+    }
+
     function saveSiteDataToStorage() {
       try {
         localStorage.setItem('smpn02_martapura_portal_v3', JSON.stringify(siteData));
@@ -1111,6 +1186,7 @@
         showToast('Peringatan: Memori browser hampir penuh. Gunakan foto ukuran lebih ringkas atau unduh cadangan JSON.');
       }
       syncSchoolBrandUI();
+      pushToSupabaseCloud();
     }
 
     function syncSchoolBrandUI() {
@@ -4775,6 +4851,7 @@
       applySidebarLayout();
       navigate('beranda');
       checkSecretAdminUrl();
+      syncFromSupabaseCloud();
     });
     window.addEventListener('hashchange', checkSecretAdminUrl);
   </script>
